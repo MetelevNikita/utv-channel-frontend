@@ -1,6 +1,6 @@
 @import './reset.css';
 
-body, html {
+* {
 
   font-family: "Montserrat", sans-serif;
 

@@ -55,11 +55,12 @@ const Header: FC = () => {
 
 
   return (
+    
 
 
-      <Col style={{width: '100%', height: '115px'}} className='d-flex align-items-center flex-md-row flex-column mt-4'>
+      <Col style={{width: '100%', height: '100%'}} className='d-flex align-items-center flex-md-row flex-column mt-4'>
 
-          <Col md={2} sm={12} xs={12} className='d-flex justify-content-center mb-4'><Link to={'/'}><img src={logo} alt="logo-utv"/></Link></Col>
+          <Col md={2} sm={12} xs={12} className='d-flex justify-content-md-start justify-content-center mb-4'><Link to={'/'}><img src={logo} alt="logo-utv"/></Link></Col>
 
           <Col md={7} sm={12} xs={12} className='d-flex justify-content-center flex-md-row flex-column mb-4'>
             {menuHeader.map((item) => {
