@@ -105,7 +105,7 @@ const Footer = () => {
 
   return (
 
-  <Row>
+  <Row className='mt-5'>
 
     <Row md={12} sm={12} xs={12} style={{width: '100%', height: '100%', background: 'linear-gradient(94deg, rgba(242,173,16,0.9020044543429844) 0%, rgba(255,218,0,1) 0%, rgba(232,24,12,1) 100%)'}}>
 
@@ -141,22 +141,22 @@ const Footer = () => {
       <Col md={12} sm={12} xs={12} style={{width: '100%'}} className='d-flex flex-md-row flex-column'>
 
         <Col md={4} sm={12} xs={12} className='mt-4'>
-            {(menuOne.length < 1) ? <></> : menuOne.map((menu: string) => <Col className='mb-2' style={{color: 'white', fontSize: '14px', lineHeight: '136%'}}>{menu}</Col>)}
+            {(menuOne.length < 1) ? <></> : menuOne.map((menu: string, index: number) => <Col key={index} className='mb-2' style={{color: 'white', fontSize: '14px', lineHeight: '136%'}}>{menu}</Col>)}
         </Col>
 
 
         <Col md={2} sm={12} xs={12} className='mt-4'>
-            {(menuTwo.length < 1)? <></> : menuTwo.map((menu: any) => <Col className='mb-2' ><Link style={{color: 'white', fontSize: '14px', lineHeight: '136%'}} to={menu.link}>{menu.title}</Link></Col>)}
+            {(menuTwo.length < 1)? <></> : menuTwo.map((menu: any, index: number) => <Col key={index} className='mb-2' ><Link style={{color: 'white', fontSize: '14px', lineHeight: '136%'}} to={menu.link}>{menu.title}</Link></Col>)}
         </Col>
 
 
         <Col md={3} sm={12} xs={12} className='mt-4'>
-          {(menuThree.length < 1)? <></> : menuThree.map((menu: string) => <Col className='mb-2' style={{color: 'white', fontSize: '14px', lineHeight: '136%'}}>{menu}</Col>)}
+          {(menuThree.length < 1)? <></> : menuThree.map((menu: string, index: number) => <Col key={index} className='mb-2' style={{color: 'white', fontSize: '14px', lineHeight: '136%'}}>{menu}</Col>)}
         </Col>
 
 
         <Col md={3} sm={12} xs={12} className='mt-4'>
-            {(menuFour.length < 1)? <></> : menuFour.map((menu: any) => <Col className='mb-2' ><a style={{color: 'white', fontSize: '14px', lineHeight: '136%'}} href={menu.link}>{menu.title}</a></Col>)}
+            {(menuFour.length < 1)? <></> : menuFour.map((menu: any, index) => <Col key={index} className='mb-2' ><a style={{color: 'white', fontSize: '14px', lineHeight: '136%'}} href={menu.link}>{menu.title}</a></Col>)}
         </Col>
 
       </Col>

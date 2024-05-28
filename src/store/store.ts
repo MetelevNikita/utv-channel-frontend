@@ -1,8 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+//
+
+import readPostSlice from "./readPostSlice";
+
 
 const store = configureStore({
-  reducer: {}
+  reducer: {
+    readPost: readPostSlice
+  }
 })
 
 

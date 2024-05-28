@@ -6,6 +6,7 @@ import { Col } from 'react-bootstrap'
 
 // components
 
+  import ProgramBlock from './ProgramBlock'
   import News from './News'
   import Projects from './Projects'
   import About from './About'
@@ -17,6 +18,7 @@ const Main: FC = () => {
 
     <Col>
 
+      <ProgramBlock />
       <News />
       <Projects />
       <About />

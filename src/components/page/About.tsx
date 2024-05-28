@@ -35,7 +35,7 @@ const About: FC = () => {
 
   return (
 
-      <Col md={12} sm={12} xs={12} className='d-flex flex-md-row flex-column mt-4 mb-4'>
+      <Col md={12} sm={12} xs={12} className='d-flex flex-md-row flex-column mt-5 mb-5'>
 
         <Col md={4} sm={12} xs={12} className='d-flex justify-content-start'><img src={img} alt="about-img" /></Col>
 

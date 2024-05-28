@@ -85,8 +85,8 @@ const Projects = () => {
 
               <Col className= 'd-flex justify-content-center flex-md-row flex-column'>
 
-              {categoryArr.map((item: any) => {
-                return <Col md={2} sm={12} xs={12} className= 'd-flex justify-content-center'><MyButton style={(selectCategory === item.value) ? styleActive : styleDisable} text={item.title} onClick={() => {clickMenu(item.value)}}></MyButton></Col>
+              {categoryArr.map((item: any, index: number) => {
+                return <Col key={index} md={2} sm={12} xs={12} className= 'd-flex justify-content-center'><MyButton style={(selectCategory === item.value) ? styleActive : styleDisable} text={item.title} onClick={() => {clickMenu(item.value)}}></MyButton></Col>
               })}
 
               </Col>
