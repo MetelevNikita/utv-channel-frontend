@@ -3,11 +3,13 @@ import { configureStore } from "@reduxjs/toolkit";
 //
 
 import readPostSlice from "./readPostSlice";
+import newsSlice from "./newsSlice";
 
 
 const store = configureStore({
   reducer: {
-    readPost: readPostSlice
+    readPost: readPostSlice,
+    news: newsSlice
   }
 })
 

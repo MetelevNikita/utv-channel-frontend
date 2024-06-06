@@ -13,6 +13,7 @@ import NewsCard from './news/NewsCard'
 //
 
 interface NewsCardProps {
+  id: number | string
   img: string
   imgSecong?: string
   imgThird?: string
@@ -27,16 +28,19 @@ interface NewsAllBlockProps {
   newsTitle: string;
   newsButton: string;
   linkButton: string;
-  cards: any[]
+  newsArr: NewsCardProps[]
 }
 
 
 
-const NewsAllBlock: FC<NewsAllBlockProps> = ({ newsTitle, newsButton, linkButton, cards})  =>  {
+const NewsAllBlock: FC<NewsAllBlockProps> = ({ newsTitle, newsButton, linkButton, newsArr})  =>  {
+
+
+
 
   return (
 
-      <Col md={12} sm={12} xs={12} style={{width: '410px'}}>
+      <Col md={12} sm={12} xs={12} style={{width: '90%'}}>
 
       <Col md={12} sm={12} xs={12} className='d-flex justify-content-center align-items-center' style={{height:  '46px', backgroundColor: '#FEA633', borderRadius: '5px'}}  >
 
@@ -48,8 +52,8 @@ const NewsAllBlock: FC<NewsAllBlockProps> = ({ newsTitle, newsButton, linkButton
 
       <Col style={{height: '457px', overflowY: 'scroll'}}>
 
-          {(cards.length < 1) ? <></> : cards.map((news: any, index: number) => {
-            return <NewsCard key={index} img={news.imgTitle} title={news.title} date={news.date} views={news.views}/>
+          {(newsArr.length < 1) ? <></> : newsArr.map((news: any, index: number) => {
+            return <NewsCard key={index} img={news.imagetitle} title={news.title} date={news.date} views={news.views}/>
           })}
 
       </Col>

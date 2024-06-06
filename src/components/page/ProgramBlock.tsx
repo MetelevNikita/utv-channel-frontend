@@ -18,8 +18,6 @@ import headerProject from '../../server/HeaderProject'
 
 const ProgramBlock = () => {
 
-
-
   const [idCard, setIdCard] = useState(1)
   const checkedCard = headerProject.filter((card) => card.id === idCard)
   console.log(checkedCard[0])
@@ -28,6 +26,7 @@ const ProgramBlock = () => {
   const isActive = {
     marginLeft: '15px',
     marginRight: '20px',
+    borderRadius: '10px',
     border: '2px solid #FEA633',
   }
 
@@ -35,6 +34,7 @@ const ProgramBlock = () => {
   const disActive = {
     marginLeft: '15px',
     marginRight: '20px',
+    borderRadius: '10px',
     border: '0px solid #FEA633',
   }
 
@@ -53,11 +53,9 @@ const ProgramBlock = () => {
       <Col md={12} sm={12} xs={12} className='d-flex flex-row' style={{width: '100%', overflow: 'hidden'}}>
 
         <Col className='d-flex flex-row' style={{position:'relative', left: '0px'}}>
-
           {(headerProject.length < 1) ? <></> : headerProject.map((card, index) => {
             return <img key={index} onClick={() => {setIdCard(card.id)}} style={(checkedCard[0].id === card.id) ? isActive : disActive} src={card.imgSmall} alt="img" />
           })}
-
         </Col>
 
       </Col>

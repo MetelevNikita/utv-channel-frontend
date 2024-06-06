@@ -1,8 +1,13 @@
-import { FC } from'react'
+import { FC, useEffect } from'react'
 
 //
 
 import { Col, Row } from 'react-bootstrap'
+
+// redux
+
+import { useSelector, useDispatch } from 'react-redux'
+import { getAsyncNews } from '../../store/newsSlice'
 
 // components
 
@@ -21,6 +26,15 @@ import WALinkImg from '../../asset/buttons-img/whatsapp.svg'
 import newsCard from './../../server/newsCard'
 
 const News = () => {
+
+  useEffect(() => {
+    dispatch(getAsyncNews())
+  }, [])
+
+  const dispatch = useDispatch()
+  const selectorNews = useSelector((state: any) => state.news.news)
+
+  console.log(selectorNews)
 
   const buttonArr = [
     {
@@ -45,17 +59,14 @@ const News = () => {
 
       <Col md={12} sm={12} xs={12} className='d-flex flex-md-row flex-column justify-content-around  mb-5'>
 
-        <Col md={4} sm={12} xs={12} className='d-flex justify-content-md-start justify-content-center'>
-            <NewsBlock />
+
+        <Col md={6} sm={12} xs={12} className='d-flex justify-content-center'>
+          <NewsAllBlock newsArr={selectorNews} newsTitle={'Новости 12.03.24'} linkButton={'/'} newsButton='Смотреть все'/>
         </Col>
 
-        <Col md={4} sm={12} xs={12} className='d-flex justify-content-center'>
-          <NewsAllBlock newsTitle={'Новости 12.03.24'} linkButton={'/'} newsButton='Смотреть все' cards={newsCard}/>
-        </Col>
+        <Col md={6} sm={12} xs={12} className='d-flex justify-content-center justify-content-center'>
 
-        <Col md={4} sm={12} xs={12} className='d-flex justify-content-md-end justify-content-center'>
-
-          <NewsAllBlock newsTitle={'Популярные'} linkButton={'/'} newsButton='Смотреть все' cards={newsCard}/>
+          <NewsAllBlock newsTitle={'Популярные'} linkButton={'/'} newsButton='Смотреть все' newsArr={selectorNews}/>
 
         </Col >
 
