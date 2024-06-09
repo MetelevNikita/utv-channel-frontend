@@ -7,7 +7,7 @@ import { Col, Row } from 'react-bootstrap'
 
 // components
 
-import NewsCard from './news/NewsCard'
+import NewsCard from './Main-news/NewsCard'
 
 
 //

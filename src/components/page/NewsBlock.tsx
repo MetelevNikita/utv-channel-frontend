@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 // components
 
 
-import NewsReadCard from './news/NewsReadCard'
+import NewsReadCard from './Main-news/NewsReadCard'
 
 
 // server
