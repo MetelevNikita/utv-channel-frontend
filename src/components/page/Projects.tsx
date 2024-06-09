@@ -22,14 +22,12 @@ const Projects = () => {
   const [selectCategory, setSelectCategory] = useState('program')
   const [isActive, setIsActive] = useState(false)
   const NewButton = styled.button`
-
   &: hover {
     background: #FEA633;
     border: 0px solid black;
     border-radius: 67px;
     color: white;
   }
-
     &:active {
       transition: all 0.03s ease-in-out;
       transform: scale(1.1);

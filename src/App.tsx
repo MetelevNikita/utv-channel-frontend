@@ -17,6 +17,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './components/page/Header';
 import Main from './components/page/Main';
+
+//
+
+import Channel from './components/page/Channel';
+
+//
+
+
 import Footer from './components/page/Footer';
 
 
@@ -31,9 +39,9 @@ const App = () => {
           <Routes>
 
             <Route path='/' element={<Main />}></Route>
+            <Route path='/about' element={<Channel />}></Route>
 
           </Routes>
-
 
         <Footer />
 
