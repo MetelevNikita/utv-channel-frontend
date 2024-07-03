@@ -7,35 +7,22 @@ import { Col, Row } from 'react-bootstrap'
 
 // components
 
-import NewsCard from './Main-news/NewsCard'
-
+import NewsPreviewCard from './NewsPage/NewsPreviewCard'
 
 //
 
-interface NewsCardProps {
-  id: number | string
-  img: string
-  imgSecong?: string
-  imgThird?: string
-  title: string
-  description?: string
-  date: string
-  views: number
 
-}
 
 interface NewsAllBlockProps {
   newsTitle: string;
   newsButton: string;
   linkButton: string;
-  newsArr: NewsCardProps[]
+  newsArr: any
 }
 
 
 
-const NewsAllBlock: FC<NewsAllBlockProps> = ({ newsTitle, newsButton, linkButton, newsArr})  =>  {
-
-
+const NewsMainBlock: FC<NewsAllBlockProps> = ({ newsTitle, newsButton, linkButton, newsArr})  =>  {
 
 
   return (
@@ -50,10 +37,11 @@ const NewsAllBlock: FC<NewsAllBlockProps> = ({ newsTitle, newsButton, linkButton
       </Col>
 
 
-      <Col style={{height: '457px', overflowY: 'scroll'}}>
+      <Col style={{height: '457px', width: '100%'}}>
 
-          {(newsArr.length < 1) ? <></> : newsArr.map((news: any, index: number) => {
-            return <NewsCard key={index} img={news.imagetitle} title={news.title} date={news.date} views={news.views}/>
+
+          {newsArr.map((news: any, index: any) =>  {
+            return <Col style={{width: '100%', height: '140px'}} className='d-flex mt-3 mb-2'><Link to={news.id} key={index}><NewsPreviewCard img={news.imgTitle} title={news.title} date={news.date} author={news.author} colorTitle={'#000000'} colorDate={'#8F8F8F'} sizeBlock={{width: '450px', height: '140px' , flex: 'flex-row', sizeTitle: '15px', sizeInfo: '12px', marginBlock: '20px'}}/></Link></Col>
           })}
 
       </Col>
@@ -63,4 +51,4 @@ const NewsAllBlock: FC<NewsAllBlockProps> = ({ newsTitle, newsButton, linkButton
   )
 }
 
-export default NewsAllBlock
+export default NewsMainBlock

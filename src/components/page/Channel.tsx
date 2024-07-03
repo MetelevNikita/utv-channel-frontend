@@ -2,7 +2,7 @@ import { FC, useState } from 'react'
 
 //
 
-import { Col, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 
 // components
 
@@ -71,6 +71,9 @@ const pageList = [
 
   return (
 
+
+    <Container>
+
     <Row>
 
       <Col md={12} sm={12} xs={12} style={{width: '100%'}} className='d-flex flex-column mt-4'>
@@ -110,6 +113,9 @@ const pageList = [
 
 
     </Row>
+
+
+    </Container>
 
 
   )

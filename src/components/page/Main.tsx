@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 //
 
-import { Col } from 'react-bootstrap'
+import { Col, Container } from 'react-bootstrap'
 
 // components
 
@@ -16,14 +16,23 @@ import { Col } from 'react-bootstrap'
 const Main: FC = () => {
   return (
 
-    <Col>
 
-      <ProgramBlock />
-      <News />
-      <Projects />
-      <About />
+    <Container>
 
-    </Col>
+
+          <Col>
+
+          <ProgramBlock />
+          <News />
+          <Projects />
+          <About />
+
+          </Col>
+
+
+    </Container>
+
+
 
   )
 }

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 //
 
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Container } from 'react-bootstrap'
 
 // components
 
@@ -76,7 +76,10 @@ const Projects = () => {
 
   return (
 
-    <Row>
+    <Container>
+
+
+<Row>
         <Col md={12} sm={12} xs={12}>
 
             <Row md={12} sm={12} xs={12} style={{width: '100%'}}>
@@ -112,6 +115,11 @@ const Projects = () => {
 
         </Col>
     </Row>
+
+
+    </Container>
+
+
 
   )
 }

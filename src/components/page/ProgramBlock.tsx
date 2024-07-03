@@ -20,7 +20,6 @@ const ProgramBlock = () => {
 
   const [idCard, setIdCard] = useState(1)
   const checkedCard = headerProject.filter((card) => card.id === idCard)
-  console.log(checkedCard[0])
 
 
   const isActive = {
