@@ -1,0 +1,100 @@
+/* header */
+
+
+.header_menu_animation:hover {
+
+  color: #ffa52f;
+  transition: all, 0.10s ease;
+
+}
+
+
+.header_menu_animation:active {
+
+  transform: scale(1.10);
+  transition: all, 0.10s ease;
+
+}
+
+
+/* footer */
+
+.footer_icon_animation:hover {
+  transform: scale(1.05);
+  transition: all 0.05s ease;
+}
+
+
+.footer_icon_animation:active {
+  transform: scale(1.15);
+  transition: all 0.15s ease;
+}
+
+
+/*  */
+
+
+.button_container {
+  width: 593px;
+  height: 116px;
+  border: 1px solid #FEA633;
+
+}
+
+
+
+/* news button */
+
+
+
+.animation_box:hover {
+  transform: scale(1.05);
+  transition: all 0.10s ease;
+}
+
+.animation_box:active {
+  transform: scale(1.15);
+  transition: all 0.10s ease;
+}
+
+
+
+/* MyButton */
+
+
+
+.animation_my_button {
+  border: 1px solid black;
+  border-radius: 67px;
+
+}
+
+.animation_my_button:hover {
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0);
+  background-color: #FEA633;
+  border-radius: 67px;
+}
+
+
+.animation_my_button:active {
+  transform: scale(1.10);
+  transition: all 0.10s ease;
+}
+
+
+
+/* modal page */
+
+
+.modal_button_submit {
+  background-color: #FEA633;
+  color: white;
+  font-weight: 600;
+}
+
+
+.modal_button_submit:active {
+  transform: scale(1.05);
+  transition: all 0.05s ease;
+}

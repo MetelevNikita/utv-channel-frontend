@@ -1,4 +1,5 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
+import { useSpring, animated } from '@react-spring/web'
 
 //
 
@@ -21,6 +22,11 @@ import NewsPage from './components/page/NewsPage';
 import NewsOpenCard from './components/page/NewsPage/NewsOpenCard';
 
 
+// modals
+
+import ModalNews from './components/modals/ModalNews';
+
+
 //
 
 import Channel from './components/page/Channel';
@@ -28,10 +34,35 @@ import Channel from './components/page/Channel';
 //
 
 import Footer from './components/page/Footer/Footer';
+import { transform } from 'typescript';
+
+type modalNewsMessageProps = {
+  name: string
+  phone: string
+  file: any
+  message: string
+
+}
 
 
 
 const App = () => {
+
+
+  const [modalNewsOpen, setModalNewsOpen] = useState(false)
+
+
+
+
+  const [modalNewsMessage, setModalNewsMessage] = useState<modalNewsMessageProps>({
+    name: '',
+    phone: '',
+    file: '',
+    message: '',
+  })
+
+
+
   return (
     <div>
       <Container fluid>
@@ -40,7 +71,7 @@ const App = () => {
 
           <Routes>
 
-            <Route path='/' element={<Main />}></Route>
+            <Route path='/' element={<Main modalOpen={{modalNewsOpen, setModalNewsOpen}}/>}></Route>
             <Route path='/about' element={<Channel />}></Route>
             <Route path='/news' element={<NewsPage/>}></Route>
             <Route path='/news/:id' element={<NewsOpenCard />}></Route>
@@ -48,6 +79,10 @@ const App = () => {
           </Routes>
 
         <Footer />
+
+        {(!modalNewsOpen) ? <></> : <ModalNews modalMessage ={{modalNewsMessage, setModalNewsMessage}}/>}
+
+
 
       </Container>
     </div>

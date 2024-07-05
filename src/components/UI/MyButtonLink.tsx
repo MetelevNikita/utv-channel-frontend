@@ -1,8 +1,14 @@
+// css
+
+import '../../styles/animation.css'
+
+//
+
 import { FC, CSSProperties } from 'react'
 
 //
 
-import { Link } from 'react-router-dom'
+import { Col } from 'react-bootstrap'
 
 
 //
@@ -10,19 +16,22 @@ import { Link } from 'react-router-dom'
 interface MyButtonLinkProps {
 
   linkTitle: string,
-  linkHref: string
   linkImg: string
   style?: CSSProperties
-
 }
 
-const MyButtonLink: FC<MyButtonLinkProps> = ({ linkTitle, linkHref, linkImg, style }) => {
+const MyButtonLink: FC<MyButtonLinkProps> = ({ linkTitle, linkImg, style }) => {
   return (
 
-      <Link style={style} to={linkHref} className='d-flex justify-content-center align-items-center'>
-        <img style={{width: '50px', height: '50px'}} src={linkImg} alt="link-img" />
-        <div style={{marginLeft: '20px', maxWidth: '260px'}}>{linkTitle}</div>
-      </Link>
+      <Col style={style} className='d-flex justify-content-center align-items-center animation_container'>
+
+        <div className='animation_box' style={{display: 'flex'}}>
+
+        <img className='animation_img' style={{width: '50px', height: '50px'}} src={linkImg} alt="link-img" />
+        <div className='animation_text' style={{marginLeft: '20px', maxWidth: '260px'}}>{linkTitle}</div>
+
+        </div>
+      </Col>
 
   )
 }

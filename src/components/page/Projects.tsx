@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import styled from 'styled-components'
+
 
 //
 
@@ -21,18 +21,8 @@ const Projects = () => {
 
   const [selectCategory, setSelectCategory] = useState('program')
   const [isActive, setIsActive] = useState(false)
-  const NewButton = styled.button`
-  &: hover {
-    background: #FEA633;
-    border: 0px solid black;
-    border-radius: 67px;
-    color: white;
-  }
-    &:active {
-      transition: all 0.03s ease-in-out;
-      transform: scale(1.1);
-    }
-  `
+
+
 
 
   const categoryArr = [
@@ -87,7 +77,7 @@ const Projects = () => {
               <Col className= 'd-flex justify-content-center flex-md-row flex-column'>
 
               {categoryArr.map((item: any, index: number) => {
-                return <Col key={index} md={2} sm={12} xs={12} className= 'd-flex justify-content-center'><MyButton style={(selectCategory === item.value) ? styleActive : styleDisable} text={item.title} onClick={() => {clickMenu(item.value)}}></MyButton></Col>
+                return <Col key={index} md={3} sm={12} xs={12} className= 'd-flex justify-content-center'><MyButton  style={(selectCategory === item.value) ? styleActive : styleDisable} text={item.title} onClick={() => {clickMenu(item.value)}}></MyButton></Col>
               })}
 
               </Col>
@@ -108,7 +98,7 @@ const Projects = () => {
 
 
             <Row md={12} sm={12} xs={12} style={{width: '100%'}} className= 'd-flex justify-content-start mt-4'>
-                <Col md={12} sm={12} xs={12} className='d-flex justify-content-center'><NewButton><MyButton style={{width: '388px', height: '45px', border: '1px solid black', borderRadius: '67px'}} text={'Все проекты'} onClick={() => {console.log('click')}}></MyButton></NewButton></Col>
+                <Col md={12} sm={12} xs={12} className='d-flex justify-content-center'><MyButton className='animation_my_button' style={{width: '388px', height: '45px'}} text={'Все проекты'} onClick={() => {console.log('click')}}></MyButton></Col>
             </Row>
 
 

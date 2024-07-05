@@ -6,12 +6,13 @@ interface ButtonProps {
   text: string
   onClick: () => void
   style?: CSSProperties
+  className?: string
 }
 
 
-const MyButton: FC<ButtonProps> = ({ text, onClick, style }) => {
+const MyButton: FC<ButtonProps> = ({ text, onClick, style, className }) => {
   return (
-    <button style={style} onClick={onClick}>{text}</button>
+    <button className={className} style={style} onClick={onClick}>{text}</button>
   )
 }
 

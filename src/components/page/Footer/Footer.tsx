@@ -1,5 +1,8 @@
+// css
+
+import '../../../styles/animation.css'
+
 import { FC } from 'react'
-import styled from 'styled-components'
 
 //
 
@@ -19,46 +22,31 @@ const Footer = () => {
 
 
 
-  const NewImg = styled.img`
-    &:active {
-      transition: all 0.05s ease;
-      transform: scale(1.04);
-    }
-  `
-
-
-
-
-
   const logoArr = [
     {
       img: vk,
-      link: '/vk'
+      link: 'https://vk.com/utvrussia'
     },
 
     {
       img: tg,
-      link: '/tg'
-    },
-
-    {
-      img: wa,
-      link: '/wa'
+      link: 'https://t.me/s/utvufa'
     },
 
     {
       img: yt,
-      link: '/yt'
+      link: 'https://www.youtube.com/channel/UCvCcbnj9Ls2RrxFfUZVGi_w'
     },
 
     {
       img: ok,
-      link: '/ok'
+      link: 'https://ok.ru/utvrussia'
     }
 
   ]
 
   const menuOne = ['ООО «Фирма «БИС», 2009 — 2024 г. Любое использование материаловдопускается только с согласия редакции', 'Политика конфиденциальности', 'Пользовательское соглашение']
+
   const menuTwo = [
     {
       title: 'Новости',
@@ -85,7 +73,9 @@ const Footer = () => {
       link: '/about'
     },
   ]
+
   const menuThree = ['Республика Башкортостан, г. Уфа, просп. Октября, 4/2  этаж 2', 'пн-пт 09:00–18:00', '+7 (347) 246-54-54']
+
   const menuFour = [
     {
       title: 'ufanet.ru',
@@ -122,7 +112,7 @@ const Footer = () => {
 
                   <Col md={6} sm={12} xs={12} style={{height: '145px'}} className='d-flex justify-content-center align-items-center'>
 
-                      {logoArr.map((logo: any, index: number) => <NewImg key={index} src={logo.img} alt={logo.title} style={{marginRight: '10px'}}></NewImg>)}
+                      {logoArr.map((logo: any, index: number) => <Link target='_blank' className='footer_icon_animation' to={logo.link}><img key={index} src={logo.img} alt={logo.title} style={{marginRight: '10px'}} /></Link>)}
 
                   </Col>
 

@@ -12,8 +12,16 @@ import { Col, Container } from 'react-bootstrap'
   import About from './About'
 
 
+interface MainProps {
+  modalOpen: any
 
-const Main: FC = () => {
+}
+
+
+const Main: FC<MainProps> = ({ modalOpen }) => {
+
+
+
   return (
 
 
@@ -23,7 +31,7 @@ const Main: FC = () => {
           <Col>
 
           <ProgramBlock />
-          <News />
+          <News modalOpen={modalOpen}/>
           <Projects />
           <About />
 

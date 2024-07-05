@@ -1,3 +1,9 @@
+// css
+
+import '../../../styles/animation.css'
+
+//
+
 import { FC } from 'react'
 
 //
@@ -22,7 +28,6 @@ interface MenuHeader {
 
 
 const Header: FC = () => {
-
 
 
   const menuHeader: MenuHeader[] = [
@@ -65,7 +70,7 @@ const Header: FC = () => {
 
         <Col md={7} sm={12} xs={12} className='d-flex justify-content-center flex-md-row flex-column mb-4'>
           {menuHeader.map((item, index) => {
-            return <Col key={index} className='d-flex justify-content-center align-items-center mb-md-0 mb-2'><Link style={{textDecoration: 'none', color: 'black', fontSize: '16px', width: '150px', textAlign: 'center'}} to={item.link}>{item.title}</Link></Col>
+            return <Col key={index} className='d-flex justify-content-center align-items-center mb-md-0 mb-2'><Link style={{textDecoration: 'none', color: 'black', fontSize: '16px', width: '150px', textAlign: 'center'}} to={item.link}><div className='header_menu_animation'>{item.title}</div></Link></Col>
           })}
         </Col>
 

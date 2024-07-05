@@ -47,8 +47,6 @@ const ProgramBlock = () => {
 
       <Col md={12} sm={12} xs={12} className='d-flex align-items-center justify-content-center mb-4'><ProgramCard imgBig={checkedCard[0].imgBig} title={checkedCard[0].title} subtitle={checkedCard[0].subtitle} description={checkedCard[0].description} date={checkedCard[0].date.toDateString()} link={checkedCard[0].link}  /></Col>
 
-
-
       <Col md={12} sm={12} xs={12} className='d-flex flex-row' style={{width: '100%', overflow: 'hidden'}}>
 
         <Col className='d-flex flex-row' style={{position:'relative', left: '0px'}}>
