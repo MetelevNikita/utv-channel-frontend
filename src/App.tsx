@@ -20,6 +20,8 @@ import Header from './components/page/Header/Header';
 import Main from './components/page/Main';
 import NewsPage from './components/page/NewsPage';
 import NewsOpenCard from './components/page/NewsPage/NewsOpenCard';
+import ProjectPage from './components/page/ProjectPage/ProjectPage';
+import ProjectOpenCard from './components/page/ProjectPage/ProjectOpenCard';
 
 
 // modals
@@ -75,12 +77,14 @@ const App = () => {
             <Route path='/about' element={<Channel />}></Route>
             <Route path='/news' element={<NewsPage/>}></Route>
             <Route path='/news/:id' element={<NewsOpenCard />}></Route>
+            <Route path='/project' element={<ProjectPage />}></Route>
+            <Route path='/project/:id' element={<ProjectOpenCard />}></Route>
 
           </Routes>
 
         <Footer />
 
-        {(!modalNewsOpen) ? <></> : <ModalNews modalMessage ={{modalNewsMessage, setModalNewsMessage}}/>}
+        {(!modalNewsOpen) ? <></> : <ModalNews modalOpen={{modalNewsOpen, setModalNewsOpen}} modalMessage ={{modalNewsMessage, setModalNewsMessage}}/>}
 
 
 

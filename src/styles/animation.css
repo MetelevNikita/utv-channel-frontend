@@ -66,6 +66,7 @@
 .animation_my_button {
   border: 1px solid black;
   border-radius: 67px;
+  color: black
 
 }
 
@@ -98,3 +99,32 @@
   transform: scale(1.05);
   transition: all 0.05s ease;
 }
+
+
+
+/* project */
+
+
+.project_button_animation {
+
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0);
+  background-color: #FEA633;
+  border-radius: 67px;
+
+}
+
+
+.project_button_animation:hover {
+  color: black;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: #fea63300;
+  border-radius: 67px;
+
+}
+
+.project_button_animation:active {
+  transform: scale(1.05);
+  transition: all 0.05s ease;
+}
+

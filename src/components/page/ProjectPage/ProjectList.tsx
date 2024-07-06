@@ -1,4 +1,5 @@
 import { FC, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 //
 
@@ -6,11 +7,11 @@ import { Col, Row } from 'react-bootstrap'
 
 // components
 
-import ProjectCard from '../UI/ProjectCard'
+import ProjectCard from './ProjectCard'
 
 //
 
-import propjectServer from '../../server/projectServer'
+import propjectServer from '../../../server/projectServer'
 
 //
 
@@ -26,7 +27,7 @@ const ProjectList = () => {
     } else {
 
       setTimeout(() => {
-        setOffset(offset -= 300)
+        setOffset(offset -= 330)
       }, 4000)
 
 
@@ -44,7 +45,7 @@ const ProjectList = () => {
       <Col md={12} sm={12} xs={12} className='d-flex' style={{width: '100%', position:'relative', left: offset + 'px', transition: '1s all ease'}}>
 
 
-      {(propjectServer.length < 1) ? <>Loading...</> : propjectServer.map((project) => {return <Col key={project.id} style={{margin: '20px'}}><ProjectCard title={project.title} img={project.img} link={project.img} description={project.description}/></Col>})}
+      {(propjectServer.length < 1) ? <Col>Loading...</Col> : propjectServer.map((project) => {return <Col key={project.id} style={{margin: '20px'}}><Link to={`project/${project.id}`}><ProjectCard title={project.title} img={project.img} description={project.description}/></Link></Col>})}
 
 
       </Col>

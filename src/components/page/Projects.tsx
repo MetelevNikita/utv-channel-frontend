@@ -8,7 +8,8 @@ import { Row, Col, Container } from 'react-bootstrap'
 // components
 
 import MyButton from '../UI/MyButton'
-import ProjectList from './ProjectList'
+import ProjectList from './ProjectPage/ProjectList'
+import { Link } from 'react-router-dom'
 
 //
 
@@ -98,7 +99,7 @@ const Projects = () => {
 
 
             <Row md={12} sm={12} xs={12} style={{width: '100%'}} className= 'd-flex justify-content-start mt-4'>
-                <Col md={12} sm={12} xs={12} className='d-flex justify-content-center'><MyButton className='animation_my_button' style={{width: '388px', height: '45px'}} text={'Все проекты'} onClick={() => {console.log('click')}}></MyButton></Col>
+                <Col md={12} sm={12} xs={12} className='d-flex justify-content-center'><Link to={'/project'}><MyButton className='animation_my_button' style={{width: '388px', height: '45px'}} text={'Все проекты'} onClick={() => {console.log('click')}}></MyButton></Link></Col>
             </Row>
 
 
