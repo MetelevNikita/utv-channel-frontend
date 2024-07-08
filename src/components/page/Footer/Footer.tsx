@@ -112,7 +112,7 @@ const Footer = () => {
 
                   <Col md={6} sm={12} xs={12} style={{height: '145px'}} className='d-flex justify-content-center align-items-center'>
 
-                      {logoArr.map((logo: any, index: number) => <Link target='_blank' className='footer_icon_animation' to={logo.link}><img key={index} src={logo.img} alt={logo.title} style={{marginRight: '10px'}} /></Link>)}
+                      {logoArr.map((logo: any, index: number) => <Link key={index + 1} target='_blank' className='footer_icon_animation' to={logo.link}><img key={index} src={logo.img} alt={logo.title} style={{marginRight: '10px'}} /></Link>)}
 
                   </Col>
 

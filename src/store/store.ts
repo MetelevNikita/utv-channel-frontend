@@ -1,17 +1,23 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-//
+// reducers
 
-import readPostSlice from "./readPostSlice";
-import newsSlice from "./newsSlice";
+import teamSlice from "./teamSlice";
+import projectSlice from "./projectSlice";
+
+
+
+
 
 
 const store = configureStore({
   reducer: {
-    readPost: readPostSlice,
-    news: newsSlice
+    team: teamSlice,
+    project: projectSlice
   }
 })
 
 
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 export default store;

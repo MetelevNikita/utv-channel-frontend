@@ -1,4 +1,5 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 //
 
@@ -12,14 +13,22 @@ import ProjectCard from './ProjectCard'
 
 import projectBanner from '../../../asset/project-page/project-page-banner.png'
 
-// server
+// redux
 
-import projectServer from '../../../server/projectServer'
-import { Link } from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from '../../../types/reduxHooks'
+import { getAsyncProject } from '../../../store/projectSlice'
 
-//
+// types
+
+import { projectTypeCard } from '../../../types/types'
 
 const ProjectPage = () => {
+
+  useEffect(() => {dispatch(getAsyncProject())}, [])
+
+  const dispatch  =  useAppDispatch()
+  const projectSelector: projectTypeCard[] = useAppSelector(state => state.project.project)
+
   return (
 
     <Container>
@@ -29,10 +38,10 @@ const ProjectPage = () => {
 
         <Col lg={12} md={12} sm={12} xs={12} className='d-flex mt-4 mb-5'><img style={{width: '100%'}} src={projectBanner} alt="project-banner" /></Col>
 
-        <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-wrap'>
+        <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-wrap justify-content-center align-items-center'>
 
-            {(projectServer.length < 1) ? <Col style={{textAlign: 'center'}}>Список пуст</Col> : projectServer.map((card) => {
-              return <Col lg={3} md={3} sm={12} xs={12} className='mb-4'><Link to={`/project/${card.id}`}><ProjectCard title={card.title} description={card.description} img={card.img}/></Link></Col>
+            {(projectSelector.length < 1) ? <Col style={{textAlign: 'center'}}>Список пуст</Col> : projectSelector.map((card: any, index) => {
+              return <Col key={index + 1} lg={3} md={3} sm={12} xs={12} className='mb-4 d-flex justify-content-center align-items-center'><Link to={`/project/${card.id}`}><ProjectCard title={card.title} description={card.description} img={card.image}/></Link></Col>
             })}
 
         </Col>

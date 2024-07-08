@@ -23,15 +23,9 @@ import newsCard from './../../server/newsCard'
 
 const currentDate = new Date().toLocaleDateString()
 
-console.log(currentDate)
-
-
 const todayNews = newsCard.filter((news, index)  =>  {
   return news.date === currentDate
 })
-
-
-console.log(todayNews)
 
 
 const popularNews = newsCard.sort((a, b) => {
@@ -59,7 +53,6 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
 
   const { modalNewsOpen, setModalNewsOpen } = modalOpen
 
-  console.log(modalNewsOpen)
 
   const buttonArr = [
     {
@@ -87,7 +80,6 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
     <Row md={12} sm={12} xs={12} className='mt-5 mb-5'>
 
       <Col md={12} sm={12} xs={12} className='d-flex flex-md-row flex-column justify-content-around  mb-5'>
-
 
         <Col md={6} sm={12} xs={12} className='d-flex justify-content-center'>
           <NewsAllBlock newsArr={todayNews} newsTitle={'Новости 12.03.24'} linkButton={'/news'} newsButton='Смотреть все'/>

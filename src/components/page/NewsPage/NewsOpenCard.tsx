@@ -100,7 +100,7 @@ const NewsOpenCard = () => {
       </Col>
 
 
-      <Col md={12} sm={12} xs={12}>
+      <Col md={12} sm={12} xs={12} class="ratio ratio-16x9">
         <iframe
           width="100%"
           height="750px"

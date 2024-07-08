@@ -66,11 +66,11 @@ const App = () => {
 
 
   return (
-    <div>
       <Container fluid>
 
         <Header />
 
+          <div className='content'>
           <Routes>
 
             <Route path='/' element={<Main modalOpen={{modalNewsOpen, setModalNewsOpen}}/>}></Route>
@@ -81,15 +81,15 @@ const App = () => {
             <Route path='/project/:id' element={<ProjectOpenCard />}></Route>
 
           </Routes>
+          </div>
 
-        <Footer />
+            <Footer />
 
         {(!modalNewsOpen) ? <></> : <ModalNews modalOpen={{modalNewsOpen, setModalNewsOpen}} modalMessage ={{modalNewsMessage, setModalNewsMessage}}/>}
 
 
 
       </Container>
-    </div>
   )
 }
 

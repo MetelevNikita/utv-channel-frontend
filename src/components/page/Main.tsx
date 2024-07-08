@@ -27,16 +27,10 @@ const Main: FC<MainProps> = ({ modalOpen }) => {
 
     <Container>
 
-
-          <Col>
-
           <ProgramBlock />
           <News modalOpen={modalOpen}/>
           <Projects />
           <About />
-
-          </Col>
-
 
     </Container>
 
