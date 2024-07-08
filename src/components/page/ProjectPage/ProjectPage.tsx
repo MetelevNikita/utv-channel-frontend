@@ -40,7 +40,7 @@ const ProjectPage = () => {
 
         <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-wrap justify-content-center align-items-center'>
 
-            {(projectSelector.length < 1) ? <Col style={{textAlign: 'center'}}>Список пуст</Col> : projectSelector.map((card: any, index) => {
+            {(!projectSelector) ? <Col style={{fontSize: '18px', fontWeight: '600', textAlign: 'center'}}>Loading...</Col> : (projectSelector.length < 1) ? <Col style={{textAlign: 'center'}}>Список пуст</Col> : projectSelector.map((card: any, index) => {
               return <Col key={index + 1} lg={3} md={3} sm={12} xs={12} className='mb-4 d-flex justify-content-center align-items-center'><Link to={`/project/${card.id}`}><ProjectCard title={card.title} description={card.description} img={card.image}/></Link></Col>
             })}
 
