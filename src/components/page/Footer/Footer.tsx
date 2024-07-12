@@ -103,11 +103,10 @@ const Footer = () => {
 
             <Col md={12} sm={12} xs={12} className='d-flex flex-md-row flex-column'>
 
-                <Col md={6} sm={12} xs={12} className='d-flex flex-column justify-content-center align-items-center mt-4'>
+                <Col md={6} sm={12} xs={12} className='d-flex flex-column justify-content-center align-items-center mt-2'>
 
                     <Col style={{fontSize: '35px', fontWeight: '600', color: 'white'}}>Давайте дружить!</Col>
-                    <Col style={{fontSize: '25px', fontWeight: '300', color: 'white'}}>подписывайтесь на наши соцсети</Col>
-
+                    <Col style={{fontSize: '25px', fontWeight: '300', color: 'white'}} className='d-flex justify-content-center align-items-center text text-center'>подписывайтесь на наши соцсети</Col>
                 </Col>
 
                   <Col md={6} sm={12} xs={12} style={{height: '145px'}} className='d-flex justify-content-center align-items-center'>

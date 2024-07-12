@@ -29,6 +29,8 @@ const ProjectPage = () => {
   const dispatch  =  useAppDispatch()
   const projectSelector: projectTypeCard[] = useAppSelector(state => state.project.project)
 
+  console.log(projectSelector)
+
   return (
 
     <Container>
@@ -38,7 +40,7 @@ const ProjectPage = () => {
 
         <Col lg={12} md={12} sm={12} xs={12} className='d-flex mt-4 mb-5'><img style={{width: '100%'}} src={projectBanner} alt="project-banner" /></Col>
 
-        <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-wrap justify-content-center align-items-center'>
+        <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-wrap'>
 
             {(projectSelector.length < 1) ? <Col style={{textAlign: 'center'}}>Список пуст</Col> : projectSelector.map((card: any, index) => {
               return <Col key={index + 1} lg={3} md={3} sm={12} xs={12} className='mb-4 d-flex justify-content-center align-items-center'><Link to={`/project/${card.id}`}><ProjectCard title={card.title} description={card.description} img={card.image}/></Link></Col>

@@ -14,7 +14,7 @@ interface  MyTagsProps  {
 const MyTags: FC<MyTagsProps> = ({ tag }) => {
   return (
 
-    <Col style={{width: '183px', height: '26px', border: '1px solid black', borderRadius: '5px', padding: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>{tag}</Col>
+    <Col style={{width: '100%', height: '26px', border: '1px solid black', borderRadius: '5px', padding: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>{tag}</Col>
   )
 }
 
