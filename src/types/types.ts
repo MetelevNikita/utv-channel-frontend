@@ -10,3 +10,12 @@ export type projectTypeCard = {
   trailer: string
 
 }
+
+
+
+export type teamType = {
+  id: number | string
+  name: string
+  profession: string
+  image: string
+}

@@ -1,12 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { stat } from "fs";
+
+
+// types
+
+
+import { teamType } from "../types/types";
 
 
 
 
 
 interface initialState {
-  teams: [];
+  teams: teamType[];
 }
 
 
@@ -39,7 +44,7 @@ export const getAsyncTeams = createAsyncThunk(
       const data = await responce.json()
       console.log(data)
       return data
-      
+
     } catch (error) {
       console.log(error)
     }

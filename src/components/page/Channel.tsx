@@ -6,7 +6,6 @@ import { Col, Container, Row } from 'react-bootstrap'
 
 // components
 
-import MyButton from  '../UI/MyButton'
 import TeamCard from '../UI/TeamCard'
 import NumberButton from '../UI/NumberButton'
 
@@ -24,9 +23,7 @@ const Channel = () => {
 
   const [pageNumber, setPageNumber]  =  useState(1)
 
-
   const newArrFirst = personServer.filter((item) => {
-
     return item.id <= 12
   })
 
@@ -73,7 +70,6 @@ const pageList = [
 
 
     <Container>
-
     <Row>
 
       <Col md={12} sm={12} xs={12} style={{width: '100%', height: '100%'}} className='d-flex flex-column mt-4'>
@@ -113,8 +109,6 @@ const pageList = [
 
 
     </Row>
-
-
     </Container>
 
 

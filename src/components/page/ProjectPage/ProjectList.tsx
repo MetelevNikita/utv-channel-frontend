@@ -26,14 +26,11 @@ const ProjectList = () => {
   const dispatch = useAppDispatch()
   const projectSelector  = useAppSelector((state) => state.project.project)
 
-  console.log(projectSelector)
-
 
 
   const shortDescription =  (project: any)  =>  {
     return project.description.slice(0, 70) + '...'
   }
-
 
 
 
