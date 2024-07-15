@@ -107,13 +107,13 @@ const NewsPage = () => {
 
 
 
-    <Row md={12} sm={12} xs={12} style={{width: '100%', height: '100%', minHeight: '400px', backgroundColor: '#FFA52F', padding: '0px'}} className='mt-5'>
+    <Row md={12} sm={12} xs={12} style={{width: '100%', height: '100%', minHeight: '400px', backgroundColor: '#FFA52F', padding: '0px'}} className='mt-5 justify-content-center align-items-center'>
 
 
-            <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-md-row flex-column justify-content-center align-items-center'>
+            <Col lg={9} md={9} sm={9} xs={9} className='d-flex flex-lg-row flex-md-row flex-column justify-content-center align-items-center'>
 
               {(popularList.length < 1) ? <Col>Нет популярных карточек</Col> : popularList.map((item, index)  =>  {
-                  return <Col lg={3} md={3} sm={12} xs={12} className='d-flex justify-content-center'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard img={item.imgTitle} title={item.title} date={item.date} author={item.author} colorTitle='#ffffff' colorDate='#ffffff' sizeBlock={{width: '384px', height: '100%', flex: 'flex-column', sizeTitle: '16px', sizeInfo: '15px'}}/></Link></Col>
+                  return <Col lg={3} md={3} sm={12} xs={12} className='d-flex justify-content-center'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard img={item.imgTitle} title={item.lead.slice(0,100) + '...'} date={item.date} author={item.author} colorTitle='#ffffff' colorDate='#ffffff' sizeBlock={{width: '384px', height: '100%', flex: 'flex-column', sizeTitle: '12px', sizeInfo: '15px'}}/></Link></Col>
               })}
 
             </Col>

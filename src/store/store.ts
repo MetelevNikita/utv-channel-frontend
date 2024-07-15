@@ -4,6 +4,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import teamSlice from "./teamSlice";
 import projectSlice from "./projectSlice";
+import newsSlice from "./newsSlice";
 
 
 
@@ -13,7 +14,8 @@ import projectSlice from "./projectSlice";
 const store = configureStore({
   reducer: {
     team: teamSlice,
-    project: projectSlice
+    project: projectSlice,
+    news: newsSlice
   }
 })
 

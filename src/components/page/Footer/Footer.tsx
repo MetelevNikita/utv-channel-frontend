@@ -99,17 +99,17 @@ const Footer = () => {
 
           <Row className='mt-5'>
 
-          <Row md={12} sm={12} xs={12} style={{width: '100%', height: '100%', background: 'linear-gradient(94deg, rgba(242,173,16,0.9020044543429844) 0%, rgba(255,218,0,1) 0%, rgba(232,24,12,1) 100%)'}}>
+          <Row md={12} sm={12} xs={12} style={{width: '100%', height: '100%', background: 'linear-gradient(94deg, rgba(242,173,16,0.9020044543429844) 0%, rgba(255,218,0,1) 0%, rgba(232,24,12,1) 100%)'}} className='d-flex justify-content-center align-items-center'>
 
-            <Col md={12} sm={12} xs={12} className='d-flex flex-md-row flex-column'>
+            <Col lg={8} md={8} sm={12} xs={12} className='d-flex justify-content-around flex-md-row flex-column'>
 
-                <Col md={6} sm={12} xs={12} className='d-flex flex-column justify-content-center align-items-center mt-2'>
+                <Col md={5} sm={12} xs={12} className='d-flex flex-column mt-2'>
 
-                    <Col style={{fontSize: '35px', fontWeight: '600', color: 'white'}}>Давайте дружить!</Col>
-                    <Col style={{fontSize: '25px', fontWeight: '300', color: 'white'}} className='d-flex justify-content-center align-items-center text text-center'>подписывайтесь на наши соцсети</Col>
+                    <Col style={{fontSize: 'calc(0.8rem + 1vw)', fontWeight: '600', color: 'white', textAlign: 'center', flex: '0, 0'}} className='d-flex justify-content-center align-items-center text-center'>Давайте дружить!</Col>
+                    <Col style={{fontSize: 'calc(0.4rem + 1vw)', fontWeight: '300', color: 'white'}} className='d-flex justify-content-center text text-center'>подписывайтесь на наши соцсети</Col>
                 </Col>
 
-                  <Col md={6} sm={12} xs={12} style={{height: '145px'}} className='d-flex justify-content-center align-items-center'>
+                  <Col md={3} sm={12} xs={12} style={{height: '145px'}} className='d-flex justify-content-center align-items-center'>
 
                       {logoArr.map((logo: any, index: number) => <Link key={index + 1} target='_blank' className='footer_icon_animation' to={logo.link}><img key={index} src={logo.img} alt={logo.title} style={{marginRight: '10px'}} /></Link>)}
 
@@ -121,9 +121,9 @@ const Footer = () => {
           </Row>
 
 
-          <Row md={12} sm={12} xs={12} style={{width: '100%', height: '100%', backgroundColor: 'black'}}>
+          <Row md={12} sm={12} xs={12} style={{width: '100%', height: '100%', backgroundColor: 'black'}} className='d-flex justify-content-around flex-md-row flex-column'>
 
-            <Col md={12} sm={12} xs={12} className='d-flex justify-content-around flex-md-row flex-column'>
+            <Col md={8} sm={8} xs={8} className='d-flex justify-content-between flex-md-row flex-column'>
 
               <Col md={3} sm={12} xs={12} className='mt-4 '>
                   {(menuOne.length < 1) ? <></> : menuOne.map((menu: string, index: number) => <Col key={index} className='mb-2' style={{color: 'white', fontSize: '14px', lineHeight: '136%'}}>{menu}</Col>)}

@@ -38,8 +38,8 @@ const MoreNews: FC<MoreNewsProps> = ({ title, lead, author, date, tag }) => {
 
         <Col ld={12} md={12} sm={12} xs={12} className='d-flex flex-wrap'>
 
-          {(tag.length < 1) ? <Col>нет тэгов</Col> : tag.map((card) => {
-            return <Col lg={2} md={2} style={{margin: '10px'}}><MyTags tag={card} /></Col>
+          {(tag.length < 1) ? <Col>нет тэгов</Col> : tag.map((card, index) => {
+            return <Col key={index} lg={3} md={3} style={{margin: '10px'}}><MyTags tag={card} /></Col>
           })}
 
         </Col>

@@ -17,6 +17,13 @@
 }
 
 
+
+.header_search_icon:active {
+  transform: scale(1.15);
+
+}
+
+
 /* footer */
 
 .footer_icon_animation:hover {

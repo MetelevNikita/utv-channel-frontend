@@ -4,7 +4,8 @@ import '../../../styles/animation.css'
 
 //
 
-import { FC } from 'react'
+import { FC, useState } from 'react'
+import { useSpring, animated } from '@react-spring/web'
 
 //
 
@@ -13,6 +14,11 @@ import { Col, Container, Row } from 'react-bootstrap'
 // router
 
 import { Link } from 'react-router-dom'
+
+// component
+
+import MyInput from '../../UI/MyInput'
+import SearchIcon from '../../UI/SearchIcon'
 
 // img
 
@@ -23,11 +29,18 @@ import search from '../../../asset/header/search.svg'
 interface MenuHeader {
   title: string
   link: string
+}
 
+interface HeaderProps {
+  find: any
 }
 
 
-const Header: FC = () => {
+const Header: FC<HeaderProps> = ({ find }) => {
+
+
+  const {findNews, setFindNews} = find
+  const [colorIcon, setColorIcon] = useState('')
 
 
   const menuHeader: MenuHeader[] = [
@@ -59,6 +72,11 @@ const Header: FC = () => {
   ]
 
 
+  const [styles, api] = useSpring(() => ({
+    opacity: 0
+  }))
+
+
   return (
 
 
@@ -76,8 +94,12 @@ const Header: FC = () => {
 
 
         <Col md={3} sm={12} xs={12} className='d-flex justify-content-end align-items-center flex-md-row flex-column mb-4'>
-          <Col style={{marginRight: '20px'}} className='d-flex align-items-center justify-content-end mb-md-0 mb-4'><img src={search} alt="search-icon" /></Col>
-          <Col style={{fontSize: '15px', fontWeight: 'bold', color: '#FEA633', width: '184px', minHeight: '45px', border: '1px solid #FEA633', borderRadius: '45px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>+7 (347) 292-00-00</Col>
+          <Col style={{marginRight: '20px'}} className='d-flex align-items-center justify-content-end mb-md-0 mb-4'><SearchIcon className='header_search_icon' onClick={() => {api.start({opacity: 1})}}/></Col>
+
+
+
+
+          <animated.div style={{fontSize: '15px', fontWeight: 'bold', color: '#FEA633', width: '184px', minHeight: '45px', border: '1px solid #FEA633', borderRadius: '45px', ...styles}}><MyInput style={{minHeight: '45px', width: '184px', display: 'flex', justifyContent: 'center', paddingLeft: '10px', paddingRight: '10px'}} type='text' placeholder='' value={findNews} onChange={(e) => {setFindNews(e.target.value)}}></MyInput></animated.div>
         </Col>
 
         </Col>

@@ -52,23 +52,22 @@ const App = () => {
 
 
   const [modalNewsOpen, setModalNewsOpen] = useState(false)
-
-
-
-
   const [modalNewsMessage, setModalNewsMessage] = useState<modalNewsMessageProps>({
     name: '',
     phone: '',
     file: '',
     message: '',
   })
+  const [findNews, setFindNews] = useState('')
+
+  console.log(findNews)
 
 
 
   return (
       <Container fluid>
 
-        <Header />
+        <Header find={{findNews, setFindNews}}/>
 
           <div className='content'>
           <Routes>
