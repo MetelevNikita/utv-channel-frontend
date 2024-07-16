@@ -9,16 +9,19 @@ interface INews {
   date: string
   video: string
   text_1: string | null
-  image_1: string | null
+  image_1: string | any
   comment_1: string | null
   text_2: string | null
+  image_2: string | any
   comment_2: string | null
   text_3: string | null
-  image_3: string | null
+  image_3: string | any
   comment_3: string | null
   text_4: string | null
+  image_4: string | any
   comment_4: string | null
   text_5: string | null
+  image_5: string | any
   comment_5: string | null
   text_6: string | null
   image_6: string | null
@@ -35,6 +38,8 @@ interface INews {
   text_10: string | null
   image_10: string | null
   comment_10: string | null
+  tags: string
+  views: number
 }
 
 
@@ -49,7 +54,7 @@ const initialState: initialState = {
 
 // async
 
-const getAsyncNews = createAsyncThunk(
+export const getAsyncNews = createAsyncThunk(
   'getAsyncNews',
   async () => {
     const response = await fetch('http://localhost:9000/api/v1/news', {

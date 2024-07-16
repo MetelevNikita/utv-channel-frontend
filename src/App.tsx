@@ -60,9 +60,6 @@ const App = () => {
   })
   const [findNews, setFindNews] = useState('')
 
-  console.log(findNews)
-
-
 
   return (
       <Container fluid>

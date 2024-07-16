@@ -2,13 +2,16 @@
 
 import 'react-calendar/dist/Calendar.css';
 
-//
+// redux
+
+import { useAppDispatch, useAppSelector } from '../../types/reduxHooks';
+import { getAsyncNews } from '../../store/newsSlice';
 
 // test server
 
 import newsCard from '../../server/newsCard';
 
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 //
@@ -36,13 +39,26 @@ type Value = ValuePiesce | [ValuePiesce, ValuePiesce]
 
 const NewsPage = () => {
 
+  useEffect(() => {dispatch(getAsyncNews())}, [])
+
+  const dispatch = useAppDispatch()
+  const newsSelector = useAppSelector(state => state.news.news)
+
+  console.log(newsSelector)
+
 
   const [date, setDate] = useState<Value | any>(new Date())
-  const currentDate = date.toLocaleDateString().toString()
+  const currentDate = date.toLocaleDateString()
+  console.log(currentDate)
 
-  const dateFilterCard = newsCard.filter((item) => {
-    return item.date  ===  currentDate
+  const dateFilterCard = newsSelector.filter((item) => {
+
+    return new Date(item.date).toLocaleDateString()  ===  currentDate
   })
+
+
+
+  console.log(dateFilterCard)
 
 
   const topList = dateFilterCard.filter((item, index) => {
@@ -81,7 +97,7 @@ const NewsPage = () => {
 
             <Col lg={8} md={8} sm={12} xs={12} className='d-flex flex-lg-row flex-md-row flex-column mb-4'>
                 {(dateFilterCard.length < 1) ? <Col lg={12} md={12} xs={12} sm={12}>список пуст</Col> : topList.map((item) => {
-                        return <Col lg={6} md={6} sm={12} xs={12} className='d-flex'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard img={item.imgTitle} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F' sizeBlock={{width: '384px', height: '100%', flex: 'flex-column', sizeTitle: '16px', sizeInfo: '15px'}}/></Link></Col>})
+                        return <Col lg={6} md={6} sm={12} xs={12} className='d-flex'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard img={item.image_1} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F' sizeBlock={{width: '384px', height: '100%', flex: 'flex-column', sizeTitle: '16px', sizeInfo: '15px'}}/></Link></Col>})
                 }
             </Col>
 
@@ -96,7 +112,7 @@ const NewsPage = () => {
       <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-row flex-wrap justify-content-between mt-4'>
 
           {(dateFilterCard.length < 1) ? <Col lg={12} md={12} xs={12} sm={12}></Col> : bottomLst.map((item) => {
-                  return <Col lg={4} md={4} sm={12} xs={12} className='d-flex'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard img={item.imgTitle} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F' sizeBlock={{width: '384px', height: '100%', flex: 'flex-column', sizeTitle: '16px', sizeInfo: '15px'}}/></Link></Col>})
+                  return <Col lg={4} md={4} sm={12} xs={12} className='d-flex'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard img={item.image_1} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F' sizeBlock={{width: '384px', height: '100%', flex: 'flex-column', sizeTitle: '16px', sizeInfo: '15px'}}/></Link></Col>})
           }
 
       </Col>

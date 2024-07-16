@@ -9,6 +9,10 @@ import { FC } from 'react'
 import {Container, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
+// components
+
+import MyMaps from '../../UI/MyMaps'
+
 // img
 
 import vk from '../../../asset/logo-social/vk.svg'
@@ -119,6 +123,13 @@ const Footer = () => {
             </Col>
 
           </Row>
+
+
+
+
+              <MyMaps></MyMaps>
+
+
 
 
           <Row md={12} sm={12} xs={12} style={{width: '100%', height: '100%', backgroundColor: 'black'}} className='d-flex justify-content-around flex-md-row flex-column'>

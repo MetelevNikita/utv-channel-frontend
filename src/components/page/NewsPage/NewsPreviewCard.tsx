@@ -13,7 +13,7 @@ import { CSSProperties } from 'styled-components'
 
 
 interface NewsPreviewCardProps {
-  img: string
+  img: string | any
   title: string
   date: string
   author: string
@@ -38,7 +38,7 @@ const NewsPreviewCard: FC<NewsPreviewCardProps> = ({ img, title, date, author, c
 
       <Col>
 
-      <Col md={12} style={{fontSize: sizeBlock.sizeTitle, fontWeight: 600, color: colorTitle, width: '90%'}} className='mb-2'>{title}</Col>
+      <Col md={12} style={{fontSize: sizeBlock.sizeTitle, fontWeight: 600, color: colorTitle, width: '90%', height: '75px'}} className='mb-2'>{title}</Col>
 
       <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-row' style={{width: '100%'}}>
           <Col  className='d-flex justify-content-start' style={{fontSize: sizeBlock.sizeInfo, fontWeight: '300', color: colorDate, width: '100%', height: 'max-content'}}>Дата: {date}</Col>
