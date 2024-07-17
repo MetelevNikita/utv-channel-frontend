@@ -7,22 +7,23 @@ import { Col, Row } from 'react-bootstrap'
 
 // components
 
-import NewsPreviewCard from './NewsPage/NewsPreviewCard'
+import NewsMainPreviewCard from './NewsPage/NewsMainPreviewCard'
 
 //
 
 
 
-interface NewsAllBlockProps {
+interface NewsMainBlockProps {
   newsTitle: string;
   newsButton: string;
   linkButton: string;
   newsArr: any
+  video?: string
 }
 
 
 
-const NewsMainBlock: FC<NewsAllBlockProps> = ({ newsTitle, newsButton, linkButton, newsArr})  =>  {
+const NewsMainBlock: FC<NewsMainBlockProps> = ({ newsTitle, newsButton, linkButton, newsArr, video})  =>  {
 
 
   return (
@@ -40,7 +41,7 @@ const NewsMainBlock: FC<NewsAllBlockProps> = ({ newsTitle, newsButton, linkButto
       <Col style={{height: 'max-content', width: '90%'}}>
 
           {newsArr.map((news: any, index: any) =>  {
-            return <Col key={index} style={{width: '100%', height: 'max-content'}} className='d-flex mt-3 mb-2'><Link to={news.id} key={index}><NewsPreviewCard img={news.imgTitle} title={news.title} date={news.date} author={news.author} colorTitle={'#000000'} colorDate={'#8F8F8F'} sizeBlock={{width: '100%', height: 'max-content' , flex: 'flex-row', sizeTitle: '0.5vw', sizeInfo: '0.5vw'}}/></Link></Col>
+            return <Col key={index} style={{width: '100%', height: 'max-content', overflow: 'hidden'}} className='d-flex mt-3 mb-2'><Link to={`/news/${news.id}`} key={index}><NewsMainPreviewCard image={news.image_1} title={news.title} lead={news.lead} date={news.date} author={news.author} video={news.video} /></Link></Col>
           })}
 
       </Col>

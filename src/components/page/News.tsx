@@ -8,7 +8,7 @@ import { Col, Row } from 'react-bootstrap'
 // components
 
 import MyButtonLink from '../UI/MyButtonLink'
-import NewsAllBlock from './NewsMainBlock'
+import NewsMainBlock from './NewsMainBlock'
 
 // img
 
@@ -20,19 +20,12 @@ import WALinkImg from '../../asset/buttons-img/whatsapp.svg'
 
 import newsCard from './../../server/newsCard'
 
+// redux
 
-const currentDate = new Date().toLocaleDateString()
-
-const todayNews = newsCard.filter((news, index)  =>  {
-  return news.date === currentDate
-})
+import { useAppDispatch, useAppSelector } from '../../types/reduxHooks'
+import { getAsyncNews } from '../../store/newsSlice'
 
 
-const popularNews = newsCard.sort((a, b) => {
-  return  a.views  -  b.views
-}).filter((news, index)  =>  {
-  return index < 3
-})
 
 
 type buttonArrType  = {
@@ -51,7 +44,24 @@ interface NewsProps {
 
 const News: FC<NewsProps> = ({ modalOpen }) => {
 
+  useEffect(() => {dispatch(getAsyncNews())}, [])
+
+  const dispatch = useAppDispatch()
+  const newsSelector = useAppSelector(state => state.news.news)
+
+
+
   const { modalNewsOpen, setModalNewsOpen } = modalOpen
+
+  const currentDate = new Date().toISOString().split('T')[0]
+
+  console.log(currentDate)
+  console.log(newsSelector)
+
+  const todayNews = newsSelector.filter((news, index)  => news.date == currentDate).filter((news, index) => index < 3)
+  console.log(todayNews)
+  const popularNews = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).filter((news, index) => index < 3)
+
 
 
   const buttonArr = [
@@ -82,12 +92,12 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
       <Col md={12} sm={12} xs={12} className='d-flex flex-md-row flex-column justify-content-around  mb-5'>
 
         <Col md={6} sm={12} xs={12} className='d-flex justify-content-center'>
-          <NewsAllBlock newsArr={todayNews} newsTitle={'Новости 12.03.24'} linkButton={'/news'} newsButton='Смотреть все'/>
+          <NewsMainBlock newsArr={todayNews} newsTitle={`Новости ${currentDate}`} linkButton={'/news'} newsButton='Смотреть все'/>
         </Col>
 
         <Col md={6} sm={12} xs={12} className='d-flex justify-content-center justify-content-center'>
 
-          <NewsAllBlock newsTitle={'Популярные'} linkButton={'/news'} newsButton='Смотреть все' newsArr={popularNews}/>
+          <NewsMainBlock newsTitle={'Популярные'} linkButton={'/news'} newsButton='Смотреть все' newsArr={popularNews}/>
 
         </Col >
 

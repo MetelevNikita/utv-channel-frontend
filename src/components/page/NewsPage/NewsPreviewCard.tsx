@@ -14,26 +14,37 @@ import { CSSProperties } from 'styled-components'
 
 interface NewsPreviewCardProps {
   img: string | any
+  video: string | any
   title: string
   date: string
   author: string
   colorTitle: string
   colorDate: string
   sizeBlock: {
-    width: string
-    height: string
     flex: string
     sizeTitle: string
     sizeInfo: string
   }
 }
 
-const NewsPreviewCard: FC<NewsPreviewCardProps> = ({ img, title, date, author, colorTitle, colorDate, sizeBlock }) => {
+const NewsPreviewCard: FC<NewsPreviewCardProps> = ({ img, video, title, date, author, colorTitle, colorDate, sizeBlock }) => {
   return (
 
-    <Col lg={12} mb={12} style={{width: sizeBlock.width, height: sizeBlock.height}} className={`d-flex ${sizeBlock.flex} justify-content-around`}>
+    <Col lg={12} mb={12} style={{width: '384px', height: '350px'}} className={`d-flex ${sizeBlock.flex} justify-content-around`}>
 
-      <Col className='d-flex justify-content-start mb-2'><img style={{width: '90%', height: 'max-content'}} src={img} alt="news-preiview-image" /></Col>
+        <Col style={{width: '100%'}} className='mb-3'>
+
+        <div style={{width: '384px', height: '209px', overflow: 'hidden' }}>
+
+          {(!img) ? <iframe width="384px" height="209px" src={video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe> : <img src={img} alt="news-preiview-image" />}
+
+        </div>
+
+        </Col>
+
+
+
+
 
 
       <Col>

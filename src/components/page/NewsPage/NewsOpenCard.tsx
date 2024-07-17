@@ -16,12 +16,6 @@ import MoreNews from "./MoreNews";
 import MyTags from "../../UI/MyTags";
 import NewsMainBlock from "../NewsMainBlock";
 
-// server
-
-import newsCard from "../../../server/newsCard";
-
-
-
 
 
 
@@ -29,6 +23,10 @@ import newsCard from "../../../server/newsCard";
 const NewsOpenCard = () => {
 
   useEffect(() => {dispatch(getAsyncNews())}, [])
+  useEffect(() => {newViews()}, [])
+
+
+
 
   const dispatch = useAppDispatch()
   const newsSelector = useAppSelector(state => state.news.news)
@@ -42,8 +40,7 @@ const NewsOpenCard = () => {
 
   const currentDayNews = newsSelector.filter((card) => {return card.date === date})
   const currentCard = newsSelector.find(card => card.id.toString() === id);
-
-  console.log(currentCard)
+  const popularCard = newsSelector.map((card) => card).sort((a, b) => a.views - b.views)
 
 
 
@@ -52,9 +49,31 @@ const NewsOpenCard = () => {
     return <h1>LOADING</h1>;
   }
 
-  // const moreNewsArr = newsCard.filter((card) => {
-  //   return card.category.includes(currentCard.category[0])
-  // })
+  const moreNewsArr = newsSelector.filter((card) => {
+    return card.tags.includes(currentCard.tags.split(' ')[0])
+  })
+
+
+
+  const newViews = async () => {
+    try {
+      const responce = await fetch('http://localhost:9000/api/v1/news/views', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({id: currentCard.id})
+      })
+
+      const data = await responce.json()
+      return data
+
+    } catch (error) {
+      console.log('error')
+    }
+  }
+
+
 
 
 
@@ -112,29 +131,27 @@ const NewsOpenCard = () => {
 
       <Col md={12} sm={12} xs={12} className="mb-3" style={{fontWeight: '600'}}>{currentCard.lead}</Col>
 
-      <Col md={12} sm={12} xs={12} className="mb-3">
-        <img style={{ width: "100%" }} src={currentCard.image_1} alt="title-img" />
-      </Col>
 
-      <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-4">{currentCard.text_1}</Col>
+      {(!currentCard.video) ? <></> : <Col md={12} sm={12} xs={12} className="mb-3"><iframe width="100%" height="485" src={currentCard.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></Col>}
 
 
-      {(currentCard.comment_1) ?
+
+      {(!currentCard.image_1) ? <></> : <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={currentCard.image_1} alt="title-img" /></Col>}
+
+
+      {(!currentCard.text_1) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-4">{currentCard.text_1}</Col>}
+
+
+      {(!currentCard.comment_1) ? <></> :
 
       <Col style={{width: '100%'}}>
-
           <Col style={{width: '100%', height: '1px', backgroundColor: 'red'}} className="mb-4"></Col>
-
               <Col style={{fontWeight: JSON.parse(currentCard.comment_1).fontBold, fontStyle: JSON.parse(currentCard.comment_1).fontStyle, width: '100%', height: 'max-content'}} className="mb-4">{JSON.parse(currentCard.comment_1).input}</Col>
-
           <Col style={{width: '100%', height: '1px', backgroundColor: 'red'}} className="mb-4"></Col>
-
-      </Col> : <></>}
+      </Col>}
 
 
       {/*  blocks */}
-
-
 
       {renderNewsBlock(currentCard.image_2, currentCard.text_2, currentCard.comment_2)}
       {renderNewsBlock(currentCard.image_3, currentCard.text_3, currentCard.comment_3)}
@@ -158,66 +175,43 @@ const NewsOpenCard = () => {
 
 
 
+      {/* more news */}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* <Col md={12} sm={12} xs={12} >
+      <Col md={12} sm={12} xs={12} >
 
           {(moreNewsArr.length == 0) ? <Col md={12} sm={12} xs={12} className="mt-5 mb-3" style={{width: '100%', height: 'max-content', fontSize: '16px'}}>Список пуст</Col> : moreNewsArr.map((card, index) => {
-            return <Col key={card.id} className="mt-5 mb-3"><Link to={`/news/${card.id}`} style={{color: 'black'}}><MoreNews title={card.title} author={card.author} lead={card.lead} date={card.date} tag={card.category}/></Link></Col> })
+            return <Col key={card.id} className="mt-5 mb-3"><Link to={`/news/${card.id}`} style={{color: 'black'}}><MoreNews title={card.title} author={card.author} lead={card.lead} date={card.date} tag={card.tags.split(' ')}/></Link></Col> })
             }
 
-      </Col> */}
+      </Col>
 
     </Col>
 
 
 
 
-    {/* <Col lg={4} md={4} xs={4} sm={4} className="mt-4">
+    <Col lg={4} md={4} xs={4} sm={4} className="mt-4">
 
         <Col lg={12} md={12} xs={12} className="d-flex flex-wrap justify-content-center">
-
             {(tagsArr.length < 1) ? <></> : tagsArr.map((tag, index) => {
               return <Col style={{width: '40%', margin: '10px'}} className="d-flex justify-content-center mb-3" lg={6} md={6} xs={6} key={index}><MyTags tag={tag} /></Col>
             })}
-
         </Col>
 
 
         <Col md={12} sm={12} xs={12} className='mt-4'>
-
-          <Col><NewsMainBlock newsTitle={'Популярные'} linkButton={'/news'} newsButton='Смотреть все' newsArr={popularCard}/></Col>
-
+          <NewsMainBlock video={''} newsTitle={'Популярные'} linkButton={'/news'} newsButton='Смотреть все' newsArr={popularCard}/>
         </Col >
 
 
         <Col md={12} sm={12} xs={12} className='mt-4'>
-
-          <Col><NewsMainBlock newsTitle={`Новости от ${date}`} linkButton={'/news'} newsButton='Смотреть все' newsArr={currentDayNews}/></Col>
-
+          <NewsMainBlock video={''} newsTitle={`Новости от ${date}`} linkButton={'/news'} newsButton='Смотреть все' newsArr={currentDayNews}/>
         </Col >
 
 
-    </Col> */}
+    </Col>
 
 
    </Col>
