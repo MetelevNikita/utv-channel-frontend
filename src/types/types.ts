@@ -19,3 +19,15 @@ export type teamType = {
   profession: string
   image: string
 }
+
+
+
+export type programCardType = {
+  id: number,
+  title: string,
+  subtitle: string,
+  description: string
+  image: string | any,
+  date: string,
+  link: string
+}

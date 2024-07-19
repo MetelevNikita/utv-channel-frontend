@@ -12,7 +12,6 @@ import ProjectCard from './ProjectCard'
 // redux
 import { useAppDispatch, useAppSelector } from '../../../types/reduxHooks'
 import { getAsyncProject } from '../../../store/projectSlice'
-import propjectServer from '../../../server/projectServer'
 
 //
 

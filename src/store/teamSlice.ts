@@ -37,7 +37,8 @@ export const getAsyncTeams = createAsyncThunk(
 
       })
 
-      if (!responce.ok)  {
+      if(!responce.ok) {
+        new Error('Ошибка запроса из базы данных');
         return []
       }
 
@@ -63,8 +64,20 @@ const teamSlice = createSlice({
   reducers: {},
 
   extraReducers: (builder) => {
+
+    builder.addCase(getAsyncTeams.pending, (state) => {
+      state.teams = []
+    })
+
+
     builder.addCase(getAsyncTeams.fulfilled, (state, action)  =>  {
       state.teams = action.payload
+    })
+
+
+    builder.addCase(getAsyncTeams.rejected, (state, action) => {
+      console.log(action.error)
+      state.teams = []
     })
 
   }

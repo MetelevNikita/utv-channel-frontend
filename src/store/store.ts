@@ -5,6 +5,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import teamSlice from "./teamSlice";
 import projectSlice from "./projectSlice";
 import newsSlice from "./newsSlice";
+import programSlice from "./programSlice";
 
 
 
@@ -15,7 +16,8 @@ const store = configureStore({
   reducer: {
     team: teamSlice,
     project: projectSlice,
-    news: newsSlice
+    news: newsSlice,
+    program: programSlice
   }
 })
 

@@ -7,9 +7,7 @@ import 'react-calendar/dist/Calendar.css';
 import { useAppDispatch, useAppSelector } from '../../types/reduxHooks';
 import { getAsyncNews } from '../../store/newsSlice';
 
-// test server
-
-import newsCard from '../../server/newsCard';
+//
 
 import { FC, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
@@ -32,7 +30,6 @@ import Calendar from 'react-calendar';
 
 type ValuePiesce = Date | null
 type Value = ValuePiesce | [ValuePiesce, ValuePiesce]
-
 
 
 

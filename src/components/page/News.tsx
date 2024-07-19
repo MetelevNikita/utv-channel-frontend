@@ -16,10 +16,6 @@ import TGLinkImg from '../../asset/buttons-img/telegram.svg'
 import WALinkImg from '../../asset/buttons-img/whatsapp.svg'
 
 
-// server
-
-import newsCard from './../../server/newsCard'
-
 // redux
 
 import { useAppDispatch, useAppSelector } from '../../types/reduxHooks'
@@ -50,16 +46,11 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
   const newsSelector = useAppSelector(state => state.news.news)
 
 
-
   const { modalNewsOpen, setModalNewsOpen } = modalOpen
-
   const currentDate = new Date().toISOString().split('T')[0]
 
-  console.log(currentDate)
-  console.log(newsSelector)
 
   const todayNews = newsSelector.filter((news, index)  => news.date == currentDate).filter((news, index) => index < 3)
-  console.log(todayNews)
   const popularNews = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).filter((news, index) => index < 3)
 
 

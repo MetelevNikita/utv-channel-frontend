@@ -35,10 +35,10 @@ const ProjectPage = () => {
 
     <Container>
 
-        <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-column'>
+        <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-column mb-5'>
 
 
-        <Col lg={12} md={12} sm={12} xs={12} className='d-flex mt-4 mb-5'><img style={{width: '100%'}} src={projectBanner} alt="project-banner" /></Col>
+        <Col lg={12} md={12} sm={12} xs={12} className='d-flex mt-4 mb-3'><img style={{width: '100%'}} src={projectBanner} alt="project-banner" /></Col>
 
         <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-wrap'>
 

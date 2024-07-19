@@ -57,14 +57,19 @@ const initialState: initialState = {
 export const getAsyncNews = createAsyncThunk(
   'getAsyncNews',
   async () => {
-    const response = await fetch('http://localhost:9000/api/v1/news', {
+    const responce = await fetch('http://localhost:9000/api/v1/news', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       }
     })
 
-    const data = await response.json()
+    if(!responce.ok) {
+      new Error('Ошибка запроса из базы данных');
+      return []
+    }
+
+    const data = await responce.json()
     return data
   }
 )
@@ -77,8 +82,18 @@ const newsSlice = createSlice({
   reducers: {},
 
   extraReducers: (builder) => {
+
+    builder.addCase(getAsyncNews.pending, (state, action) => {
+      state.news = []
+    })
+
     builder.addCase(getAsyncNews.fulfilled, (state, action) => {
       state.news = action.payload
+    })
+
+    builder.addCase(getAsyncNews.rejected, (state, action) => {
+      console.log(action.error)
+      state.news = []
     })
   }
 })

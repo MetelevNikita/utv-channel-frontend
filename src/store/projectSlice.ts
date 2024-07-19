@@ -24,7 +24,18 @@ export const getAsyncProject = createAsyncThunk(
 
     try {
 
-      const responce = await fetch('http://localhost:9000/api/v1/project')
+      const responce = await fetch('http://localhost:9000/api/v1/project', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+
+      if(!responce.ok) {
+        new Error('Ошибка запроса из базы данных');
+        return []
+      }
 
       const data = await responce.json()
       console.log(data)
@@ -46,8 +57,18 @@ const projectSlice = createSlice({
   reducers: {},
 
   extraReducers: (builder) => {
+
+    builder.addCase(getAsyncProject.pending, (state) => {
+      state.project = []
+    })
+
     builder.addCase(getAsyncProject.fulfilled, (state, action)  =>  {
       state.project = action.payload
+    })
+
+    builder.addCase(getAsyncProject.rejected, (state, action) => {
+      console.log(action.error)
+      state.project = []
     })
 
   }
