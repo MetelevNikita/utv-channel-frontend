@@ -25,10 +25,10 @@ const MyButtonLink: FC<MyButtonLinkProps> = ({ linkTitle, linkImg, style }) => {
 
       <Col style={style} className='d-flex justify-content-center align-items-center animation_container'>
 
-        <div className='animation_box' style={{display: 'flex'}}>
+        <div className='animation_box' style={{display: 'flex', justifyContent:'center', alignItems:'center'}}>
 
-        <img className='animation_img' style={{width: '50px', height: '50px'}} src={linkImg} alt="link-img" />
-        <div className='animation_text' style={{marginLeft: '20px', maxWidth: '260px'}}>{linkTitle}</div>
+        <img className='animation_img' style={{marginLeft: '20px', width: '50px', height: '50px'}} src={linkImg} alt="link-img" />
+        <div className='animation_text' style={{marginLeft: '10px', maxWidth: '260px'}}>{linkTitle}</div>
 
         </div>
       </Col>

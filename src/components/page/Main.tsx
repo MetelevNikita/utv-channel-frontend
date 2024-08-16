@@ -9,7 +9,13 @@ import { Col, Container } from 'react-bootstrap'
   import ProgramBlock from './ProgramBlock'
   import News from './News'
   import Projects from './Projects'
+  import SheduleList from './Schedule/SheduleList'
   import About from './About'
+
+
+  //
+
+  import MyImageAnimation from '../UI/MyImageAnimation'
 
 
 interface MainProps {
@@ -30,6 +36,7 @@ const Main: FC<MainProps> = ({ modalOpen }) => {
           <ProgramBlock />
           <News modalOpen={modalOpen}/>
           <Projects />
+          <SheduleList />
           <About />
 
     </Container>

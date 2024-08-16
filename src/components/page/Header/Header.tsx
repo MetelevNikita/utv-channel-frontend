@@ -9,7 +9,7 @@ import { useSpring, animated } from '@react-spring/web'
 
 //
 
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Container } from 'react-bootstrap'
 
 // router
 
@@ -40,7 +40,6 @@ const Header: FC<HeaderProps> = ({ find }) => {
 
 
   const {findNews, setFindNews} = find
-  const [colorIcon, setColorIcon] = useState('')
 
 
   const menuHeader: MenuHeader[] = [
@@ -60,13 +59,13 @@ const Header: FC<HeaderProps> = ({ find }) => {
     },
 
     {
-      title: 'Прямой эфир',
-      link: '/live'
+      title: 'О канале',
+      link: '/about'
     },
 
     {
-      title: 'О канале',
-      link: '/about'
+      title: 'Контакты',
+      link: '/contacts'
     },
 
   ]
@@ -84,7 +83,7 @@ const Header: FC<HeaderProps> = ({ find }) => {
 
         <Col className='d-flex align-items-center flex-md-row flex-column mt-4'>
 
-        <Col md={2} sm={12} xs={12} className='d-flex justify-content-md-start justify-content-center mb-4'><Link to={'/'}><img src={logo} alt="logo-utv"/></Link></Col>
+        <Col md={2} sm={12} xs={12} className='d-flex justify-content-md-start justify-content-center mb-4'><Link to={'/'}><img className='logo_menu_animation' src={logo} alt="logo-utv"/></Link></Col>
 
         <Col md={7} sm={12} xs={12} className='d-flex justify-content-center flex-md-row flex-column mb-4'>
           {menuHeader.map((item, index) => {
@@ -93,14 +92,15 @@ const Header: FC<HeaderProps> = ({ find }) => {
         </Col>
 
 
-        <Col md={3} sm={12} xs={12} className='d-flex justify-content-end align-items-center flex-md-row flex-column mb-4'>
-          <Col style={{marginRight: '20px'}} className='d-flex align-items-center justify-content-end mb-md-0 mb-4'><SearchIcon className='header_search_icon' onClick={() => {api.start({opacity: 1})}}/></Col>
+          <Col md={3} sm={12} xs={12} className='d-flex justify-lg-content-end justify-content-center align-items-center flex-row mb-4'>
 
 
+            <Col style={{width: '100%', height: '45px'}} className='d-flex align-items-center justify-lg-content-end justify-content-center mb-md-0'><SearchIcon className='d-flex align-items-center header_search_icon' onClick={() => {api.start({opacity: 1})}}/></Col>
 
 
-          <animated.div style={{fontSize: '15px', fontWeight: 'bold', color: '#FEA633', width: '184px', minHeight: '45px', border: '1px solid #FEA633', borderRadius: '45px', ...styles}}><MyInput style={{minHeight: '45px', width: '184px', display: 'flex', justifyContent: 'center', paddingLeft: '10px', paddingRight: '10px'}} type='text' placeholder='' value={findNews} onChange={(e) => {setFindNews(e.target.value)}}></MyInput></animated.div>
-        </Col>
+            <animated.div style={{fontSize: '15px', fontWeight: 'bold', color: '#FEA633', width: '184px', minHeight: '45px', border: '1px solid #FEA633', borderRadius: '45px', ...styles}}><MyInput style={{minHeight: '45px', width: '184px', display: 'flex', justifyContent: 'center', paddingLeft: '10px', paddingRight: '10px'}} type='text' placeholder='' value={findNews} onChange={(e) => {setFindNews(e.target.value)}}></MyInput></animated.div>
+
+          </Col>
 
         </Col>
 

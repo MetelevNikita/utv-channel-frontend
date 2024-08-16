@@ -14,6 +14,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 // components
 
 import MyButton from '../../UI/MyButton'
+import MyImageAnimation from '../../UI/MyImageAnimation'
 
 // redux
 
@@ -23,6 +24,8 @@ import { getAsyncProject } from '../../../store/projectSlice'
 // types
 
 import { projectTypeCard } from '../../../types/types'
+
+//
 
 const ProjectOpenCard = () => {
 
@@ -37,14 +40,9 @@ const ProjectOpenCard = () => {
   console.log(currentProjectCard)
 
 
-
-
   if (!currentProjectCard) {
     return <Col style={{fontSize: '20px', textAlign: 'center'}}>Loading...</Col>
   }
-
-
-
 
 
   return (
@@ -56,7 +54,7 @@ const ProjectOpenCard = () => {
 
       <Col lg={5} md={6} sm={12} xs={12} className='d-flex flex-column justify-content-center align-items-center'>
 
-          <Col lg={12} md={12} sm={12} xs={12} className='d-flex justify-content-center align-items-center mb-4' style={{width: '540px', height: '300px', overflow: 'hidden'}}><img className='project_card_animation' style={{width: '100%'}} src={currentProjectCard.image} alt="title-image" /></Col>
+          <Col lg={12} md={12} sm={12} xs={12} className='d-flex justify-content-center align-items-center mb-4' style={{width: '540px', height: '300px', overflow: 'hidden'}}><MyImageAnimation image={currentProjectCard.image} width={'540px'} height={'303px'} scaleStart={1.3} scaleEnd={1}/></Col>
 
           <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-md-row flex-column justify-content-center align-items-center'>
 

@@ -20,11 +20,10 @@ import NewsMainBlock from "../NewsMainBlock";
 
 
 
+
 const NewsOpenCard = () => {
 
   useEffect(() => {dispatch(getAsyncNews())}, [])
-  useEffect(() => {newViews()}, [])
-
 
 
 
@@ -45,6 +44,9 @@ const NewsOpenCard = () => {
 
 
 
+
+
+
   if (!currentCard) {
     return <h1>LOADING</h1>;
   }
@@ -52,7 +54,6 @@ const NewsOpenCard = () => {
   const moreNewsArr = newsSelector.filter((card) => {
     return card.tags.includes(currentCard.tags.split(' ')[0])
   })
-
 
 
   const newViews = async () => {
@@ -74,18 +75,19 @@ const NewsOpenCard = () => {
   }
 
 
+  newViews()
 
 
 
-
-
-  const renderNewsBlock = (image: string | any, text: string | any, comment: string | any) => {
+  const renderNewsBlock = (image: string | any, text: string | any, comment: string | any, imgcomment: string | any) => {
 
     return (
 
       <>
 
       {(image) ? <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={image} alt="title-img" /></Col> : <></>}
+
+      {(imgcomment) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px" }} className="mb-2">источник: {imgcomment}</Col> : <></>}
 
       {(text) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-4">{text}</Col> : <></>}
 
@@ -108,6 +110,9 @@ const NewsOpenCard = () => {
   }
 
 
+  console.log(currentCard.views)
+
+
 
 
   return (
@@ -117,15 +122,16 @@ const NewsOpenCard = () => {
 
     <Col lg={12} md={12} sm={12} xs={12} className="d-flex flex-row">
 
-    <Col lg={8} md={8} xs={8} sm={8} className="mt-4" style={{ marginRight: "10px" }}>
+    <Col lg={8} md={8} xs={12} sm={12} className="mt-4" style={{ marginRight: "10px" }}>
 
-      <Col md={12} sm={12} xs={12} style={{ fontSize: "25px", fontWeight: "600" }} className="mb-2">
+      <Col md={12} sm={12} xs={12} style={{ fontSize: "calc(1em + 0.5vw)", fontWeight: "600" }} className="mb-2">
         {currentCard.title}
       </Col>
 
-      <Col md={12} sm={6} xs={6} className="d-flex mb-4">
-        <Col md={3}>{`Дата: ${currentCard.date}`}</Col>
-        <Col md={6}>Автор: {currentCard.author}</Col>
+      <Col md={12} sm={6} xs={6} className="d-flex flex-lg-row flex-column mb-4">
+        <Col md={3} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.8em + 0.2vw)"}}>Дата: {currentCard.date}</Col>
+        <Col md={6} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.8em + 0.2vw)"}}>Автор: {currentCard.author}</Col>
+        <Col md={3} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.8em + 0.2vw)"}}>Просмотры: {currentCard.views}</Col>
       </Col>
 
 
@@ -137,6 +143,9 @@ const NewsOpenCard = () => {
 
 
       {(!currentCard.image_1) ? <></> : <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={currentCard.image_1} alt="title-img" /></Col>}
+
+
+      {(!currentCard.image_comment_1) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-4">источник: {currentCard.image_comment_1}</Col>}
 
 
       {(!currentCard.text_1) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-4">{currentCard.text_1}</Col>}
@@ -153,15 +162,15 @@ const NewsOpenCard = () => {
 
       {/*  blocks */}
 
-      {renderNewsBlock(currentCard.image_2, currentCard.text_2, currentCard.comment_2)}
-      {renderNewsBlock(currentCard.image_3, currentCard.text_3, currentCard.comment_3)}
-      {renderNewsBlock(currentCard.image_4, currentCard.text_4, currentCard.comment_4)}
-      {renderNewsBlock(currentCard.image_5, currentCard.text_5, currentCard.comment_5)}
-      {renderNewsBlock(currentCard.image_6, currentCard.text_6, currentCard.comment_6)}
-      {renderNewsBlock(currentCard.image_7, currentCard.text_7, currentCard.comment_7)}
-      {renderNewsBlock(currentCard.image_8, currentCard.text_8, currentCard.comment_8)}
-      {renderNewsBlock(currentCard.image_9, currentCard.text_9, currentCard.comment_9)}
-      {renderNewsBlock(currentCard.image_10, currentCard.text_10, currentCard.comment_10)}
+      {renderNewsBlock(currentCard.image_2, currentCard.text_2, currentCard.comment_2, currentCard.image_comment_2)}
+      {renderNewsBlock(currentCard.image_3, currentCard.text_3, currentCard.comment_3, currentCard.image_comment_3)}
+      {renderNewsBlock(currentCard.image_4, currentCard.text_4, currentCard.comment_4, currentCard.image_comment_4)}
+      {renderNewsBlock(currentCard.image_5, currentCard.text_5, currentCard.comment_5, currentCard.image_comment_5)}
+      {renderNewsBlock(currentCard.image_6, currentCard.text_6, currentCard.comment_6, currentCard.image_comment_6)}
+      {renderNewsBlock(currentCard.image_7, currentCard.text_7, currentCard.comment_7, currentCard.image_comment_7)}
+      {renderNewsBlock(currentCard.image_8, currentCard.text_8, currentCard.comment_8, currentCard.image_comment_8)}
+      {renderNewsBlock(currentCard.image_9, currentCard.text_9, currentCard.comment_9, currentCard.image_comment_9)}
+      {renderNewsBlock(currentCard.image_10, currentCard.text_10, currentCard.comment_10, currentCard.image_comment_10)}
 
 
       {/*  */}
@@ -192,7 +201,7 @@ const NewsOpenCard = () => {
 
 
 
-    <Col lg={4} md={4} xs={4} sm={4} className="mt-4">
+    <Col lg={4} md={4} xs={4} sm={4} className="d-flex flex-column d-none d-xl-block mt-4">
 
         <Col lg={12} md={12} xs={12} className="d-flex flex-wrap justify-content-center">
             {(tagsArr.length < 1) ? <></> : tagsArr.map((tag, index) => {

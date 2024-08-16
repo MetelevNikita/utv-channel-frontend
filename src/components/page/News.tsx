@@ -100,7 +100,7 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
         <Col md={12} sm={12} xs={12} className='d-flex flex-md-row flex-column justify-content-around mt-4'>
 
             {buttonArr.map((button, index) => {
-              return <Col style={{width: '48%'}} key={index} md={6} sm={12} xs={12} onClick={button.onClick} className='mb-4 d-flex justify-content-between'><MyButtonLink style={{height: '116px', textDecoration: 'none', fontSize: '19px', color: 'black', border: '1px solid #FEA633'}} linkTitle={button.title} linkImg={button.img}/></Col>
+              return <Col key={index} md={5} sm={12} xs={12} onClick={button.onClick} className='mb-4 d-flex justify-content-center align-items-center'><MyButtonLink style={{width: '100%', height: '116px', textDecoration: 'none', fontSize: 'calc(0.9em + 0.1vw)', color: 'black', border: '1px solid #FEA633'}} linkTitle={button.title} linkImg={button.img}/></Col>
             })}
 
 

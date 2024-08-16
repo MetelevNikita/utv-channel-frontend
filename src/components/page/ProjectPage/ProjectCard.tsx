@@ -3,7 +3,11 @@ import { CSSProperties, FC } from 'react'
 //
 
 import { Row, Col, Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+
+
+// components
+
+import MyImageAnimation from '../../UI/MyImageAnimation'
 
 //
 
@@ -16,16 +20,24 @@ interface ProjectCardProps {
 
 
 
+
+
+
 const ProjectCard: FC<ProjectCardProps> = ({ title, description, img, style }) => {
+
+
+  const descriptionShort = description.slice(0, 100) + '...'
+
+
   return (
 
 
 
         <Col style={{width: '286px', height: '241px'}}>
 
-        <Col style={{width: '286px', height: '162px', overflow: 'hidden',display: 'flex', justifyContent: 'center', alignItems: 'center'}}><img style={{width: '100%'}}  src={img} alt="project-img" /></Col>
+        <Col style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><MyImageAnimation image={img} width={'286px'} height={'160px'} scaleStart={1.3} scaleEnd={1}/></Col>
         <Col style={{height: 'max-content', maxWidth: '286px', color: 'black', fontWeight: '800'}} className='mt-2'>{title}</Col>
-        <Col style={{height: 'max-content', maxWidth: '286px', color: 'black', fontSize: '13px'}} className='mt-2'>{description}</Col>
+        <Col style={{height: 'max-content', maxWidth: '286px', color: 'black', fontSize: '13px'}} className='mt-2'>{descriptionShort}</Col>
 
         </Col>
 

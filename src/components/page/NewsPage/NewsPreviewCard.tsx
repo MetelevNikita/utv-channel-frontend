@@ -1,13 +1,8 @@
 import { FC } from 'react'
 
-// img
-
-import newsPrev from '../../../asset/news/news-preview-img.png'
-
 //
 
 import { Col, Row } from 'react-bootstrap'
-import { CSSProperties } from 'styled-components'
 
 //
 

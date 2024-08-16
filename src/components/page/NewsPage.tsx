@@ -109,13 +109,13 @@ const NewsPage = () => {
 
 
 
-    <Row md={10} sm={10} xs={12} style={{minHeight: '400px', backgroundColor: '#FFA52F', padding: '0px'}} className='mt-5 justify-content-center align-items-center'>
+    <Row md={10} sm={10} xs={12} style={{minHeight: '400px', backgroundColor: '#e9ecef', padding: '0px'}} className='mt-5 justify-content-center align-items-center'>
 
 
 
 
               {(popularList.length < 1) ? <Col>Нет популярных карточек</Col> : popularList.map((item, index)  =>  {
-                  return <Col lg={3} md={3} sm={12} xs={12} className='d-flex justify-content-center'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard video={item.video} img={item.image_1} title={item.lead.slice(0,100) + '...'} date={item.date} author={item.author} colorTitle='#ffffff' colorDate='#ffffff' sizeBlock={{flex: 'flex-column', sizeTitle: '12px', sizeInfo: '12px'}}/></Link></Col>
+                  return <Col lg={3} md={3} sm={12} xs={12} className='d-flex justify-content-center mt-3'><Link to={`/news/${item.id}`} key={item.id} style={{color: 'black'}}><NewsPreviewCard video={item.video} img={item.image_1} title={item.lead.slice(0,100) + '...'} date={item.date} author={item.author} colorTitle='black' colorDate='black' sizeBlock={{flex: 'flex-column', sizeTitle: '16px', sizeInfo: '14px'}}/></Link></Col>
               })}
 
 

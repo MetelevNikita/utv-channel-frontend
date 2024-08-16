@@ -1,6 +1,13 @@
 /* header */
 
 
+.logo_menu_animation:active {
+  transform: scale(1.05);
+  transition: all, 0.10s ease;
+
+}
+
+
 .header_menu_animation:hover {
 
   color: #ffa52f;
@@ -144,4 +151,71 @@
   transform: scale(1.10);
   transition: all 0.5s ease-in-out;
 
+}
+
+
+/* more_news */
+
+
+.more_news_animation:active {
+  transform: scale(1.10);
+  transition: all 1s ease;
+}
+
+
+
+
+/* schedule */
+
+
+
+.schedule_btn {
+  width: 100%;
+  background-color: #FEA633;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+}
+
+
+.schedule_btn_checked {
+  width: 100%;
+  border-radius: 5px;
+  background-color: #F9BC6E;
+}
+
+
+.schedule_btn:hover {
+  width: 181px;
+  height: 51px;
+  border-radius: 5px;
+  background-color: #F9BC6E;
+}
+
+.schedule_btn:active {
+  transform: scale(1.05);
+  transition: 0.05s ease all;
+}
+
+
+/* shelude */
+
+.card {
+
+  width: 90%;
+  height: 50px;
+  border-radius: 0px;
+  border: 0px solid black;
+  border-bottom: 1px solid #FEA633;
+
+}
+
+.card_active {
+  width: 90%;
+  height: 50px;
+  border-radius: 0px;
+  border: 0px solid black;
+  border-bottom: 1px solid #FEA633;
+  background-color: #FEA633;
+  color: white;
 }
