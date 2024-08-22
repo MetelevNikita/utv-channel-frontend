@@ -22,6 +22,7 @@ import NewsPage from './components/page/NewsPage';
 import NewsOpenCard from './components/page/NewsPage/NewsOpenCard';
 import ProjectPage from './components/page/ProjectPage/ProjectPage';
 import ProjectOpenCard from './components/page/ProjectPage/ProjectOpenCard';
+import Contacts from './components/page/Contacts';
 
 
 // modals
@@ -75,6 +76,7 @@ const App = () => {
             <Route path='/news/:id' element={<NewsOpenCard />}></Route>
             <Route path='/project' element={<ProjectPage />}></Route>
             <Route path='/project/:id' element={<ProjectOpenCard />}></Route>
+            <Route path='/contacts' element={<Contacts />}></Route>
 
           </Routes>
           </div>

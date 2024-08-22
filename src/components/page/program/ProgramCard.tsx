@@ -92,7 +92,7 @@ const ProgramCard: FC<ProgramCardProps> = ({ image, title, subtitle, date, descr
 
                       <Col md={12} sm={12} xs={12} className='mb-3'>
                         <Col style={{fontSize: '35px', fontWeight: '800', color: 'white'}}>{title}</Col>
-                        <Col style={{fontSize: '27px', fontWeight: '400', color: 'white'}}>{subtitle}</Col>
+                        <Col style={{fontSize: '23px', fontWeight: '400', color: 'white'}}>{subtitle.toLocaleUpperCase()}</Col>
                       </Col>
 
                       <Col md={12} sm={12} xs={12} className='mb-4' style={{fontSize: '14px', fontWeight: '200', color: 'white', height: '70px'}}>{description}</Col>

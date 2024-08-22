@@ -28,7 +28,7 @@ const MoreNews: FC<MoreNewsProps> = ({ title, lead, author, date, tag }) => {
 
   return (
 
-    <Col className='more_news_animation' md={12} sm={12} xs={12} style={{width: '100%', height: 'max-content', padding: '30px', border: '1px solid black', borderRadius: '5px'}}>
+    <Col className='more_news_animation' md={12} sm={12} xs={12} style={{width: '100%', height: 'max-content', padding: '30px', border: '1px solid black'}}>
 
         <Col md={8} sm={12} xs={12} className='d-flex mb-3'>
 

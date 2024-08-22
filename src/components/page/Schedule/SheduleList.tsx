@@ -147,7 +147,7 @@ const SheduleList = () => {
         <Col style={{width: '100%', height: '400px', overflow: 'auto'}} className='d-flex flex-column align-items-center'>
           {
               currentDaySelector.map((item: any, index: any) => {
-              return <SheduleCard className={(item.time !== currentTimeSelector.time) ? 'd-flex flex-column card' : 'd-flex flex-column card_active'} key={index} title={item.title} time={item.time} marker={item.marker}/>
+              return <SheduleCard className={(item.time !== currentTimeSelector.time) ? 'd-flex flex-column card' : 'd-flex flex-column card_active'} key={index} title={item.title} time={item.time} subtitle={item.subtitle} marker={item.marker}/>
             })
           }
         </Col>

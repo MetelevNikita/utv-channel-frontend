@@ -25,8 +25,6 @@ const NewsOpenCard = () => {
 
   useEffect(() => {dispatch(getAsyncNews())}, [])
 
-
-
   const dispatch = useAppDispatch()
   const newsSelector = useAppSelector(state => state.news.news)
 
@@ -35,21 +33,15 @@ const NewsOpenCard = () => {
   const date = new Date().toLocaleDateString()
 
 
-
-
   const currentDayNews = newsSelector.filter((card) => {return card.date === date})
   const currentCard = newsSelector.find(card => card.id.toString() === id);
   const popularCard = newsSelector.map((card) => card).sort((a, b) => a.views - b.views)
 
-
-
-
-
-
-
   if (!currentCard) {
     return <h1>LOADING</h1>;
   }
+
+
 
   const moreNewsArr = newsSelector.filter((card) => {
     return card.tags.includes(currentCard.tags.split(' ')[0])
@@ -87,7 +79,7 @@ const NewsOpenCard = () => {
 
       {(image) ? <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={image} alt="title-img" /></Col> : <></>}
 
-      {(imgcomment) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px" }} className="mb-2">источник: {imgcomment}</Col> : <></>}
+      {(imgcomment) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey'}} className="mb-2">источник: {imgcomment}</Col> : <></>}
 
       {(text) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-4">{text}</Col> : <></>}
 
@@ -110,7 +102,7 @@ const NewsOpenCard = () => {
   }
 
 
-  console.log(currentCard.views)
+
 
 
 
@@ -129,9 +121,9 @@ const NewsOpenCard = () => {
       </Col>
 
       <Col md={12} sm={6} xs={6} className="d-flex flex-lg-row flex-column mb-4">
-        <Col md={3} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.8em + 0.2vw)"}}>Дата: {currentCard.date}</Col>
-        <Col md={6} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.8em + 0.2vw)"}}>Автор: {currentCard.author}</Col>
-        <Col md={3} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.8em + 0.2vw)"}}>Просмотры: {currentCard.views}</Col>
+        <Col md={3} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.2vw)"}}>Дата: {currentCard.date}</Col>
+        {(currentCard.author === '') ? <></> : <Col md={6} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.2vw)"}}>Автор: {currentCard.author}</Col>}
+        <Col md={3} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.2vw)"}}>Просмотры: {currentCard.views}</Col>
       </Col>
 
 
@@ -140,13 +132,9 @@ const NewsOpenCard = () => {
 
       {(!currentCard.video) ? <></> : <Col md={12} sm={12} xs={12} className="mb-3"><iframe width="100%" height="485" src={currentCard.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></Col>}
 
-
-
       {(!currentCard.image_1) ? <></> : <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={currentCard.image_1} alt="title-img" /></Col>}
 
-
-      {(!currentCard.image_comment_1) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-4">источник: {currentCard.image_comment_1}</Col>}
-
+      {(!currentCard.image_comment_1) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey' }} className="mb-4">источник: {currentCard.image_comment_1}</Col>}
 
       {(!currentCard.text_1) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-4">{currentCard.text_1}</Col>}
 

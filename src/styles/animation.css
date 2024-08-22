@@ -203,19 +203,24 @@
 .card {
 
   width: 90%;
-  height: 50px;
+  height: max-content;
   border-radius: 0px;
   border: 0px solid black;
-  border-bottom: 1px solid #FEA633;
 
 }
 
 .card_active {
   width: 90%;
-  height: 50px;
+  min-height: max-content;
+  max-height: 100px;
   border-radius: 0px;
   border: 0px solid black;
-  border-bottom: 1px solid #FEA633;
   background-color: #FEA633;
   color: white;
+}
+
+.card_btn:active {
+  transform:  scale(1.10);
+  transition: all 0.05s ease;
+
 }

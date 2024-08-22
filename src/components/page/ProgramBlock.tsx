@@ -26,7 +26,6 @@ import { programCardType } from '../../types/types'
 
 const ProgramBlock = () => {
 
-
   const api = useSpringRef()
   const styles = useSpring({
     ref: api,
@@ -38,7 +37,6 @@ const ProgramBlock = () => {
 
 
   const handleZoom = (id: any) => {
-
       api.start({
         to: {
           transform: styles.transform.get() === 'scale(100%)' ? 'scale(120%)' : 'scale(100%)'
@@ -54,7 +52,12 @@ const ProgramBlock = () => {
   const dispatch = useAppDispatch()
   const programSelector: programCardType[] = useAppSelector(state => state.program.program)
   const [idCard, setIdCard] = useState(1)
-  const checkedCard = programSelector.filter((card) => card.id === idCard)
+  const checkedCard = programSelector.filter((item, index) => index + 1 === idCard)
+
+
+  console.log(idCard)
+  console.log(checkedCard)
+
 
 
   const isActive = {
@@ -76,9 +79,15 @@ const ProgramBlock = () => {
 
 
 
+
+
   if(programSelector.length < 1) {
     return <Col lg={12} md={12} sm={12} xs={12} style={{width: '50%', height: 'max-content', textAlign: 'center'}}>Loading...</Col>
   }
+
+
+
+  const shortDescription = checkedCard[0].description.slice(0, 100) + '...'
 
 
 
@@ -86,13 +95,13 @@ const ProgramBlock = () => {
 
     <Col md={12} sm={12} xs={12} className='mt-5'>
 
-      <Col md={12} sm={12} xs={12} className='d-flex align-items-center justify-content-center mb-4'><ProgramCard image={checkedCard[0].image} title={checkedCard[0].title} subtitle={checkedCard[0].subtitle} description={checkedCard[0].description} date={checkedCard[0].date} link={checkedCard[0].link} /></Col>
+      <Col md={12} sm={12} xs={12} className='d-flex align-items-center justify-content-center mb-4'><ProgramCard image={checkedCard[0].image} title={checkedCard[0].title} subtitle={checkedCard[0].subtitle} description={shortDescription} date={checkedCard[0].date} link={checkedCard[0].link} /></Col>
 
       <Col md={12} sm={12} xs={12} className='d-flex flex-row'>
 
         <Col className='d-flex flex-row'>
           {(programSelector.length < 1) ? <></> : programSelector.map((card, index) => {
-            return <Col key={index} lg={3} md={3} sm={3} xs={3} className='d-none d-xl-block'><img onClick={() => { setIdCard(card.id) } } style={(checkedCard[0].id === card.id) ? isActive : disActive} src={card.image} alt="img" /></Col>
+            return <Col key={index} lg={3} md={3} sm={3} xs={3} className='d-none d-xl-block'><img onClick={() => { setIdCard(card.id - 1) } } style={(checkedCard[0].id === card.id) ? isActive : disActive} src={card.image} alt="img" /></Col>
           })}
         </Col>
 

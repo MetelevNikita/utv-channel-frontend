@@ -1,0 +1,14 @@
+<svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 466.04 163.53">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="186.16" y1="287.06" x2="652.21" y2="287.06" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffab33"/>
+      <stop offset="1" stop-color="#e8120b"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-1" d="M288.23,205.29v93.45c0,17.56-14.51,29.32-29.38,29.32-20.32,0-29.32-17.15-29.32-29.32V226.92c0-14-7-21.63-21.63-21.63H186.16v80c0,55.6,26.43,83.51,75.27,83.51,40.69,0,70.17-23.58,70.17-81.61V205.29Zm55.93,0v20.39a20.51,20.51,0,0,0,18,20.27h38.95V365.57h43.36V246h49.91l-16.31-40.66Zm265.15,0L574.5,301,538,205.29H492.21l57.95,144.86a24.52,24.52,0,0,0,45.62-.2l56.43-144.66Z" transform="translate(-186.16 -205.29)"/>
+</svg>
