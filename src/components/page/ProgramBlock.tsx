@@ -55,11 +55,6 @@ const ProgramBlock = () => {
   const checkedCard = programSelector.filter((item, index) => index + 1 === idCard)
 
 
-  console.log(idCard)
-  console.log(checkedCard)
-
-
-
   const isActive = {
     height: '162px',
     width: '286px',

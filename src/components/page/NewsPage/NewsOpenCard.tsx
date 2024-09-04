@@ -37,15 +37,23 @@ const NewsOpenCard = () => {
   const currentCard = newsSelector.find(card => card.id.toString() === id);
   const popularCard = newsSelector.map((card) => card).sort((a, b) => a.views - b.views)
 
+
+
   if (!currentCard) {
     return <h1>LOADING</h1>;
   }
 
 
+  const newsCardTag = currentCard.tags.split(' ')
+  console.log(newsCardTag)
+
 
   const moreNewsArr = newsSelector.filter((card) => {
     return card.tags.includes(currentCard.tags.split(' ')[0])
-  })
+  }).filter((card) => {return card.title !== currentCard.title})
+
+
+  console.log(moreNewsArr)
 
 
   const newViews = async () => {
@@ -103,12 +111,7 @@ const NewsOpenCard = () => {
 
 
 
-
-
-
-
   return (
-
 
     <Container>
 
@@ -192,7 +195,7 @@ const NewsOpenCard = () => {
     <Col lg={4} md={4} xs={4} sm={4} className="d-flex flex-column d-none d-xl-block mt-4">
 
         <Col lg={12} md={12} xs={12} className="d-flex flex-wrap justify-content-center">
-            {(tagsArr.length < 1) ? <></> : tagsArr.map((tag, index) => {
+            {(newsCardTag.length < 1) ? <></> : newsCardTag.map((tag, index) => {
               return <Col style={{width: '40%', margin: '10px'}} className="d-flex justify-content-center mb-3" lg={6} md={6} xs={6} key={index}><MyTags tag={tag} /></Col>
             })}
         </Col>

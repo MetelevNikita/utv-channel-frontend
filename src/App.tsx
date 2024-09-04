@@ -23,11 +23,13 @@ import NewsOpenCard from './components/page/NewsPage/NewsOpenCard';
 import ProjectPage from './components/page/ProjectPage/ProjectPage';
 import ProjectOpenCard from './components/page/ProjectPage/ProjectOpenCard';
 import Contacts from './components/page/Contacts';
+import SearchNews from './components/page/SearchNews';
 
 
 // modals
 
 import ModalNews from './components/modals/ModalNews';
+import ModalSubmit from './components/modals/ModalSubmit';
 
 
 //
@@ -42,7 +44,7 @@ import { transform } from 'typescript';
 type modalNewsMessageProps = {
   name: string
   phone: string
-  file: any
+  email: string
   message: string
 
 }
@@ -53,38 +55,50 @@ const App = () => {
 
 
   const [modalNewsOpen, setModalNewsOpen] = useState(false)
+  const [modalSubmitAgree, setModalSubmitAgree] = useState(false)
+  const [modalSubmitDisagree, setModalSubmitDisagree] = useState(false)
+
+
+
+
   const [modalNewsMessage, setModalNewsMessage] = useState<modalNewsMessageProps>({
     name: '',
     phone: '',
-    file: '',
+    email: '',
     message: '',
   })
-  const [findNews, setFindNews] = useState('')
+
+
+
+  const [searchNews, setSearchNews] = useState('')
+
 
 
   return (
       <Container fluid>
 
-        <Header find={{findNews, setFindNews}}/>
+        <Header search={{searchNews, setSearchNews}}/>
 
           <div className='content'>
           <Routes>
 
-            <Route path='/' element={<Main modalOpen={{modalNewsOpen, setModalNewsOpen}}/>}></Route>
+            <Route path='/' element={<Main modalOpen={{modalNewsOpen, setModalNewsOpen}} modalAgree={{modalSubmitAgree, setModalSubmitAgree}} modalDisAgree={{modalSubmitDisagree, setModalSubmitDisagree}}/>}></Route>
             <Route path='/about' element={<Channel />}></Route>
             <Route path='/news' element={<NewsPage/>}></Route>
             <Route path='/news/:id' element={<NewsOpenCard />}></Route>
             <Route path='/project' element={<ProjectPage />}></Route>
             <Route path='/project/:id' element={<ProjectOpenCard />}></Route>
             <Route path='/contacts' element={<Contacts />}></Route>
+            <Route path='/search' element={<SearchNews search={{searchNews, setSearchNews}}/>}></Route>
 
           </Routes>
           </div>
 
             <Footer />
 
-        {(!modalNewsOpen) ? <></> : <ModalNews modalOpen={{modalNewsOpen, setModalNewsOpen}} modalMessage ={{modalNewsMessage, setModalNewsMessage}}/>}
-
+        {(!modalNewsOpen) ? <></> : <ModalNews modalOpen={{modalNewsOpen, setModalNewsOpen}} modalAgree={{modalSubmitAgree, setModalSubmitAgree}} modalDisAgree={{modalSubmitDisagree, setModalSubmitDisagree}} modalMessage ={{modalNewsMessage, setModalNewsMessage}}/>}
+        {(!modalSubmitAgree) ? <></> : <ModalSubmit title='Сообщение отправлено' buttonTitle='Закрыть' fn={() => {setModalSubmitAgree(false)}}></ModalSubmit>}
+        {(!modalSubmitDisagree) ? <></> : <ModalSubmit title='Заполните все поля' buttonTitle='Продолжить' fn={() => {setModalSubmitDisagree(false)}}></ModalSubmit>}
 
 
       </Container>

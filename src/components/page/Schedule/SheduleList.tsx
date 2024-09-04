@@ -99,21 +99,24 @@ const SheduleList = () => {
 
 
 
+  const checkedDaySelector = epgSelector.filter((item: any, index: any) => {
+    return item.date[0] === currentDay
+  })
+
+
 
   const getCurrentTimeIndex = () => {
-
-    for (let i = 0; i < currentDaySelector.length; i++) {
-      if (currentDaySelector[i].time > currentTime) {
-        return currentDaySelector[i-1]
+    for (let i = 0; i < checkedDaySelector.length; i++) {
+      if (checkedDaySelector[i].time > currentTime) {
+        return checkedDaySelector[i-1]
       }
     }
   }
 
 
 
-
-
   const currentTimeSelector =  getCurrentTimeIndex()
+
 
 
 

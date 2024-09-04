@@ -12,11 +12,12 @@ interface MyInputProps  {
   onChange: (e: any) => any,
   value: string,
   style: CSSProperties
+  required?: boolean
 }
 
-const MyInput: FC<MyInputProps> = ({ type, placeholder, onChange, value, style }) => {
+const MyInput: FC<MyInputProps> = ({ type, placeholder, onChange, value, style, required}) => {
   return (
-    <input className='d-flex' style={style} type={type} placeholder={placeholder} onChange={onChange} value={value}/>
+    <input className='d-flex' style={{...style, outline: 'none'}} type={type} placeholder={placeholder} onChange={onChange} value={value} required={required}/>
 
   )
 }

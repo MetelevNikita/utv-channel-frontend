@@ -79,7 +79,7 @@
 
 .animation_my_button {
   border: 1px solid black;
-  border-radius: 67px;
+  border-radius: 10px;
   color: black
 
 }
@@ -88,7 +88,7 @@
   color: white;
   border: 1px solid rgba(0, 0, 0, 0);
   background-color: #FEA633;
-  border-radius: 67px;
+  border-radius: 10px;
 }
 
 
@@ -124,7 +124,7 @@
   color: white;
   border: 1px solid rgba(0, 0, 0, 0);
   background-color: #FEA633;
-  border-radius: 67px;
+  border-radius: 10px;
 
 }
 
@@ -133,7 +133,7 @@
   color: black;
   border: 1px solid rgb(0, 0, 0);
   background-color: #fea63300;
-  border-radius: 67px;
+  border-radius: 10px;
 
 }
 

@@ -8,7 +8,7 @@ export const getAsyncEpg = createAsyncThunk(
   async () => {
     try {
 
-      const responce = await fetch('http://localhost:9000/api/v1/epg', {
+      const responce = await fetch(`${process.env.REACT_APP_API_URL}/epg`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

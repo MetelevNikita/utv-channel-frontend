@@ -2,7 +2,7 @@
 
 import '../../styles/animation.css'
 
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
 //
 
@@ -26,14 +26,95 @@ import MyButton from '../UI/MyButton'
 interface ModalNewsProps  {
   modalMessage: {modalNewsMessage: any, setModalNewsMessage: any}
   modalOpen: {modalNewsOpen: boolean, setModalNewsOpen: any}
+  modalAgree: any
+  modalDisAgree: any
 }
 
 
-const ModalNews: FC<ModalNewsProps>  = ({ modalMessage, modalOpen }) => {
+const ModalNews: FC<ModalNewsProps>  = ({ modalMessage, modalOpen, modalAgree, modalDisAgree }) => {
 
 
   const {modalNewsMessage, setModalNewsMessage} = modalMessage
   const {modalNewsOpen, setModalNewsOpen} = modalOpen
+
+  //
+
+  const {modalSubmitDisagree, setModalSubmitDisagree} = modalDisAgree
+  const {modalSubmitAgree, setModalSubmitAgree} = modalAgree
+
+  //
+
+
+  const [chk, setChk] = useState(false)
+
+
+  console.log(chk)
+
+  const closeModalNews = () => {
+
+    setModalNewsMessage({
+      name: '',
+      phone: '',
+      email: '',
+      message: '',
+    })
+
+    setModalNewsOpen(false)
+
+  }
+
+
+  const sendTgMessage = async () => {
+
+    const message = `Новое сообщение\n\nАвтор: ${modalNewsMessage.name}\n\nТелефон: ${modalNewsMessage.phone}\n\nПочта: ${modalNewsMessage.email}\n\n\nСообщение\n\n${modalNewsMessage.message}`
+
+
+    const TOKEN = process.env.REACT_APP_TG_TOKEN
+    const API_KEY = process.env.REACT_APP_TG_ID
+
+    try {
+
+
+      if(modalNewsMessage.name === '' && modalNewsMessage.phone === '' && modalNewsMessage.email === '' && modalNewsMessage.message === '') {
+        setModalNewsOpen(true)
+        setModalSubmitDisagree(true)
+        return
+      }
+
+
+
+      if(chk === false) {
+        setModalNewsOpen(true)
+        setModalSubmitDisagree(true)
+        return
+      }
+
+
+
+      const responce = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: {
+          'content-type':'application/json'
+        },
+
+        body: JSON.stringify({chat_id: API_KEY, parse_mode: 'html', text: message})
+      })
+
+      if (responce.ok) {
+        setModalNewsOpen(false)
+        setModalSubmitAgree(true)
+      } else {
+        setModalNewsOpen(true)
+        setModalSubmitDisagree(true)
+      }
+
+    } catch (error) {
+      console.error(`Ошибка отправки файла в телеграм ${error}`)
+    }
+
+
+  }
+
 
 
 
@@ -48,7 +129,7 @@ const ModalNews: FC<ModalNewsProps>  = ({ modalMessage, modalOpen }) => {
 
             <Col lg={12} md={12} sm={12} className='d-flex justify-content-end mb-2 mt-1'>
 
-                  <Col lg={2} md={2} sm={2} style={{width: '25px', background: 'grey', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '50%', color: 'white', marginRight: '20px', marginTop: '10px', cursor: 'pointer'}} onClick={() => {setModalNewsOpen(false)}}>X</Col>
+                  <Col lg={2} md={2} sm={2} style={{width: '25px', background: 'grey', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '50%', color: 'white', marginRight: '20px', marginTop: '10px', cursor: 'pointer'}} onClick={() => {closeModalNews()}}>X</Col>
 
             </Col>
 
@@ -58,24 +139,25 @@ const ModalNews: FC<ModalNewsProps>  = ({ modalMessage, modalOpen }) => {
             <Col lg={12} md={12} sm={12} className='mb-4' style={{fontSize: '32px', fontWeight: '600', color: '#FEA633', maxWidth: '300px', textAlign: 'center', lineHeight: '30px'}}>У вас есть новость для нас?</Col>
             <Col lg={12} md={12} sm={12} className='mb-4' style={{fontSize: '14px', fontWeight: '400', color: '#000000', maxWidth: '385px', textAlign: 'center'}}>Отправте ее нам. Мы будем очень благодарны!</Col>
 
-            <Col lg={12} md={12} sm={12} className='d-flex justify-content-center mb-3'><MyInput type='text' value={''} onChange={() => {}} placeholder={'asda'} style={{paddingLeft: '10px', border: '1px solid #D1D1D1', borderRadius: '8px', width: '90%', height: '44px', }}></MyInput></Col>
-            <Col lg={12} md={12} sm={12} className='d-flex justify-content-center mb-3'><MyInput type='text' value={''} onChange={() => {}} placeholder={'asda'} style={{paddingLeft: '10px', border: '1px solid #D1D1D1', borderRadius: '8px', width: '90%', height: '44px', }}></MyInput></Col>
+            <Col lg={12} md={12} sm={12} className='d-flex justify-content-center mb-3'><MyInput type='text' value={modalNewsMessage.name} onChange={(e) => {setModalNewsMessage({...modalNewsMessage, name: e.target.value})}} placeholder={'Ваше имя'} style={{paddingLeft: '10px', border: '1px solid #D1D1D1', borderRadius: '8px', width: '90%', height: '44px', }} required></MyInput></Col>
 
-            <Col lg={12} md={12} sm={12} className='d-flex justify-content-center mb-3'><MyInput type='text' value={''} onChange={() => {}} placeholder={'asda'} style={{paddingLeft: '10px', border: '1px solid #D1D1D1', borderRadius: '8px', width: '90%', height: '44px', }}></MyInput></Col>
+            <Col lg={12} md={12} sm={12} className='d-flex justify-content-center mb-3'><MyInput type='phone' value={modalNewsMessage.phone} onChange={(e) => {setModalNewsMessage({...modalNewsMessage, phone: e.target.value})}} placeholder={'Ваш телефон'} style={{paddingLeft: '10px', border: '1px solid #D1D1D1', borderRadius: '8px', width: '90%', height: '44px', }}></MyInput></Col>
 
-            <Col lg={12} md={12} sm={12} className='d-flex justify-content-center align-items-center mb-3'><MyTextArea onChange={() => {}} value={''} cols={14} rows={5} style={{paddingLeft: '10px', border: '1px solid #D1D1D1', borderRadius: '8px', width: '90%', height: '137px', paddingTop: '10px', outline: 'none'}} placeholder='текст'></MyTextArea></Col>
+            <Col lg={12} md={12} sm={12} className='d-flex justify-content-center mb-3'><MyInput type='text' value={modalNewsMessage.email} onChange={(e) => {setModalNewsMessage({...modalNewsMessage, email: e.target.value})}} placeholder={'Ваша почта'} style={{paddingLeft: '10px', border: '1px solid #D1D1D1', borderRadius: '8px', width: '90%', height: '44px', }}></MyInput></Col>
+
+            <Col lg={12} md={12} sm={12} className='d-flex justify-content-center align-items-center mb-3'><MyTextArea onChange={(e) => {setModalNewsMessage({...modalNewsMessage, message: e.target.value})}} value={modalNewsMessage.message} cols={14} rows={5} style={{paddingLeft: '10px', border: '1px solid #D1D1D1', borderRadius: '8px', width: '90%', height: '137px', paddingTop: '10px', outline: 'none'}} placeholder='Сообщение'></MyTextArea></Col>
 
 
             <Col lg={12} md={12} sm={12} className='d-flex justify-content-center align-items-center mb-3' style={{width: '90%'}}>
 
-                <Col lg={1} md={1} sm={1}><input type="checkbox" /></Col>
+                <Col lg={1} md={1} sm={1}><input type="checkbox" checked={chk} onChange={() => {setChk(prev => !prev)}}/></Col>
                 <Col lg={11} md={11} sm={11} style={{fontSize: '12px'}}>Я согласен на обработку персональных данных и ознакомлен с условиями пользовательского соглашения </Col>
 
             </Col>
 
 
 
-            <Col lg={12} md={12} sm={12} className='d-flex justify-content-center align-items-center mb-3'><MyButton text={'Отправить'} onClick={() => {console.log('click')}} style={{width: '90%', height: '44px', borderRadius: '8px'}} className='modal_button_submit'></MyButton></Col>
+            <Col lg={12} md={12} sm={12} className='d-flex justify-content-center align-items-center mb-3'><MyButton text={'Отправить'} onClick={() => {sendTgMessage()}} style={{width: '90%', height: '44px', borderRadius: '8px'}} className='modal_button_submit'></MyButton></Col>
       </Col>
 
 

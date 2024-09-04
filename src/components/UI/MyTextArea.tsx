@@ -19,7 +19,7 @@ interface MyTextAreaProps  {
 const MyTextArea: FC<MyTextAreaProps> = ({ onChange, value, cols, rows, style, placeholder }) => {
   return (
 
-<textarea style={style} onChange={onChange} value={value} cols={cols} rows={rows} placeholder={placeholder}></textarea>
+<textarea style={{...style, outline: 'none'}} onChange={onChange} value={value} cols={cols} rows={rows} placeholder={placeholder}></textarea>
   )
 }
 

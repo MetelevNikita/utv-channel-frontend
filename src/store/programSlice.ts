@@ -15,7 +15,7 @@ export const getAsyncProgram = createAsyncThunk(
   'getAsyncProgram',
 
   async () => {
-    const responce = await fetch('http://localhost:9000/api/v1/program', {
+    const responce = await fetch(`${process.env.REACT_APP_API_URL}/program`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

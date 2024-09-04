@@ -32,25 +32,21 @@ interface MenuHeader {
 }
 
 interface HeaderProps {
-  find: any
+  search: any
 }
 
 
-const Header: FC<HeaderProps> = ({ find }) => {
+const Header: FC<HeaderProps> = ({search}) => {
 
 
-  const {findNews, setFindNews} = find
+  const [searchText, setSearchText] = useState('')
+  const {searchNews, setSearchNews} = search
 
 
   const menuHeader: MenuHeader[] = [
     {
       title: 'Новости',
       link: '/news'
-    },
-
-    {
-      title: 'Телепрограмма',
-      link: '/program'
     },
 
     {
@@ -71,9 +67,13 @@ const Header: FC<HeaderProps> = ({ find }) => {
   ]
 
 
-  const [styles, api] = useSpring(() => ({
-    opacity: 0
-  }))
+
+  const searchTextHandler = () => {
+
+    setSearchNews(searchText)
+    setSearchText('')
+  }
+
 
 
   return (
@@ -92,13 +92,11 @@ const Header: FC<HeaderProps> = ({ find }) => {
         </Col>
 
 
-          <Col md={3} sm={12} xs={12} className='d-flex justify-lg-content-end justify-content-center align-items-center flex-row mb-4'>
+          <Col md={3} sm={12} xs={12} className='d-flex justify-content-lg-end justify-content-center align-items-center flex-row mb-4'>
 
 
-            <Col style={{width: '100%', height: '45px'}} className='d-flex align-items-center justify-lg-content-end justify-content-center mb-md-0'><SearchIcon className='d-flex align-items-center header_search_icon' onClick={() => {api.start({opacity: 1})}}/></Col>
-
-
-            <animated.div style={{fontSize: '15px', fontWeight: 'bold', color: '#FEA633', width: '184px', minHeight: '45px', border: '1px solid #FEA633', borderRadius: '45px', ...styles}}><MyInput style={{minHeight: '45px', width: '184px', display: 'flex', justifyContent: 'center', paddingLeft: '10px', paddingRight: '10px'}} type='text' placeholder='' value={findNews} onChange={(e) => {setFindNews(e.target.value)}}></MyInput></animated.div>
+            <Link to={'/search'}><SearchIcon onClick={() => {searchTextHandler()}} className='d-flex align-items-center header_search_icon'/></Link>
+            <MyInput style={{marginLeft: '10px', height: '45px', width: '184px', display: 'flex', justifyContent: 'center', paddingLeft: '10px', paddingRight: '10px', border: '1px solid #c8c8c8', borderRadius: '10px'}} type='text' placeholder='' value={searchText} onChange={(e) => {setSearchText(e.target.value)}}></MyInput>
 
           </Col>
 

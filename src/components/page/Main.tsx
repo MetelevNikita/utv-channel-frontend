@@ -20,11 +20,13 @@ import { Col, Container } from 'react-bootstrap'
 
 interface MainProps {
   modalOpen: any
+  modalAgree: any
+  modalDisAgree: any
 
 }
 
 
-const Main: FC<MainProps> = ({ modalOpen }) => {
+const Main: FC<MainProps> = ({ modalOpen, modalAgree, modalDisAgree }) => {
 
 
 
@@ -37,7 +39,7 @@ const Main: FC<MainProps> = ({ modalOpen }) => {
           <News modalOpen={modalOpen}/>
           <Projects />
           <SheduleList />
-          <About />
+          <About modalAgree={modalAgree} modalDisAgree={modalDisAgree}/>
 
     </Container>
 

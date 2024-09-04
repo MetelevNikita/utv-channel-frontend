@@ -48,7 +48,7 @@ const NewsPreviewCard: FC<NewsPreviewCardProps> = ({ img, video, title, date, au
 
       <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-row' style={{width: '100%'}}>
           <Col  className='d-flex justify-content-start' style={{fontSize: sizeBlock.sizeInfo, fontWeight: '300', color: colorDate, width: '100%', height: 'max-content'}}>Дата: {date}</Col>
-          <Col  className='d-flex justify-content-start' style={{fontSize: sizeBlock.sizeInfo, fontWeight: '300', color: colorDate, width: '100%'}}>Автор: {author}</Col>
+          <Col  className='d-flex justify-content-start' style={{fontSize: sizeBlock.sizeInfo, fontWeight: '300', color: colorDate, width: '100%'}}>{(author === '') ? '' : `Автор: ${author}`}</Col>
       </Col>
 
       </Col>
