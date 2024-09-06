@@ -48,7 +48,7 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
 
   const sendTgSiteMessage = async () => {
 
-    const messageTg = `Сообщение с сайта\n\n Отправитель: ${message.name}\n\n Телефон: ${message.phone}\n\n Вопрос: ${message.question}`
+    const messageTg = `Сообщение с сайта!\n\n Отправитель: ${message.name}\n\n Телефон: ${message.phone}\n\n Вопрос: ${message.question}`
 
     if(message.name === '' || message.phone === '' || message.question === '') {
       setModalSubmitDisagree(true)
