@@ -154,7 +154,7 @@ const ProjectOpenCard = () => {
 
       <Col lg={5} md={6} sm={12} xs={12} className='d-flex flex-column justify-content-center align-items-center'>
 
-          <Col lg={12} md={12} sm={12} xs={12} className='d-flex justify-content-center align-items-center mb-4' style={{width: '540px', height: '300px', overflow: 'hidden'}}><MyImageAnimation image={currentProjectCard.image} width={'540px'} height={'303px'} scaleStart={1.3} scaleEnd={1}/></Col>
+          <Col lg={12} md={12} sm={12} xs={12} className='d-flex justify-content-center align-items-center mb-4' style={{width: '100%', height: 'max-content', overflow: 'hidden'}}><MyImageAnimation image={currentProjectCard.image} width={'540px'} height={'303px'} scaleStart={1.3} scaleEnd={1}/></Col>
 
           <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-md-row flex-column justify-content-center align-items-center'>
 
@@ -166,14 +166,14 @@ const ProjectOpenCard = () => {
       </Col>
 
 
-      <Col lg={5} md={5} sm={12} xs={12} className='d-flex flex-column mb-3'>
+      <Col lg={5} md={5} sm={12} xs={12} className='d-flex flex-column justify-content-lg-start justify-content-center mb-3'>
 
 
-          <Col style={{fontSize: '35px', fontWeight: '800', color: 'black', height: 'max-content', width: '100%'}} lg={6} md={6} sm={12} xs={12} className='mb-4'>{currentProjectCard.title}</Col>
-          <Col style={{fontSize: '14px', fontWeight: '300', color: '#878787', height: 'max-content', minHeight: '140px', maxHeight: 'max-content', width: '100%'}} lg={6} md={6} sm={12} xs={12}>{currentProjectCard.description}</Col>
+          <Col style={{fontSize: '35px', fontWeight: '800', color: 'black', height: 'max-content', width: '100%'}} lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-lg-start justify-content-center mb-4'>{currentProjectCard.title}</Col>
+          <Col style={{fontSize: '14px', fontWeight: '300', color: '#878787', height: 'max-content', minHeight: '140px', maxHeight: 'max-content', width: '100%'}} lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-lg-start justify-content-center mb-4'>{currentProjectCard.description}</Col>
 
 
-        <Col lg={6} md={6} sm={6} xs={6} className='d-flex mb-3' style={{width: '100%'}}>
+        <Col lg={6} md={6} sm={6} xs={6} className='d-flex justify-content-lg-start justify-content-center mb-4' style={{width: '100%'}}>
 
             <Col style={{fontSize: '17px', fontWeight: '300', color: '#878787', height: 'max-content'}} lg={6} md={6} sm={6} xs={6}>{`Хронометраж: ${currentProjectCard.duration} минут`}</Col>
             <Col style={{fontSize: '17px', fontWeight: '300', color: '#878787', height: 'max-content'}} lg={6} md={6} sm={6} xs={6}>{`Год выпуска: ${currentProjectCard.year}`}</Col>

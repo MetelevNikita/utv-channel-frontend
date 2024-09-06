@@ -149,11 +149,11 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
       </Col>
 
 
-      <Col md={12} sm={12} xs={12} className='d-flex justify-content-around align-items-center mt-5'>
+      <Col md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-column justify-content-around align-items-center mt-5'>
 
 
         {(infoArr.length < 1) ? <></> : infoArr.map((item, index) => {
-          return <Col md={2} sm={2} xs={2}><ContactsIcon img={item.img} title={item.title} info={item.info}/></Col>
+          return <Col md={2} sm={12} xs={12} className='mb-5' ><ContactsIcon img={item.img} title={item.title} info={item.info}/></Col>
         })}
 
 
@@ -173,36 +173,35 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
 
 
 
-        <Col md={5} sm={12} xs={12}>
+        <Col md={5} sm={12} xs={12} style={{marginRight: '10px', marginLeft: '10px'}}>
 
-          <div className='mb-4'>
+          <div className='mb-3'>
             <div style={{fontSize: '18px', fontWeight: '700'}} className='mb-2'>Имя</div>
-            <MyInput style={{border: '1px solid #c8c8c8', minWidth: '453px', maxWidth: '100%', height: '53px', paddingLeft: '10px', borderRadius: '8px'}} type={'text'} placeholder={'имя'} value={message.name} onChange={(e) => {setMessage({...message, name: e.target.value})}}></MyInput>
+            <MyInput style={{border: '1px solid #c8c8c8', width: '100%', height: '53px', paddingLeft: '10px', borderRadius: '8px'}} type={'text'} placeholder={'имя'} value={message.name} onChange={(e) => {setMessage({...message, name: e.target.value})}}></MyInput>
           </div>
 
-          <div>
+          <div className='mb-3'>
             <div style={{fontSize: '18px', fontWeight: '700'}} className='mb-2'>Телефон</div>
-            <MyInput style={{border: '1px solid #c8c8c8', minWidth: '453px', maxWidth: '100%', height: '53px', paddingLeft: '10px', borderRadius: '8px'}} type={'text'} placeholder={'телефон'} value={message.phone} onChange={(e) => {setMessage({...message, phone: e.target.value})}}></MyInput>
+            <MyInput style={{border: '1px solid #c8c8c8', width: '100%', height: '53px', paddingLeft: '10px', borderRadius: '8px'}} type={'text'} placeholder={'телефон'} value={message.phone} onChange={(e) => {setMessage({...message, phone: e.target.value})}}></MyInput>
           </div>
 
         </Col>
 
 
-        <Col md={7} sm={12} xs={12}>
+        <Col md={7} sm={12} xs={12} className=''  style={{marginRight: '10px', marginLeft: '10px'}}>
 
-          <div>
+          <div className='mb-3'>
             <div style={{fontSize: '18px', fontWeight: '700'}} className='mb-2'>Телефон</div>
             <MyTextArea style={{border: '1px solid #c8c8c8', width: '100%', height: '89px', paddingLeft: '10px', borderRadius: '8px', paddingTop: '7px'}} value={message.question} onChange={(e) => {setMessage({...message, question: e.target.value})}} cols={6} rows={8} placeholder='ваш вопрос'></MyTextArea>
           </div>
 
 
 
-          <Col md={12} sm={12} xs={12} className='d-flex mt-3'>
+          <Col md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-column mt-3'>
 
-          <Col md={7} sm={12} xs={12}><MyCheckBox text={'я даю свое согласие на обработку моих персональных данных'} checked={chk} onChange={() => {setChk(prev => !prev)}}/></Col>
+            <Col md={7} sm={12} xs={12} className='mb-3'><MyCheckBox text={'я даю свое согласие на обработку моих персональных данных'} checked={chk} onChange={() => {setChk(prev => !prev)}}/></Col>
 
-          <Col md={5} sm={12} xs={12} className='d-flex justify-content-md-end justify-content-center' ><MyButton style={{width: '264px', height: '48px', color: 'white', backgroundColor: '#FEA633', borderRadius: '10px'}} text={'Отправить'} onClick={() => {sendTgSiteMessage()}}/></Col>
-
+            <Col md={5} sm={12} xs={12} className='d-flex justify-content-md-end justify-content-center mb-3' ><MyButton style={{width: '264px', height: '48px', color: 'white', backgroundColor: '#FEA633', borderRadius: '10px'}} text={'Отправить'} onClick={() => {sendTgSiteMessage()}}/></Col>
 
           </Col>
 

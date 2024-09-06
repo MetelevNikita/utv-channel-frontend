@@ -35,11 +35,11 @@ const ProjectPage = () => {
     <Container>
 
         <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-column mb-5'>
-        <Col md={12} sm={12} xs={12} style={{fontSize: '20px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA533', textDecorationThickness: '5px'}} className='mb-3 mt-3'>О нас</Col>
+        <Col md={12} sm={12} xs={12} style={{fontSize: '20px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA533', textDecorationThickness: '5px'}} className='mb-3 mt-3'>Проекты</Col>
 
-        <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-wrap justify-content-start mt-3 mb-4'>
+        <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-wrap justify-content-lg-start justify-content-center mt-3 mb-4'>
             {(!projectSelector) ? <Col style={{fontSize: '18px', fontWeight: '600', textAlign: 'center', height: 'max-content'}}>Loading...</Col> : (projectSelector.length < 1) ? <Col style={{textAlign: 'center'}}>Список пуст</Col> : projectSelector.map((card: any, index) => {
-              return <Col key={index + 1} lg={3} md={3} sm={12} xs={12} className='mt-4 mb-4 d-flex justify-content-between align-items-center'><Link to={`/project/${card.id}`}><ProjectCard title={card.title} description={card.description} img={card.image}/></Link></Col>
+              return <Col key={index + 1} lg={3} md={3} sm={12} xs={12} className='mt-4 mb-4 d-flex justify-content-lg-between justify-content-center align-items-center'><Link to={`/project/${card.id}`}><ProjectCard title={card.title} description={card.description} img={card.image}/></Link></Col>
             })}
         </Col>
 
