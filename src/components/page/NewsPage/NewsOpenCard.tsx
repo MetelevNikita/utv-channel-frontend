@@ -58,7 +58,7 @@ const NewsOpenCard = () => {
 
   const newViews = async () => {
     try {
-      const responce = await fetch('http://localhost:9000/api/v1/news/views', {
+      const responce = await fetch('http://utvchannel.tw1.su/api/v1/news/views', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
