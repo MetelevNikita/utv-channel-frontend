@@ -100,7 +100,7 @@ const ProjectOpenCard = () => {
 
 
   if (!currentProjectCard && videoList.length < 1) {
-    return <Col style={{fontSize: '20px', textAlign: 'center'}}>Loading...</Col>
+    return <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col>
   }
 
 
@@ -188,7 +188,7 @@ const ProjectOpenCard = () => {
 
 
     <Col lg={12} md={12} sm={12} xs={12} className='d-flex aline-items-center justify-content-around flex-wrap'>
-      {(checkedVideoCard.length < 1) ? <Col style={{fontSize: '20px', textAlign: 'center'}}>Loading...</Col> : openPage()}
+      {(checkedVideoCard.length < 1) ? <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col> : openPage()}
     </Col>
 
 

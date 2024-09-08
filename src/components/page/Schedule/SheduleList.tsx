@@ -1,9 +1,9 @@
-import { FC, useState, useEffect } from 'react'
-import moment from 'moment'
+import { FC, useState, useLayoutEffect, useEffect, useRef } from 'react'
 
 //
 
 import { Col, Container, Row } from 'react-bootstrap'
+
 
 // redux
 
@@ -20,6 +20,8 @@ const SheduleList = () => {
 
   const [timeState, setTimeState] = useState('')
   const timer = new Date().toTimeString()
+  const scrollRef: any = useRef(null)
+  const parentScrollRef: any = useRef(null)
 
 
   setInterval(() => {
@@ -33,11 +35,6 @@ const SheduleList = () => {
   const currentDate = new Date().toLocaleDateString()
   const currentDay = new Date().toDateString().split(' ')[0]
   const currentTime = new Date().toTimeString().slice(0, 5)
-
-
-
-
-
 
   const [selectDay, setSelectDay] = useState(currentDay.slice(0, 3))
 
@@ -87,21 +84,42 @@ const SheduleList = () => {
 
 
 
+    useLayoutEffect(() => {
+      setTimeout(() => {
 
-  if (!epgSelector) {
-    return <div>Loading...</div>
-  }
+
+        console.log(parentScrollRef.current)
+
+        const element = scrollRef.current?.getBoundingClientRect()
+        const parent = parentScrollRef.current?.getBoundingClientRect()
+
+        if (element) {
+
+        const corrdinate = Math.floor(element.top - parent.top)
+
+          parentScrollRef?.current.scroll({
+            top: corrdinate,
+            behavior: 'smooth'
+          })
+
+        }
+
+      }, 3000)
+    }, [])
+
+
+
+
 
 
   const currentDaySelector = epgSelector.filter((item: any, index: any) => {
     return item.date[0] === selectDay
   })
 
-
-
   const checkedDaySelector = epgSelector.filter((item: any, index: any) => {
     return item.date[0] === currentDay
   })
+
 
 
 
@@ -116,6 +134,9 @@ const SheduleList = () => {
 
 
   const currentTimeSelector =  getCurrentTimeIndex()
+
+
+
 
 
 
@@ -147,12 +168,16 @@ const SheduleList = () => {
 
 
       <Row>
-        <Col style={{width: '100%', height: '400px', overflow: 'auto'}} className='d-flex flex-column align-items-center'>
+        <Col ref={parentScrollRef} style={{width: '100%', height: '400px', overflowY: 'scroll', overflowX: 'hidden'}} className='d-flex flex-column align-items-center scrollelem'>
+
           {
-              currentDaySelector.map((item: any, index: any) => {
-              return <SheduleCard className={(item.time !== currentTimeSelector.time) ? 'd-flex flex-column card' : 'd-flex flex-column card_active'} key={index} title={item.title} time={item.time} subtitle={item.subtitle} marker={item.marker}/>
+
+              (!currentDaySelector.time) ? <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col> : currentDaySelector.map((item: any, index: any) => {
+              return <SheduleCard ref={(item.time !== currentTimeSelector.time) ? null : scrollRef} className={(item.time !== currentTimeSelector.time) ? 'd-flex flex-column card' : 'd-flex flex-column card_active'} key={index} title={item.title} time={item.time} subtitle={item.subtitle} marker={item.marker}/>
             })
+
           }
+
         </Col>
       </Row>
 

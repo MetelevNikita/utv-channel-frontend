@@ -27,7 +27,6 @@ const Channel = () => {
   }, [])
 
   const teamSelector = useAppSelector((state) => state.team.teams)
-  console.log(teamSelector)
 
   const [pageNumber, setPageNumber]  =  useState(1)
 

@@ -9,9 +9,6 @@ import { FC } from 'react'
 import {Container, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-// components
-
-import MyMaps from '../../UI/MyMaps'
 
 // img
 

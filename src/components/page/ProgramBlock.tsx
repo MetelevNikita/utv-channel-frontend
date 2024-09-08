@@ -95,7 +95,7 @@ const ProgramBlock = () => {
       <Col md={12} sm={12} xs={12} className='d-flex flex-row'>
 
         <Col className='d-flex flex-row'>
-          {(programSelector.length < 1) ? <></> : programSelector.map((card, index) => {
+          {(programSelector.length < 1) ? <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col> : programSelector.map((card, index) => {
             return <Col key={index} lg={3} md={3} sm={3} xs={3} className='d-none d-xl-block'><img onClick={() => { setIdCard(card.id - 1) } } style={(checkedCard[0].id === card.id) ? isActive : disActive} src={card.image} alt="img" /></Col>
           })}
         </Col>
