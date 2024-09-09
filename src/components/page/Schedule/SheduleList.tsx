@@ -31,6 +31,8 @@ const SheduleList = () => {
   const dispatch = useAppDispatch()
   const epgSelector: any = useAppSelector(state => state.epg.epg)
 
+  console.log(epgSelector)
+
 
   const currentDate = new Date().toLocaleDateString()
   const currentDay = new Date().toDateString().split(' ')[0]
@@ -88,8 +90,6 @@ const SheduleList = () => {
       setTimeout(() => {
 
 
-        console.log(parentScrollRef.current)
-
         const element = scrollRef.current?.getBoundingClientRect()
         const parent = parentScrollRef.current?.getBoundingClientRect()
 
@@ -111,14 +111,18 @@ const SheduleList = () => {
 
 
 
-
-  const currentDaySelector = epgSelector.filter((item: any, index: any) => {
+  const currentDaySelector = (!epgSelector) ? [] : epgSelector.filter((item: any, index: any) => {
     return item.date[0] === selectDay
   })
 
-  const checkedDaySelector = epgSelector.filter((item: any, index: any) => {
+  const checkedDaySelector = (!epgSelector) ? [] : epgSelector.filter((item: any, index: any) => {
     return item.date[0] === currentDay
   })
+
+
+
+  console.log(checkedDaySelector)
+
 
 
 
@@ -134,6 +138,8 @@ const SheduleList = () => {
 
 
   const currentTimeSelector =  getCurrentTimeIndex()
+
+  console.log(currentDaySelector)
 
 
 
@@ -172,7 +178,7 @@ const SheduleList = () => {
 
           {
 
-              (!currentDaySelector.time) ? <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col> : currentDaySelector.map((item: any, index: any) => {
+              (!currentDaySelector) ? <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col> : currentDaySelector.map((item: any, index: any) => {
               return <SheduleCard ref={(item.time !== currentTimeSelector.time) ? null : scrollRef} className={(item.time !== currentTimeSelector.time) ? 'd-flex flex-column card' : 'd-flex flex-column card_active'} key={index} title={item.title} time={item.time} subtitle={item.subtitle} marker={item.marker}/>
             })
 

@@ -17,6 +17,7 @@ export const getAsyncEpg = createAsyncThunk(
 
       if (responce.ok) {
         const data = await responce.json()
+        console.log(data)
         return data
       }
 
