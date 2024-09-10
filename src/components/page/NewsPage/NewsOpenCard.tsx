@@ -78,16 +78,12 @@ const NewsOpenCard = () => {
 
 
   const transferText = (paragraph: string) => {
-    return JSON.stringify(paragraph, null, 2).replace(/\\n/g, '\n')
+    return <div>{paragraph.replace(/\\n/g, '<br/>')}</div>
   }
 
 
 
-  console.log(transferText(currentCard.text_2))
-
-  console.log('asdasdasd \n\n\n\n\nasdasdasdasd')
-
-
+  console.log(transferText(currentCard.text_2).props.children)
 
   const renderNewsBlock = (image: string | any, text: string | any, comment: string | any, imgcomment: string | any) => {
 
@@ -98,6 +94,7 @@ const NewsOpenCard = () => {
       {(image) ? <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={image} alt="title-img" /></Col> : <></>}
 
       {(imgcomment) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey'}} className="mb-2">источник: {imgcomment}</Col> : <></>}
+
 
       {(text) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "18px" }} className="mb-4">code{transferText(text)}</Col> : <></>}
 

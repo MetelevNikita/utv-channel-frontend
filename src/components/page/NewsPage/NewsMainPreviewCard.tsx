@@ -18,7 +18,7 @@ interface NewsMainPreviewCardProps {
 
 }
 
-const NewsMainPreviewCard: FC<NewsMainPreviewCardProps> = ({ title, lead, image, date, author, imgHeight, imgWidth}) => {
+const NewsMainPreviewCard: FC<NewsMainPreviewCardProps> = ({ title, lead, image, date, author, imgHeight, imgWidth, video}) => {
   return (
 
     <Col lg={12} md={12} sm={12} xs={12} className='d-flex mb-3'>
@@ -27,7 +27,7 @@ const NewsMainPreviewCard: FC<NewsMainPreviewCardProps> = ({ title, lead, image,
 
             <div style={{width: '180px', height: '100%', overflow: 'hidden'}}>
 
-                {(!image) ? <iframe width={'100%'} src="https://www.youtube.com/embed/p3RFMEixUOE?si=YG824gJifpeQzhxA" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe> : <img style={{width: imgWidth, height: imgHeight}} src={image} alt="img" />}
+                {(!image) ? <iframe width={'100%'} height={'122px'} src={video} allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe> : <img style={{width: imgWidth, height: imgHeight}} src={image} alt="img" />}
 
             </div>
 

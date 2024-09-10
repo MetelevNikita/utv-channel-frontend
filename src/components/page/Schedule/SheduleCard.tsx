@@ -46,7 +46,7 @@ const SheduleCard:FC<SheduleCardProps> = forwardRef(({time, title, subtitle, mar
   return (
 
 
-    <Col lg={12} md={12} sm={12} xs={12} ref={ref} className={className} onClick={onClick} onMouseOut={onMouseOut} onMouseOver={onMouseIn}>
+    <Col lg={12} md={12} sm={12} xs={12} style={{width: '100%'}} ref={ref} className={className} onClick={onClick} onMouseOut={onMouseOut} onMouseOver={onMouseIn}>
       <Col className='d-flex flex-row align-items-center justify-content-center'>
           <Col className='d-flex flex-row align-items-center justify-content-start' lg={2} md={1} sm={1} xs={2} style={{fontSize: 'calc(0.5em + 0.5vw)', fontWeight: '600', marginLeft: '20px', marginTop: '10px'}}>{time}</Col>
           <Col className='d-flex flex-row align-items-end' lg={5} md={6} sm={6} xs={7} style={{fontSize: 'calc(0.5em + 0.4vw)'}}>{title}</Col>

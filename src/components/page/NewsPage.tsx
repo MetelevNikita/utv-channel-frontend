@@ -77,6 +77,8 @@ const NewsPage = () => {
 
     <Col lg={12} md={12} className='mt-4'>
 
+
+
     <Col className='d-flex flex-md-row flex-column mb-3' style={{fontSize: '26px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Все новости</Col>
       <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-column'>
 
