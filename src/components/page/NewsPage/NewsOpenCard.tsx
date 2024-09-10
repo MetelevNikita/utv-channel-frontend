@@ -78,12 +78,14 @@ const NewsOpenCard = () => {
 
 
   const transferText = (paragraph: string) => {
-    return <div>{paragraph.replace(/\\n/g, '<br/>')}</div>
+
+    const newText = paragraph.split('\\n\\n')
+    return newText.map((item) => {
+      return <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "18px" }} className="mb-3">{item}</Col>
+    })
+
   }
 
-
-
-  console.log(transferText(currentCard.text_2).props.children)
 
   const renderNewsBlock = (image: string | any, text: string | any, comment: string | any, imgcomment: string | any) => {
 
@@ -96,7 +98,7 @@ const NewsOpenCard = () => {
       {(imgcomment) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey'}} className="mb-2">источник: {imgcomment}</Col> : <></>}
 
 
-      {(text) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "18px" }} className="mb-4">code{transferText(text)}</Col> : <></>}
+      {(text) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "18px" }} className="mb-4">{transferText(text)}</Col> : <></>}
 
 
       {(comment) ?
@@ -115,6 +117,9 @@ const NewsOpenCard = () => {
     )
 
   }
+
+
+
 
 
 
@@ -148,7 +153,7 @@ const NewsOpenCard = () => {
 
       {(!currentCard.image_comment_1) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "14px", color: 'grey' }} className="mb-4">источник: {currentCard.image_comment_1}</Col>}
 
-      {(!currentCard.text_1) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "18px" }} className="mb-4">{transferText(currentCard.text_1)}</Col>}
+      {(!currentCard.text_1) ? <></> : transferText(currentCard.text_1)}
 
 
       {(!currentCard.comment_1) ? <></> :

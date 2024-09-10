@@ -36,9 +36,6 @@ const SheduleList = () => {
   const dispatch = useAppDispatch()
   const epgSelector: any = useAppSelector(state => state.epg.epg)
 
-  console.log(epgSelector)
-
-
   const currentDate = new Date().toLocaleDateString()
   const currentDay = new Date().toDateString().split(' ')[0]
   const currentTime = new Date().toTimeString().slice(0, 5)
@@ -125,13 +122,6 @@ const SheduleList = () => {
   })
 
 
-
-  console.log(checkedDaySelector)
-
-
-
-
-
   const getCurrentTimeIndex = () => {
     for (let i = 0; i < checkedDaySelector.length; i++) {
       if (checkedDaySelector[i].time > currentTime) {
@@ -141,16 +131,7 @@ const SheduleList = () => {
   }
 
 
-
   const currentTimeSelector =  getCurrentTimeIndex()
-
-  console.log(currentDaySelector)
-
-
-
-
-
-
 
 
   return (
