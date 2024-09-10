@@ -62,7 +62,7 @@ const NewsPage = () => {
 
 
 
-  const popularList = newsSelector.map((card) => card).sort((a, b) => a.views - b.views).filter((item, index) => index < 3)
+  const popularList = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).filter((item, index) => index < 3)
 
 
 
@@ -77,12 +77,12 @@ const NewsPage = () => {
 
     <Col lg={12} md={12} className='mt-4'>
 
-      <Col style={{fontSize: '25px', fontWeight: '600', lineHeight: '123%'}} className='mb-5'>Все новости</Col>
+    <Col className='d-flex flex-md-row flex-column mb-3' style={{fontSize: '26px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Все новости</Col>
       <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-column'>
 
 
             <Col lg={8} md={8} sm={12} xs={12} className='d-flex flex-lg-row flex-md-row flex-column mb-4'>
-                {(dateFilterCard.length < 1) ? <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Список пуст</Col> : topList.map((item, index) => {
+                {(dateFilterCard.length < 1) ? <Col className='d-flex flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Список пуст</Col> : topList.map((item, index) => {
                         return <Col key={index} lg={6} md={6} sm={12} xs={12} className='d-flex'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard video={item.video} img={item.image_1} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F' sizeBlock={{flex: 'flex-column', sizeTitle: '16px', sizeInfo: '12px'}}/></Link></Col>})
                 }
             </Col>

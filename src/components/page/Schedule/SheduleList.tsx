@@ -87,9 +87,6 @@ const SheduleList = () => {
     useLayoutEffect(() => {
       setTimeout(() => {
 
-
-        console.log(parentScrollRef.current)
-
         const element = scrollRef.current?.getBoundingClientRect()
         const parent = parentScrollRef.current?.getBoundingClientRect()
 
