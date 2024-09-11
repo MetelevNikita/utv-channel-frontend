@@ -224,3 +224,24 @@
   transition: all 0.05s ease;
 
 }
+
+
+
+
+/* scroll */
+
+.scrollelem::-webkit-scrollbar {
+  width: 15px;
+}
+
+.scrollelem::-webkit-scrollbar-track {
+  background: #ffffff;
+  padding: 10px;
+
+}
+
+
+.scrollelem::-webkit-scrollbar-thumb {
+  background-color: #fea633;
+  border-radius: 5px;
+}

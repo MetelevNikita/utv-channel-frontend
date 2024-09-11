@@ -1,3 +1,8 @@
+
+import '../../../styles/animation.css'
+
+// css
+
 import { FC, useState, useLayoutEffect, useEffect, useRef } from 'react'
 
 //
@@ -30,8 +35,6 @@ const SheduleList = () => {
 
   const dispatch = useAppDispatch()
   const epgSelector: any = useAppSelector(state => state.epg.epg)
-
-  console.log(epgSelector)
 
 
   const currentDate = new Date().toLocaleDateString()
@@ -121,11 +124,6 @@ const SheduleList = () => {
 
 
 
-  console.log(checkedDaySelector)
-
-
-
-
 
   const getCurrentTimeIndex = () => {
     for (let i = 0; i < checkedDaySelector.length; i++) {
@@ -136,10 +134,7 @@ const SheduleList = () => {
   }
 
 
-
   const currentTimeSelector =  getCurrentTimeIndex()
-
-  console.log(currentDaySelector)
 
 
 

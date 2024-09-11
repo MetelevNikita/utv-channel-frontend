@@ -33,27 +33,27 @@ const NewsOpenCard = () => {
   const date = new Date().toLocaleDateString()
 
 
-  const currentDayNews = newsSelector.filter((card) => {return card.date === date})
-  const currentCard = newsSelector.find(card => card.id.toString() === id);
-  const popularCard = newsSelector.map((card) => card).sort((a, b) => a.views - b.views)
+  const currentDayNews = newsSelector.filter((card) => {return card.date === date}).slice(0, 3)
+  const currentCard: any = newsSelector.find(card => card.id.toString() === id);
+  const popularCard = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).slice(0, 3)
 
 
 
   if (!currentCard) {
-    return <h1>LOADING</h1>;
+    return <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col>;
   }
 
 
+
+
   const newsCardTag = currentCard.tags.split(' ')
-  console.log(newsCardTag)
+
 
 
   const moreNewsArr = newsSelector.filter((card) => {
     return card.tags.includes(currentCard.tags.split(' ')[0])
   }).filter((card) => {return card.title !== currentCard.title})
 
-
-  console.log(moreNewsArr)
 
 
   const newViews = async () => {
@@ -74,9 +74,17 @@ const NewsOpenCard = () => {
     }
   }
 
-
   newViews()
 
+
+  const transferText = (paragraph: string) => {
+
+    const newText = paragraph.split('\\n\\n')
+    return newText.map((item) => {
+      return <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "18px" }} className="mb-3">{item}</Col>
+    })
+
+  }
 
 
   const renderNewsBlock = (image: string | any, text: string | any, comment: string | any, imgcomment: string | any) => {
@@ -89,7 +97,8 @@ const NewsOpenCard = () => {
 
       {(imgcomment) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey'}} className="mb-2">источник: {imgcomment}</Col> : <></>}
 
-      {(text) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-4">{text}</Col> : <></>}
+
+      {(text) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "18px" }} className="mb-4">{transferText(text)}</Col> : <></>}
 
 
       {(comment) ?
@@ -111,7 +120,12 @@ const NewsOpenCard = () => {
 
 
 
+
+
+
   return (
+
+
 
     <Container>
 
@@ -119,14 +133,14 @@ const NewsOpenCard = () => {
 
     <Col lg={8} md={8} xs={12} sm={12} className="mt-4" style={{ marginRight: "10px" }}>
 
-      <Col md={12} sm={12} xs={12} style={{ fontSize: "calc(1em + 0.5vw)", fontWeight: "600" }} className="mb-2">
+      <Col md={12} sm={12} xs={12} style={{ fontSize: "calc(1em + 0.5vw)", fontWeight: "600" }} className="mb-3">
         {currentCard.title}
       </Col>
 
-      <Col md={12} sm={6} xs={6} className="d-flex flex-lg-row flex-column mb-4">
-        <Col md={3} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.2vw)"}}>Дата: {currentCard.date}</Col>
-        {(currentCard.author === '') ? <></> : <Col md={6} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.2vw)"}}>Автор: {currentCard.author}</Col>}
-        <Col md={3} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.2vw)"}}>Просмотры: {currentCard.views}</Col>
+      <Col md={12} sm={6} xs={6} className="d-flex flex-lg-row flex-column mb-2">
+        <Col md={3} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.3vw)"}}>Дата: {currentCard.date}</Col>
+        {(currentCard.author === '') ? <></> : <Col md={6} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.3vw)"}}>Автор: {currentCard.author}</Col>}
+        <Col md={3} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.3vw)"}}>Просмотры: {currentCard.views}</Col>
       </Col>
 
 
@@ -137,9 +151,9 @@ const NewsOpenCard = () => {
 
       {(!currentCard.image_1) ? <></> : <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={currentCard.image_1} alt="title-img" /></Col>}
 
-      {(!currentCard.image_comment_1) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey' }} className="mb-4">источник: {currentCard.image_comment_1}</Col>}
+      {(!currentCard.image_comment_1) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "14px", color: 'grey' }} className="mb-4">источник: {currentCard.image_comment_1}</Col>}
 
-      {(!currentCard.text_1) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-4">{currentCard.text_1}</Col>}
+      {(!currentCard.text_1) ? <></> : transferText(currentCard.text_1)}
 
 
       {(!currentCard.comment_1) ? <></> :
@@ -166,7 +180,7 @@ const NewsOpenCard = () => {
 
       {/*  */}
 
-          <Col>Читайте оперативные новости в нашем телеграм-канале: <a href="https://t.me/utvufa">https://t.me/utvufa</a></Col>
+          <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "18px" }} className="mb-4">Читайте оперативные новости в нашем телеграм-канале: <a href="https://t.me/utvufa">https://t.me/utvufa</a></Col>
 
       {/*  */}
 
@@ -181,7 +195,7 @@ const NewsOpenCard = () => {
 
       <Col md={12} sm={12} xs={12} >
 
-          {(moreNewsArr.length == 0) ? <Col md={12} sm={12} xs={12} className="mt-5 mb-3" style={{width: '100%', height: 'max-content', fontSize: '16px'}}>Список пуст</Col> : moreNewsArr.map((card, index) => {
+          {(moreNewsArr.length == 0) ? <Col className='d-flex flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Список пуст</Col> : moreNewsArr.map((card, index) => {
             return <Col key={card.id} className="mt-5 mb-3"><Link to={`/news/${card.id}`} style={{color: 'black'}}><MoreNews title={card.title} author={card.author} lead={card.lead} date={card.date} tag={card.tags.split(' ')}/></Link></Col> })
             }
 
@@ -194,8 +208,8 @@ const NewsOpenCard = () => {
 
     <Col lg={4} md={4} xs={4} sm={4} className="d-flex flex-column d-none d-xl-block mt-4">
 
-        <Col lg={12} md={12} xs={12} className="d-flex flex-wrap justify-content-center">
-            {(newsCardTag.length < 1) ? <></> : newsCardTag.map((tag, index) => {
+        <Col style={{minHeight: '144px'}} lg={12} md={12} xs={12} className="d-flex flex-wrap justify-content-center align-items-center">
+            {(newsCardTag.length < 1) ? <></> : newsCardTag.map((tag: any, index: any) => {
               return <Col style={{width: '40%', margin: '10px'}} className="d-flex justify-content-center mb-3" lg={6} md={6} xs={6} key={index}><MyTags tag={tag} /></Col>
             })}
         </Col>
