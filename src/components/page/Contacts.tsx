@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 // img
 
-import logo from '../../asset/logo_utv/Logotype_UTV_new.svg'
+import logo from '../../asset/logo_utv/Logotype_UTV.svg'
 import tg from '../../asset/contanct/tg.svg'
 import yt from '../../asset/contanct/yt.svg'
 import vk from '../../asset/contanct/vk.svg'
@@ -79,6 +79,7 @@ const Contacts = () => {
             })}
 
           </Col>
+
 
         </Col>
 

@@ -22,7 +22,7 @@ import SearchIcon from '../../UI/SearchIcon'
 
 // img
 
-import logo from '../../../asset/header/logo.svg'
+import logo from '../../../asset/header/Logotype_UTV.svg'
 import search from '../../../asset/header/search.svg'
 
 
@@ -83,7 +83,7 @@ const Header: FC<HeaderProps> = ({search}) => {
 
         <Col className='d-flex align-items-center flex-md-row flex-column mt-4'>
 
-        <Col md={2} sm={12} xs={12} className='d-flex justify-content-md-start justify-content-center mb-4'><Link to={'/'}><img className='logo_menu_animation' src={logo} alt="logo-utv"/></Link></Col>
+        <Col md={2} sm={12} xs={12} className='d-flex justify-content-md-start justify-content-center mb-4'><Link to={'/'}><img style={{width: '100px'}} className='logo_menu_animation' src={logo} alt="logo-utv"/></Link></Col>
 
         <Col md={7} sm={12} xs={12} className='d-flex justify-content-center flex-md-row flex-column mb-4'>
           {menuHeader.map((item, index) => {

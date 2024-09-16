@@ -29,9 +29,9 @@ const NewsPreviewCard: FC<NewsPreviewCardProps> = ({ img, video, title, date, au
 
         <Col style={{width: '100%'}} className='mb-3'>
 
-        <div style={{width: '384px', height: '209px', overflow: 'hidden' }}>
+        <div style={{width: '384px', height: '209px', overflow: 'hidden' , display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
 
-          {(!img) ? <iframe width="384px" height="209px" src={video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe> : <img src={img} alt="news-preiview-image" />}
+          {(!img) ? <iframe width="384px" height="209px" src={video}></iframe> : <img src={img} alt="news-preiview-image" />}
 
         </div>
 
