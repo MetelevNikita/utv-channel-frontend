@@ -50,7 +50,7 @@ const SheduleCard:FC<SheduleCardProps> = forwardRef(({time, title, subtitle, mar
       <Col className='d-flex flex-row align-items-center justify-content-center'>
           <Col className='d-flex flex-row align-items-center justify-content-start' lg={2} md={1} sm={1} xs={2} style={{fontSize: 'calc(0.5em + 0.5vw)', fontWeight: '600', marginLeft: '20px', marginTop: '10px'}}>{time}</Col>
           <Col className='d-flex flex-row align-items-end' lg={5} md={6} sm={6} xs={7} style={{fontSize: 'calc(0.5em + 0.4vw)'}}>{title}</Col>
-          <Col className='d-flex flex-row align-items-center justify-content-start card_btn' style={{cursor: 'pointer'}} lg={1} md={1} sm={1} xs={1} onClick={() => {setShowSubtitle(prev => !prev)}}>	&#9660;</Col>
+          <Col className='d-flex flex-row align-items-center justify-content-start' style={{cursor: 'pointer'}} lg={1} md={1} sm={1} xs={1} onClick={() => {setShowSubtitle(prev => !prev)}}><div className='card_btn'>&#9660;</div></Col>
           <Col className='d-flex flex-row align-items-center justify-content-end' lg={3} md={3} sm={3} xs={3} style={{fontSize: 'calc(0.5em + 0.5vw)'}}>{marker}</Col>
       </Col>
 

@@ -219,6 +219,13 @@
   color: white;
 }
 
+
+.card_btn:hover {
+  color: #FEA633;
+  transition: all 0.05s ease;
+
+}
+
 .card_btn:active {
   transform:  scale(1.10);
   transition: all 0.05s ease;
@@ -244,4 +251,13 @@
 .scrollelem::-webkit-scrollbar-thumb {
   background-color: #fea633;
   border-radius: 5px;
+}
+
+
+/* contact_icon */
+
+
+.contacts_icon_aniamtion:hover {
+  transform: scale(1.10);
+  transition: all 1s ease;
 }

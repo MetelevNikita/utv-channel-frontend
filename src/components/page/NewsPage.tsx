@@ -85,7 +85,7 @@ const NewsPage = () => {
 
             <Col lg={8} md={8} sm={12} xs={12} className='d-flex flex-lg-row flex-md-row flex-column mb-4'>
                 {(dateFilterCard.length < 1) ? <Col className='d-flex flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Список пуст</Col> : topList.map((item, index) => {
-                        return <Col key={index} lg={6} md={6} sm={12} xs={12} className='d-flex'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard video={item.video} img={item.image_1} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F' sizeBlock={{flex: 'flex-column', sizeTitle: '16px', sizeInfo: '12px'}}/></Link></Col>})
+                        return <Col key={index} lg={6} md={6} sm={12} xs={12} className='d-flex'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard video={item.video} img={item.image_1} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F' sizeBlock={{flex: 'flex-column', sizeTitle: '15px', sizeInfo: '12px'}}/></Link></Col>})
                 }
             </Col>
 

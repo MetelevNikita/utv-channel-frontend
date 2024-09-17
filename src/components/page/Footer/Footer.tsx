@@ -97,7 +97,7 @@ const Footer = () => {
   return (
 
 
-    <Container fluid>
+    <>
 
 
           <Row md={12} sm={12} xs={12} style={{padding: '15px', background: 'linear-gradient(94deg, rgba(242,173,16,0.9020044543429844) 0%, rgba(255,218,0,1) 0%, rgba(232,24,12,1) 100%)'}} className='d-flex justify-content-center align-items-center mt-5'>
@@ -124,7 +124,7 @@ const Footer = () => {
 
           <Row md={12} sm={12} xs={12} style={{backgroundColor: 'black'}} className='d-flex justify-content-around flex-md-row flex-column'>
 
-            <Col md={8} sm={8} xs={8} className='d-flex justify-content-between flex-md-row flex-column'>
+            <Col md={7} sm={8} xs={8} className='d-flex justify-content-between flex-md-row flex-column'>
 
               <Col md={3} sm={12} xs={12} className='mt-4 '>
                   {(menuOne.length < 1) ? <></> : menuOne.map((menu: string, index: number) => <Col key={index} className='mb-2' style={{color: 'white', fontSize: '14px', lineHeight: '136%'}}>{menu}</Col>)}
@@ -148,7 +148,7 @@ const Footer = () => {
             </Col>
           </Row>
 
-          </Container>
+    </>
 
   )
 }

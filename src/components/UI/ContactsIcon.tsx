@@ -1,8 +1,18 @@
+// css
+
+import '../../styles/animation.css'
+
+//
+
 import { FC } from "react"
 
 //
 
 import { Col, Row } from "react-bootstrap"
+
+// components
+
+import MyImageAnimation from './MyImageAnimation'
 
 //
 
@@ -16,7 +26,8 @@ const ContactsIcon: FC<ContactsIconProps> = ({ img, title, info }) => {
   return (
     <div className="d-flex flex-column align-items-center">
 
-      <img style={{width: '72px'}} src={img} alt="icon_img" />
+
+      <MyImageAnimation image={img} width='72px' height='72px' scaleEnd={1} scaleStart={0.8}/>
       <div className="mt-2" style={{fontWeight: '600'}}>{title}</div>
       <div className="mt-1">{info}</div>
 

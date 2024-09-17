@@ -137,6 +137,17 @@ const SheduleList = () => {
   const currentTimeSelector =  getCurrentTimeIndex()
 
 
+  const currentDateCard = (item: any, resOne: any, resTow: any) => {
+
+    if (!item.time || item.time !== currentTimeSelector.time) {
+      return resOne
+    } else {
+      return resTow
+    }
+
+  }
+
+
 
 
 
@@ -174,7 +185,7 @@ const SheduleList = () => {
           {
 
               (!currentDaySelector) ? <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col> : currentDaySelector.map((item: any, index: any) => {
-              return <SheduleCard ref={(item.time !== currentTimeSelector.time) ? null : scrollRef} className={(item.time !== currentTimeSelector.time) ? 'd-flex flex-column card' : 'd-flex flex-column card_active'} key={index} title={item.title} time={item.time} subtitle={item.subtitle} marker={item.marker}/>
+              return <SheduleCard ref={currentDateCard(item, null, scrollRef)} className={currentDateCard(item, 'd-flex flex-column card', 'd-flex flex-column card_active')} key={index} title={item.title} time={item.time} subtitle={item.subtitle} marker={item.marker}/>
             })
 
           }
@@ -191,3 +202,7 @@ const SheduleList = () => {
 }
 
 export default SheduleList
+
+
+
+// (item.time !== currentTimeSelector.time) ? 'd-flex flex-column card' : 'd-flex flex-column card_active'
