@@ -51,13 +51,13 @@ const Contacts = () => {
 
         <Col lg={6} md={6} sm={12} xs={12} className='d-flex flex-column justify-content-center align-items-center'>
 
-          <Col style={{width: '100%'}} className='d-flex justify-content-center mb-4'><img style={{width: '500px'}} src={logo} alt="logo_utv" /></Col>
+          <Col style={{width: '100%'}} className='d-flex justify-content-center mb-4 mt-4'><img style={{width: '500px'}} src={logo} alt="logo_utv" /></Col>
           <Col style={{fontSize: '36px', width: '100%', textAlign: 'center'}}>Все начинается с себя</Col>
 
         </Col>
 
 
-        <Col lg={5} md={6} sm={12} xs={12} className='d-flex flex-column justify-content-center'>
+        <Col lg={5} md={6} sm={12} xs={12} className='d-flex flex-column justify-content-center mb-4 mt-4'>
 
           <Col className='mb-4'>
             <Col style={{fontSize: '24px', fontWeight: '600'}}>Телефон редакции</Col>
