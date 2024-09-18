@@ -90,7 +90,7 @@ const NewsPage = () => {
             </Col>
 
 
-            <Col lg={{order: 2}} md={4} sm={12} xs={{order: 1}} className='d-flex justify-content-center mb-4'>
+            <Col lg={{order: 2}} md={4} sm={12} xs={{order: 1}} className='d-flex justify-content-ld-center justify-content-end mb-4'>
               <Calendar showWeekNumbers onChange={setDate} value={date} className={'css_calendar'}/>
             </Col>
 

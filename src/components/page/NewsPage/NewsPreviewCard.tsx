@@ -37,7 +37,7 @@ const NewsPreviewCard: FC<NewsPreviewCardProps> = ({ img, video, title, date, au
 
       <Col>
 
-      <Col md={4} style={{fontSize: sizeBlock.sizeTitle, fontWeight: 600, color: colorTitle, width: '90%', height: '75px'}} className='mb-2'>{title}</Col>
+      <Col md={4} style={{fontSize: sizeBlock.sizeTitle, fontWeight: 600, color: colorTitle, width: '90%', maxWidth: '384px', height: '75px'}} className='mb-2'>{title}</Col>
 
       <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-row' style={{width: '100%'}}>
           <Col  className='d-flex justify-content-start mb-3' style={{fontSize: sizeBlock.sizeInfo, fontWeight: '300', color: colorDate, width: '100%', height: 'max-content'}}>Дата: {date}</Col>
