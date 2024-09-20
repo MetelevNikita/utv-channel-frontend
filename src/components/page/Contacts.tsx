@@ -48,7 +48,6 @@ const Contacts = () => {
 
 
       <Row className='d-flex justify-content-center mt-5'>
-
         <Col lg={6} md={6} sm={12} xs={12} className='d-flex flex-column justify-content-center align-items-center'>
 
           <Col style={{width: '100%'}} className='d-flex justify-content-center mb-4 mt-4'><img style={{width: '500px'}} src={logo} alt="logo_utv" /></Col>
@@ -79,11 +78,7 @@ const Contacts = () => {
             })}
 
           </Col>
-
-
         </Col>
-
-
       </Row>
 
 

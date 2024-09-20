@@ -48,10 +48,14 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
 
   const { modalNewsOpen, setModalNewsOpen } = modalOpen
   const currentDate = new Date().toISOString().split('T')[0]
+  const cDate = new Date()
+  const previousDate = new Date(cDate.setDate(cDate.getDate() - 1)).toISOString().split('T')[0]
 
 
   const todayNews = newsSelector.filter((news, index)  => news.date == currentDate).filter((news, index) => index < 3)
+  const previousDateNews = newsSelector.filter((news, index)  => news.date == previousDate).filter((news, index) => index < 3)
   const popularNews = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).filter((news, index) => index < 3)
+
 
 
 
@@ -83,7 +87,10 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
       <Col md={12} sm={12} xs={12} className='d-flex flex-md-row flex-column justify-content-around  mb-5'>
 
         <Col md={6} sm={12} xs={12} className='d-flex justify-content-center'>
-          <NewsMainBlock newsArr={todayNews} newsTitle={`Новости ${currentDate}`} linkButton={'/news'} newsButton='Смотреть все'/>
+
+
+        {(todayNews.length < 1) ? <NewsMainBlock newsArr={previousDateNews} newsTitle={`Новости ${previousDate}`} linkButton={'/news'} newsButton='Смотреть все'/> : <NewsMainBlock newsArr={todayNews} newsTitle={`Новости ${currentDate}`} linkButton={'/news'} newsButton='Смотреть все'/>}
+
         </Col>
 
         <Col md={6} sm={12} xs={12} className='d-flex justify-content-center justify-content-center'>

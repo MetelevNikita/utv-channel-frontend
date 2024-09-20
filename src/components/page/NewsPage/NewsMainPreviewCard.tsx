@@ -25,7 +25,7 @@ const NewsMainPreviewCard: FC<NewsMainPreviewCardProps> = ({ title, lead, image,
 
         <Col lg={5} md={6} sm={6} xs={6} style={{borderRadius: '10px'}}>
 
-            <div style={{width: '100%', height: '130px', overflow: 'hidden'}}>
+            <div style={{width: '100%', height: '130px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
 
                 {(!image) ? <iframe width={'100%'} height={'100%'} src={video} allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe> : <img style={{width: imgWidth, height: imgHeight}} src={image} alt="img" />}
 
