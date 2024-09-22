@@ -81,7 +81,7 @@ const NewsOpenCard = () => {
 
     const newText = paragraph.split('\\n\\n')
     return newText.map((item) => {
-      return <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "18px" }} className="mb-3">{item}</Col>
+      return <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-3">{item}</Col>
     })
 
   }
@@ -98,7 +98,7 @@ const NewsOpenCard = () => {
       {(imgcomment) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey'}} className="mb-2">источник: {imgcomment}</Col> : <></>}
 
 
-      {(text) ? <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "18px" }} className="mb-4">{transferText(text)}</Col> : <></>}
+      {(text) ? transferText(text) : <></>}
 
 
       {(comment) ?
@@ -138,9 +138,9 @@ const NewsOpenCard = () => {
       </Col>
 
       <Col md={12} sm={6} xs={6} className="d-flex flex-lg-row flex-column mb-2">
-        <Col md={3} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.3vw)"}}>Дата: {currentCard.date}</Col>
-        {(currentCard.author === '') ? <></> : <Col md={6} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.3vw)"}}>Автор: {currentCard.author}</Col>}
-        <Col md={3} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.3vw)"}}>Просмотры: {currentCard.views}</Col>
+        <Col md={3} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.3vw)", color: '#949495'}}>Дата: {currentCard.date}</Col>
+        {(currentCard.author === '') ? <></> : <Col md={6} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.3vw)", color: '#949495'}}>Автор: {currentCard.author}</Col>}
+        <Col md={3} sm={12} xs={12} className="mb-2" style={{fontSize: "calc(0.6em + 0.3vw)", color: '#949495'}}>Просмотры: {currentCard.views}</Col>
       </Col>
 
 
@@ -180,7 +180,7 @@ const NewsOpenCard = () => {
 
       {/*  */}
 
-          <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "18px" }} className="mb-4">Читайте оперативные новости в нашем телеграм-канале: <a href="https://t.me/utvufa">https://t.me/utvufa</a></Col>
+          <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-4">Читайте оперативные новости в нашем телеграм-канале: <a href="https://t.me/utvufa">https://t.me/utvufa</a></Col>
 
       {/*  */}
 
