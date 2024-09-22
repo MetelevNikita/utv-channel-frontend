@@ -127,6 +127,7 @@ const SheduleList = () => {
 
   const getCurrentTimeIndex = () => {
     for (let i = 0; i < checkedDaySelector.length; i++) {
+      console.log(checkedDaySelector[i])
       if (checkedDaySelector[i].time > currentTime) {
         return checkedDaySelector[i-1]
       }
@@ -139,6 +140,10 @@ const SheduleList = () => {
 
   const currentDateCard = (item: any, resOne: any, resTow: any) => {
 
+    if(!item) {
+      return []
+    }
+
     if (!item.time || item.time !== currentTimeSelector.time) {
       return resOne
     } else {
@@ -149,8 +154,7 @@ const SheduleList = () => {
 
 
 
-
-
+  console.log(currentTimeSelector)
 
 
 
@@ -183,11 +187,9 @@ const SheduleList = () => {
         <Col ref={parentScrollRef} style={{width: '100%', height: '400px', overflowY: 'scroll', overflowX: 'hidden'}} className='d-flex flex-column align-items-center scrollelem'>
 
           {
-
-              (!currentDaySelector) ? <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col> : currentDaySelector.map((item: any, index: any) => {
+              (!currentTimeSelector) ? <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col> : currentDaySelector.map((item: any, index: any) => {
               return <SheduleCard ref={currentDateCard(item, null, scrollRef)} className={currentDateCard(item, 'd-flex flex-column card', 'd-flex flex-column card_active')} key={index} title={item.title} time={item.time} subtitle={item.subtitle} marker={item.marker}/>
             })
-
           }
 
         </Col>
