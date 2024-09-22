@@ -57,6 +57,7 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
   const popularNews = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).filter((news, index) => index < 3)
 
 
+  console.log(todayNews)
 
 
   const buttonArr = [

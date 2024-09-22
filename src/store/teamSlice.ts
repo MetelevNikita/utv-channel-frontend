@@ -29,7 +29,7 @@ export const getAsyncTeams = createAsyncThunk(
 
 
     try {
-      const responce = await fetch(`${process.env.REACT_APP_API_URL}/team`, {
+      const responce = await fetch(`https://utvchannel.tw1.su/api/v1/team`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
