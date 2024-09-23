@@ -8,7 +8,7 @@ export const getAsyncEpg = createAsyncThunk(
   async () => {
     try {
 
-      const responce = await fetch(`${process.env.REACT_APP_API_URL}/epg`, {
+      const responce = await fetch(`https://utvchannel.tw1.su/api/v1/epg`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

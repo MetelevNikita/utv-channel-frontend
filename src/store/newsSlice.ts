@@ -67,7 +67,7 @@ const initialState: initialState = {
 export const getAsyncNews = createAsyncThunk(
   'getAsyncNews',
   async () => {
-    const responce = await fetch(`${process.env.REACT_APP_API_URL}/news`, {
+    const responce = await fetch(`https://utvchannel.tw1.su/api/v1/news`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'

@@ -15,7 +15,7 @@ export const getAsyncProgram = createAsyncThunk(
   'getAsyncProgram',
 
   async () => {
-    const responce = await fetch(`${process.env.REACT_APP_API_URL}/program`, {
+    const responce = await fetch(`https://utvchannel.tw1.su/api/v1/program`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
