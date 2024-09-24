@@ -29,7 +29,7 @@ const NewsPreviewCard: FC<NewsPreviewCardProps> = ({ img, video, title, date, au
 
         <Col style={{minWidth: '100%'}} className='mb-3'>
         <div style={{minWidth: '100%', height: '209px', overflow: 'hidden' , display: 'flex', justifyContent: 'start', alignItems: 'center'}}>
-          {(!img) ? <iframe style={{overflow: 'hidden', width: '90%', height: '209px'}} src={video}></iframe> : <img style={{width: "384px", height: "max-content"}} src={img} alt="news-preiview-image" />}
+          {(!img) ? <iframe style={{overflow: 'hidden', width: '90%', height: '209px'}} src={video}></iframe> : <img style={{width: "384px", height: "209px"}} src={img} alt="news-preiview-image" />}
         </div>
 
         </Col>
