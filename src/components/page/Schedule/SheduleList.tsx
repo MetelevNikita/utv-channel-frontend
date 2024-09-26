@@ -127,7 +127,6 @@ const SheduleList = () => {
 
   const getCurrentTimeIndex = () => {
     for (let i = 0; i < checkedDaySelector.length; i++) {
-      console.log(checkedDaySelector[i])
       if (checkedDaySelector[i].time > currentTime) {
         return checkedDaySelector[i-1]
       }
@@ -152,9 +151,6 @@ const SheduleList = () => {
 
   }
 
-
-
-  console.log(currentTimeSelector)
 
 
 

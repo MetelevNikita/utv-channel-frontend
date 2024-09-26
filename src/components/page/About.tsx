@@ -45,7 +45,6 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
 
 
   const TG_ID = -4023030286
-  console.log(TG_ID)
 
 
   const sendTgSiteMessage = async () => {
@@ -199,7 +198,7 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
 
 
         {(infoArr.length < 1) ? <></> : infoArr.map((item, index) => {
-          return <Col md={2} sm={12} xs={12} className='mb-5' ><ContactsIcon img={item.img} title={item.title} info={item.info}/></Col>
+          return <Col key={index+1} md={2} sm={12} xs={12} className='mb-5' ><ContactsIcon img={item.img} title={item.title} info={item.info}/></Col>
         })}
 
 
