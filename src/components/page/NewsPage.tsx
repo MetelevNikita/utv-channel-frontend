@@ -80,12 +80,12 @@ const NewsPage = () => {
 
 
     <Col className='d-flex flex-md-row flex-column mb-3' style={{fontSize: '26px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Все новости</Col>
-      <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-column'>
+      <Col lg={12} md={12} sm={12} xs={12} className='d-flex justify-content-lg-start justify-content-center  flex-lg-row flex-column'>
 
 
             <Col lg={{order: 1}} md={8} sm={12} xs={{order: 2}} className='d-flex flex-lg-row flex-md-row flex-column mb-4'>
                 {(dateFilterCard.length < 1) ? <Col className='d-flex flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Список пуст</Col> : topList.map((item, index) => {
-                        return <Col style={{width: '100%'}} key={index} className='d-flex'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard video={item.video} img={item.image_1} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F' sizeBlock={{flex: 'flex-column', sizeTitle: 'calc(0.7em + 0.2vw)', sizeInfo: '12px'}}/></Link></Col>})
+                        return <Col style={{width: '100%'}} key={index} className='d-flex justify-content-lg-start justify-content-center'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard video={item.video} img={item.image_1} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F'/></Link></Col>})
                 }
             </Col>
 
@@ -105,7 +105,7 @@ const NewsPage = () => {
     <Row style={{minHeight: '400px', backgroundColor: '#e9ecef', padding: '0px'}} className='mt-5 justify-content-center align-items-center'>
 
         {(popularList.length < 1) ? <Col>Нет популярных карточек</Col> : popularList.map((item, index)  =>  {
-            return <Col lg={3} md={3} sm={12} xs={12} className='d-flex justify-content-center mt-3'><Link to={`/news/${item.id}`} key={item.id} style={{color: 'black'}}><NewsPreviewCard video={item.video} img={item.image_1} title={item.lead.slice(0,100) + '...'} date={item.date} author={item.author} colorTitle='black' colorDate='black' sizeBlock={{flex: 'flex-column', sizeTitle: 'calc(0.7em + 0.2vw)', sizeInfo: '12px'}}/></Link></Col>
+            return <Col lg={3} md={3} sm={12} xs={12} className='d-flex justify-content-center mt-3'><Link to={`/news/${item.id}`} key={item.id} style={{color: 'black'}}><NewsPreviewCard video={item.video} img={item.image_1} title={item.lead.slice(0,100) + '...'} date={item.date} author={item.author} colorTitle='black' colorDate='black'/></Link></Col>
         })}
 
     </Row>
@@ -117,7 +117,7 @@ const NewsPage = () => {
     <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-row flex-wrap justify-content-start mt-4'>
 
         {(dateFilterCard.length < 1) ? <Col lg={12} md={12} xs={12} sm={12}></Col> : bottomLst.map((item, index) => {
-                return <Col key={index} lg={4} md={4} sm={12} xs={12} className='d-flex'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard video={item.video} img={item.image_1} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F' sizeBlock={{flex: 'flex-column', sizeTitle: 'calc(0.7em + 0.2vw)', sizeInfo: '12px'}}/></Link></Col>})
+                return <Col key={index} lg={4} md={4} sm={12} xs={12} className='d-flex justify-content-lg-start justify-content-center'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard video={item.video} img={item.image_1} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F'/></Link></Col>})
         }
 
     </Col>
