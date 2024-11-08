@@ -244,7 +244,7 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
 
           <Col md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-column mt-3'>
 
-            <Col md={7} sm={12} xs={12} className='mb-3'><MyCheckBox text={'я даю свое согласие на обработку моих персональных данных'} checked={chk} onChange={() => {setChk(prev => !prev)}}/></Col>
+            <Col md={7} sm={12} xs={12} className='mb-3'><MyCheckBox text={'я даю свое согласие на обработку моих персональных данных'} checked={chk} onChange={() => {setChk(prev => !prev)}} href='https://utvchannel.tw1.su/agreet/agreet.pdf'/></Col>
             <Col md={5} sm={12} xs={12} className='d-flex justify-content-md-end justify-content-center mb-3' ><MyButton style={{width: '264px', height: '48px', color: 'white', backgroundColor: '#FEA633', borderRadius: '10px'}} text={'Отправить'} onClick={() => {submitMessageHandler()}}/></Col>
 
           </Col>

@@ -20,9 +20,9 @@ const NewsMainPreviewCard: FC<NewsMainPreviewCardProps> = ({ title, lead, image,
 
     <Col lg={12} md={12} sm={12} xs={12} className='d-flex justify-content-around mb-3'>
 
-        <Col lg={4} md={6} sm={6} xs={6} style={{overflow: 'hidden', maxHeight: '130px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <Col lg={4} md={6} sm={6} xs={6} style={{overflow: 'hidden', minHeight: '130px', maxHeight: '130px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
 
-                {(!image) ? <div><iframe width={'100%'} height={'100%'} src={video} allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></div> : <img style={{width: '100%', height: '100%'}} src={image} alt="img" />}
+                {(!image) ? <div><iframe width={'100%'} height={'100%'} src={video} allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></div> : <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src={image} alt="img" />}
 
         </Col>
 

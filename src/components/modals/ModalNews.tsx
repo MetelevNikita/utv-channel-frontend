@@ -19,6 +19,7 @@ import modalImg from '../../asset/modal-news/modal-news.icon.png'
 import MyInput from '../UI/MyInput'
 import MyTextArea from '../UI/MyTextArea'
 import MyButton from '../UI/MyButton'
+import MyCheckBox from '../UI/MyCheckBox'
 
 //
 
@@ -149,10 +150,7 @@ const ModalNews: FC<ModalNewsProps>  = ({ modalMessage, modalOpen, modalAgree, m
 
 
             <Col lg={12} md={12} sm={12} className='d-flex justify-content-center align-items-center mb-3' style={{width: '90%'}}>
-
-                <Col lg={1} md={1} sm={1}><input type="checkbox" checked={chk} onChange={() => {setChk(prev => !prev)}}/></Col>
-                <Col lg={11} md={11} sm={11} style={{fontSize: '12px'}}>Я согласен на обработку персональных данных и ознакомлен с условиями пользовательского соглашения </Col>
-
+                <Col><MyCheckBox text={'я даю свое согласие на обработку моих персональных данных'} checked={chk} onChange={() => {setChk(prev => !prev)}}  href={'https://utvchannel.tw1.su/agreet/agreet.pdf'}/></Col>
             </Col>
 
 

@@ -46,7 +46,7 @@ const Footer = () => {
 
   ]
 
-  const menuOne = ['ООО «Фирма «БИС», 2009 — 2024 г. Любое использование материаловдопускается только с согласия редакции', 'Политика конфиденциальности', 'Пользовательское соглашение']
+  const menuOne = ['ООО «Фирма «БИС», 2009 — 2024 г. Любое использование материаловдопускается только с согласия редакции']
 
   const menuTwo = [
     {
@@ -128,6 +128,10 @@ const Footer = () => {
 
               <Col md={3} sm={12} xs={12} className='mt-4 '>
                   {(menuOne.length < 1) ? <></> : menuOne.map((menu: string, index: number) => <Col key={index} className='mb-2' style={{color: 'white', fontSize: '14px', lineHeight: '136%'}}>{menu}</Col>)}
+
+
+                  <Col className='mb-2' style={{color: 'white', fontSize: '14px', lineHeight: '136%'}}><a target='_blank' style={{color: 'white'}} href='https://utvchannel.tw1.su/agreet/agreet.pdf'>Согласие на обработку персональных данных и куки,</a></Col>
+                  <Col className='mb-2' style={{color: 'white', fontSize: '14px', lineHeight: '136%'}}>Разработка сайта ООО «Фирма «БИС».</Col>
               </Col>
 
 
