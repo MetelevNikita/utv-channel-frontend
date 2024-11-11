@@ -65,13 +65,17 @@ const ModalNews: FC<ModalNewsProps>  = ({ modalMessage, modalOpen, modalAgree, m
   }
 
 
+
+  console.log(process.env.REACT_APP_TG_ID)
+
+
   const sendTgMessage = async () => {
 
     const message = `Новое сообщение\n\nАвтор: ${modalNewsMessage.name}\n\nТелефон: ${modalNewsMessage.phone}\n\nПочта: ${modalNewsMessage.email}\n\n\nСообщение\n\n${modalNewsMessage.message}`
 
 
-    const TOKEN = process.env.REACT_APP_TG_TOKEN
-    const API_KEY = process.env.REACT_APP_TG_ID
+    const TOKEN = process.env.REACT_APP_TG_SITE_TOKEN
+    const TG_ID = process.env.REACT_APP_TG_ID
 
     try {
 
@@ -92,13 +96,14 @@ const ModalNews: FC<ModalNewsProps>  = ({ modalMessage, modalOpen, modalAgree, m
 
 
 
+
       const responce = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
         method: 'POST',
         headers: {
           'content-type':'application/json'
         },
 
-        body: JSON.stringify({chat_id: API_KEY, parse_mode: 'html', text: message})
+        body: JSON.stringify({chat_id: TG_ID, text: message})
       })
 
       if (responce.ok) {

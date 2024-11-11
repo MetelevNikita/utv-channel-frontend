@@ -15,7 +15,7 @@ const MyCheckBox: FC<MyCheckBoxProps> = ({ text, checked, onChange, href}) => {
     <div className='d-flex flex-row'>
 
       <input type="checkbox" checked={checked} onChange={onChange}/>
-      <a style={{fontSize: '12px', width: '328px', height: 'max-content', marginLeft: '15px', color: '#565656'}} href={href} >{text}</a>
+      <a target='_blank' style={{fontSize: '12px', width: '328px', height: 'max-content', marginLeft: '15px', color: '#565656'}} href={href} >{text}</a>
 
     </div>
   )

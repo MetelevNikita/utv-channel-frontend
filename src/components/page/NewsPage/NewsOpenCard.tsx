@@ -53,9 +53,14 @@ const NewsOpenCard = () => {
 
 
 
-  const moreNewsArr = newsSelector.filter((card) => {
-    return card.tags.includes(currentCard.tags.split(' ')[0])
-  }).filter((card) => {return card.title !== currentCard.title})
+
+  const moreNewsArr = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).filter((card) => card.tags.includes(currentCard.tags.split(' ')[0])).filter((card) => card.title !== currentCard.title).filter((card, index) => index <= 5)
+
+
+
+  console.log(moreNewsArr)
+
+
 
 
 
@@ -127,8 +132,6 @@ const NewsOpenCard = () => {
 
 
   return (
-
-
 
     <Container>
 

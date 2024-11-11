@@ -44,7 +44,8 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
   const [chk, setChk] = useState(false)
 
 
-  const TG_ID = -4023030286
+  console.log(process.env.REACT_APP_TG_ID)
+
 
 
   const sendTgSiteMessage = async () => {
@@ -54,7 +55,10 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
     try {
 
       const TOKEN = process.env.REACT_APP_TG_SITE_TOKEN
-      const TG_ID = -4023030286
+      const TG_ID = process.env.REACT_APP_TG_ID
+
+
+
 
 
       const responce = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
