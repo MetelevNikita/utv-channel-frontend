@@ -154,7 +154,7 @@ const ProjectOpenCard = () => {
 
       <Col lg={5} md={6} sm={12} xs={12} className='d-flex flex-column justify-content-center align-items-center'>
 
-          <Col lg={12} md={12} sm={12} xs={12} className='d-flex justify-content-center align-items-center mb-4' style={{width: '100%', height: 'max-content', overflow: 'hidden'}}><MyImageAnimation image={currentProjectCard.image} width={'540px'} height={'max-content'} scaleStart={1.3} scaleEnd={1}/></Col>
+          <Col lg={12} md={12} sm={12} xs={12} className='d-flex justify-content-center align-items-center mb-4' style={{width: '100%', overflow: 'hidden'}}><MyImageAnimation image={currentProjectCard.image} width={'540px'} height={'max-content'} scaleStart={1.3} scaleEnd={1}/></Col>
 
           <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-md-row flex-column justify-content-center align-items-center'>
 
