@@ -2,7 +2,7 @@ import { CSSProperties, FC } from 'react'
 
 //
 
-import { Row, Col, Container } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
 
 
 // components

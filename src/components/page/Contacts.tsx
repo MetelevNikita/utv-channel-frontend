@@ -1,5 +1,6 @@
 import { FC } from 'react'
 
+
 //
 
 import { Container, Col, Row } from 'react-bootstrap'
@@ -12,10 +13,15 @@ import tg from '../../asset/contanct/tg.svg'
 import yt from '../../asset/contanct/yt.svg'
 import vk from '../../asset/contanct/vk.svg'
 
+// yandex
+
+import { YMaps, Map, Placemark, TypeSelector } from '@pbe/react-yandex-maps';
+
+
+
 
 
 const Contacts = () => {
-
 
 
 
@@ -35,9 +41,10 @@ const Contacts = () => {
       link: 'https://www.youtube.com/channel/UCvCcbnj9Ls2RrxFfUZVGi_w'
     },
 
-
-
   ]
+
+
+
 
 
 
@@ -47,7 +54,7 @@ const Contacts = () => {
     <Container>
 
 
-      <Row className='d-flex justify-content-center mt-5'>
+      <Row className='d-flex justify-content-center mt-5 mb-4'>
         <Col lg={6} md={6} sm={12} xs={12} className='d-flex flex-column justify-content-center align-items-center'>
 
           <Col style={{width: '100%'}} className='d-flex justify-content-center mb-4 mt-4'><img style={{width: '500px'}} src={logo} alt="logo_utv" /></Col>
@@ -82,9 +89,22 @@ const Contacts = () => {
       </Row>
 
 
+      <Row>
 
-      <Row className='mt-5'>
-        <Col lg={12} md={12} sm={12} xs={12}></Col>
+          <Col>
+
+              <YMaps>
+
+                <Map defaultState={{ center: [54.740385, 55.988398], zoom: 17 }} width={'1320px'} height={'400px'}>
+
+                  <Placemark geometry={[54.740385, 55.988398]}/>
+                  <TypeSelector/>
+                </Map>
+
+              </YMaps>
+
+          </Col>
+
       </Row>
 
 
