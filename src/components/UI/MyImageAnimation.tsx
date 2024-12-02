@@ -40,7 +40,7 @@ const MyImageAnimation: FC<MyImageAnimationProps> = ({ width, height, scaleStart
     <Col style={{width: width, height: height, overflow: 'hidden'}}>
 
       <animated.div style={{overflow: 'hidden', ...imageAnim}} onMouseOver={() => {moveImage(scaleStart)}} onMouseOut={() => {moveImage(scaleEnd)}}>
-      <img src={image} style={{width: width, height: '300px'}} alt="project-img" />
+      <img src={image} style={{width: width, height: '100%'}} alt="project-img" />
       </animated.div>
 
     </Col>
