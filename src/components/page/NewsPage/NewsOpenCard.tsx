@@ -38,9 +38,6 @@ const NewsOpenCard = () => {
   const popularCard = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).slice(0, 3)
 
 
-  console.log(currentDayNews)
-
-
 
   if (!currentCard) {
     return <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col>;
@@ -51,14 +48,8 @@ const NewsOpenCard = () => {
 
   const newsCardTag = currentCard.tags.split(' ')
 
-
-
-
   const moreNewsArr = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).filter((card) => card.tags.includes(currentCard.tags.split(' ')[0])).filter((card) => card.title !== currentCard.title).filter((card, index) => index <= 5)
 
-
-
-  console.log(moreNewsArr)
 
 
 
@@ -87,11 +78,25 @@ const NewsOpenCard = () => {
 
   const transferText = (paragraph: string) => {
 
-    const newText = paragraph.split('\\n\\n')
-    return newText.map((item) => {
-      return <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-3">{item}</Col>
-    })
 
+    const linkRegEX = /(https?:\/\/[^\s]+)/g;
+    const link = paragraph.includes('<a>')
+
+
+    const newText = paragraph.split('\\n\\n')
+
+
+    return newText.map((item) => {
+      return item.split(linkRegEX).map((item) => {
+
+        if(item.includes('https')) {
+          return <a href={item} target="_blank" rel="noreferrer">{item}</a>
+        }
+          return  <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-3 mt-3">{item}</Col>
+
+      })
+
+    })
   }
 
 
@@ -186,7 +191,7 @@ const NewsOpenCard = () => {
 
       {/*  */}
 
-          <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-4">Читайте оперативные новости в нашем телеграм-канале: <a href="https://t.me/utvufa">https://t.me/utvufa</a></Col>
+      {(!currentCard.news_description) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-4">Читайте оперативные новости в нашем телеграм-канале: <a href="https://t.me/utvufa">https://t.me/utvufa</a></Col>}
 
       {/*  */}
 

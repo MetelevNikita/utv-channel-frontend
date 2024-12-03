@@ -9,9 +9,6 @@ import { Col, Container, Row } from 'react-bootstrap'
 
 import ProjectCard from './ProjectCard'
 
-// img
-
-import projectBanner from '../../../asset/project-page/project-page-banner.png'
 
 // redux
 
