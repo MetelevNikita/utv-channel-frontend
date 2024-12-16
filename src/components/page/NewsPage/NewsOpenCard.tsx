@@ -38,6 +38,9 @@ const NewsOpenCard = () => {
   const popularCard = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).slice(0, 3)
 
 
+  console.log(currentCard)
+
+
 
   if (!currentCard) {
     return <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col>;
@@ -159,6 +162,13 @@ const NewsOpenCard = () => {
 
 
       {(!currentCard.video) ? <></> : <Col md={12} sm={12} xs={12} className="mb-3"><iframe width="100%" height="485" src={currentCard.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></Col>}
+
+
+      {(!currentCard.title_image) ? <></> : <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={currentCard.image_1} alt="title-img" /></Col>}
+
+
+
+
 
       {(!currentCard.image_1) ? <></> : <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={currentCard.image_1} alt="title-img" /></Col>}
 
