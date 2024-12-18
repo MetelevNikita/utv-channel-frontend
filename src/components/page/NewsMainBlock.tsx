@@ -41,7 +41,7 @@ const NewsMainBlock: FC<NewsMainBlockProps> = ({ newsTitle, newsButton, linkButt
       <Col md={12} sm={12} xs={12} style={{height: 'max-content', width: '100%'}}>
 
           {newsArr.map((news: any, index: any) =>  {
-            return <Col md={12} key={index} className='d-flex mt-3 mb-2'><Link to={`/news/${news.id}`} key={index}><NewsMainPreviewCard image={news.image_1} title={news.title} lead={news.lead} date={news.date} author={news.author} video={news.video} /></Link></Col>
+            return <Col md={12} key={index} className='d-flex mt-3 mb-2'><Link to={`/news/${news.id}`} key={index}><NewsMainPreviewCard image={(news.title_image) ? news.title_image : news.image_1} title={news.title} lead={news.lead} date={news.date} author={news.author} video={news.video} /></Link></Col>
           })}
 
       </Col>
