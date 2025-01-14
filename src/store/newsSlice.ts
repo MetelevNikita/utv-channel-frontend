@@ -48,6 +48,7 @@ interface INews {
   image_10: string | null
   image_comment_10: string | null
   comment_10: string | null
+  title_image: string | null
   tags: string
   views: number
 }

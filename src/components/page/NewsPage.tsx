@@ -48,7 +48,7 @@ const NewsPage = () => {
   const currentDate = date.toLocaleDateString()
   const dateFilterCard = newsSelector.filter((item) => {
     return new Date(item.date).toLocaleDateString()  ===  currentDate
-  })
+  }).sort((a, b) => b.id - a.id)
 
 
 
@@ -59,6 +59,9 @@ const NewsPage = () => {
   const bottomLst = dateFilterCard.filter((item, index) => {
     return index >= 2
   })
+
+
+  console.log(dateFilterCard)
 
 
 
@@ -85,7 +88,7 @@ const NewsPage = () => {
 
             <Col lg={{order: 1}} md={8} sm={12} xs={{order: 2}} className='d-flex flex-lg-row flex-md-row flex-column mb-4'>
                 {(dateFilterCard.length < 1) ? <Col className='d-flex flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Список пуст</Col> : topList.map((item, index) => {
-                        return <Col style={{width: '100%'}} key={index} className='d-flex justify-content-lg-start justify-content-center'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard video={item.video} img={item.image_1} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F'/></Link></Col>})
+                        return <Col style={{width: '100%'}} key={index} className='d-flex justify-content-lg-start justify-content-center'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard video={item.video} img={(!item.title_image) ? item.image_1 : item.title_image} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F'/></Link></Col>})
                 }
             </Col>
 
@@ -117,7 +120,7 @@ const NewsPage = () => {
     <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-row flex-wrap justify-content-start mt-4'>
 
         {(dateFilterCard.length < 1) ? <Col lg={12} md={12} xs={12} sm={12}></Col> : bottomLst.map((item, index) => {
-                return <Col key={index} lg={4} md={4} sm={12} xs={12} className='d-flex justify-content-lg-start justify-content-center'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard video={item.video} img={item.image_1} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F'/></Link></Col>})
+                return <Col key={index} lg={4} md={4} sm={12} xs={12} className='d-flex justify-content-lg-start justify-content-center'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard video={item.video} img={(!item.title_image) ? item.image_1 : item.title_image} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F'/></Link></Col>})
         }
 
     </Col>
