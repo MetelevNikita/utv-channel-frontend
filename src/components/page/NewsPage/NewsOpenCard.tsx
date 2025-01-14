@@ -38,8 +38,6 @@ const NewsOpenCard = () => {
   const popularCard = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).slice(0, 3)
 
 
-  console.log(currentCard)
-
 
 
   if (!currentCard) {
@@ -86,7 +84,7 @@ const NewsOpenCard = () => {
     const link = paragraph.includes('<a>')
 
 
-    const newText = paragraph.split('\\n\\n')
+    const newText = paragraph.split('\\n\\')
 
 
     return newText.map((item) => {
@@ -95,11 +93,28 @@ const NewsOpenCard = () => {
         if(item.includes('https')) {
           return <a href={item} target="_blank" rel="noreferrer">{item}</a>
         }
-          return  <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-3 mt-3">{item}</Col>
+          return <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-3 mt-3">{item}</Col>
 
       })
 
     })
+  }
+
+
+
+  const transferComment = (comment: any): any => {
+    const parseText = JSON.parse(comment)
+    const text = parseText.input.split('\\n\\n')
+
+
+    return text.map((item: any) => {
+      return <Col style={{fontWeight: parseText.fontBold, fontStyle: parseText.fontStyle, width: '100%', height: 'max-content'}} className="mb-4">{item}</Col>
+    })
+
+
+
+
+
   }
 
 
@@ -121,7 +136,7 @@ const NewsOpenCard = () => {
 
           <Col style={{width: '100%', height: '1px', backgroundColor: 'red'}} className="mb-4"></Col>
 
-              <Col style={{fontWeight: JSON.parse(comment).fontBold, fontStyle: JSON.parse(comment).fontStyle, width: '100%', height: 'max-content'}} className="mb-4">{JSON.parse(comment).input}</Col>
+              {transferComment(comment)}
 
           <Col style={{width: '100%', height: '1px', backgroundColor: 'red'}} className="mb-4"></Col>
 
@@ -168,6 +183,8 @@ const NewsOpenCard = () => {
       {(!currentCard.image_comment_1 || currentCard.image_comment_1 == undefined) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "14px", color: 'grey' }} className="mb-4">источник: {currentCard.image_comment_1}</Col>}
 
       {(!currentCard.comment_1) ? <></> :
+
+
 
       <Col style={{width: '100%'}}>
           <Col style={{width: '100%', height: '1px', backgroundColor: 'red'}} className="mb-4"></Col>
