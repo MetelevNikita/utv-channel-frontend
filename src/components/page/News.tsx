@@ -7,7 +7,8 @@ import { Col, Row } from 'react-bootstrap'
 
 // components
 
-import MyButtonLink from '../UI/MyButtonLink'
+import MyButtonLinkWA from '../UI/MyButtonLinkWA'
+import MyButtonLinkTG from '../UI/MyButtonLinkTG'
 import NewsMainBlock from './NewsMainBlock'
 
 // img
@@ -25,20 +26,21 @@ import { getAsyncNews } from '../../store/newsSlice'
 
 
 type buttonArrType  = {
-  img: string
+  icon: any
   title: string
   onClick: () => void
 
 }
 
 interface NewsProps {
-
   modalOpen: any
 }
 
 
 
 const News: FC<NewsProps> = ({ modalOpen }) => {
+
+
 
   useEffect(() => {dispatch(getAsyncNews())}, [])
 
@@ -61,16 +63,15 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
 
   const buttonArr = [
     {
-      img: TGLinkImg,
+
       title: 'Подписывайтесь на наши новости в Telegram',
       onClick: () => {window.location.href = 'https://web.telegram.org/k/#@utvufa'}
     },
 
     {
-      img: WALinkImg,
+
       title: 'Присылайте нам интересные новости',
       onClick: () => {setModalNewsOpen(true)}
-
     },
   ]
 
@@ -104,11 +105,12 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
 
 
 
-        <Col md={12} sm={12} xs={12} className='d-flex flex-md-row flex-column justify-content-around mt-4'>
+        <Col md={12} sm={12} xs={12} className='d-flex flex-column flex-md-row flex-column justify-content-around mt-4'>
 
-            {buttonArr.map((button, index) => {
-              return <Col key={index} md={5} sm={12} xs={12} onClick={button.onClick} className='mb-4 d-flex justify-content-center align-items-center'><MyButtonLink style={{width: '100%', height: '116px', textDecoration: 'none', fontSize: 'calc(0.9em + 0.1vw)', color: 'black', border: '1px solid #FEA633'}} linkTitle={button.title} linkImg={button.img}/></Col>
-            })}
+
+            <Col md={5} sm={12} xs={12} onClick={() => {setModalNewsOpen(true)}} className='mb-4 d-flex justify-content-center align-items-center'><MyButtonLinkWA linkTitle={'Присылайте нам интересные новости'} /></Col>
+
+            <Col md={5} sm={12} xs={12} onClick={() => {window.location.href = 'https://web.telegram.org/k/#@utvufa'}} className='mb-4 d-flex justify-content-center align-items-center'><MyButtonLinkTG linkTitle={'Подписывайтесь на наши новости в Telegram'} /></Col>
 
 
         </Col>

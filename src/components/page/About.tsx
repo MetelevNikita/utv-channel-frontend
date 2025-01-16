@@ -115,8 +115,6 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
   }
 
 
-
-
   const submitMessageHandler = () => {
 
     if(message.name === '' || message.phone === '' || message.question === '') {
@@ -158,7 +156,7 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
   {
     img: mail,
     title: 'Почта',
-    info: 'utv@reklama@mail.ru'
+    info: 'utv.news@yandex.ru'
   },
 
   {

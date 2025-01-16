@@ -67,12 +67,12 @@ const Contacts = () => {
 
           <Col className='mb-4'>
             <Col style={{fontSize: '24px', fontWeight: '600'}}>Телефон редакции</Col>
-            <Col style={{fontSize: '14px', fontWeight: '400'}}>8-800-000-00-00</Col>
+            <Col style={{fontSize: '18px', fontWeight: '400'}}>+7(347)246-54-54</Col>
           </Col>
 
           <Col className='mb-4'>
             <Col style={{fontSize: '24px', fontWeight: '600'}}>По вопросам рекламы</Col>
-            <Col style={{fontSize: '14px', fontWeight: '400'}}>8-800-000-00-00</Col>
+            <Col style={{fontSize: '18px', fontWeight: '400'}}>+7(347)290-04-12</Col>
           </Col>
 
 

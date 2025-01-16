@@ -9,6 +9,7 @@ import { Col, Row } from 'react-bootstrap'
 
 
 import ProgramCard from './program/ProgramCard'
+import MyImageAnimation from '../UI/MyImageAnimation'
 
 
 // redux
@@ -49,28 +50,26 @@ const ProgramBlock = () => {
   useEffect(() => {dispatch(getAsyncProgram())}, [])
 
 
+  const randomCard = () => {
+
+
+    const max = 0
+    const min = 5
+    const random = Math.floor(Math.random() * (max - min + 1)) + min
+
+    return random
+
+  }
+
+
+
+
   const dispatch = useAppDispatch()
   const programSelector: programCardType[] = useAppSelector(state => state.program.program)
-  const [idCard, setIdCard] = useState(1)
+  const [idCard, setIdCard] = useState(randomCard())
   const checkedCard = programSelector.filter((item, index) => index + 1 === idCard)
 
 
-  const isActive = {
-    height: '162px',
-    width: '286px',
-    marginLeft: '15px',
-    marginRight: '20px',
-    border: '2px solid #FEA633',
-  }
-
-
-  const disActive = {
-    height: '162px',
-    width: '286px',
-    marginLeft: '15px',
-    marginRight: '20px',
-    border: '0px solid #FEA633',
-  }
 
 
 
@@ -80,27 +79,29 @@ const ProgramBlock = () => {
     return <Col lg={12} md={12} sm={12} xs={12} style={{width: '50%', height: 'max-content', textAlign: 'center'}}>Loading...</Col>
   }
 
-
-
   const shortDescription = checkedCard[0].description.slice(0, 100) + '...'
-
 
 
   return (
 
     <Col md={12} sm={12} xs={12} className='mt-5'>
 
-      <Col md={12} sm={12} xs={12} className='d-flex align-items-center justify-content-center mb-4'><ProgramCard image={checkedCard[0].image} title={checkedCard[0].title} subtitle={checkedCard[0].subtitle} description={shortDescription} date={checkedCard[0].date} link={checkedCard[0].link} /></Col>
+      <Col md={12} sm={12} xs={12} className='d-flex mb-4'><ProgramCard image={checkedCard[0].image} title={checkedCard[0].title} subtitle={checkedCard[0].subtitle} description={shortDescription} date={checkedCard[0].date} link={checkedCard[0].link} /></Col>
 
-      <Col md={12} sm={12} xs={12} className='d-flex flex-row'>
 
-        <Col className='d-flex flex-row'>
-          {(programSelector.length < 1) ? <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col> : programSelector.map((card, index) => {
-            return <Col key={index} lg={3} md={3} sm={3} xs={3} className='d-none d-xl-block'><img onClick={() => { setIdCard(card.id - 1) } } style={(checkedCard[0].id === card.id) ? isActive : disActive} src={card.image} alt="img" /></Col>
+
+        <Col lg={12} md={12} className='d-flex flex-row d-xs-none'>
+          {(programSelector.length < 1) ? <Col className='d-flex flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col> : programSelector.map((card, index) => {
+            return <Col key={index}  style={{margin: '10px'}} className='d-flex align-items-center justify-content-center'>
+
+                  <MyImageAnimation onClick={() => {setIdCard(card.id)}} image={card.image} width={'70px'} height={'100%'} scaleStart={1.1} scaleEnd={1}/>
+
+                  </Col>
+
+
           })}
         </Col>
 
-      </Col>
 
     </Col>
 

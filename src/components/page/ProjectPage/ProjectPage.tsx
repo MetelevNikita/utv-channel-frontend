@@ -36,7 +36,7 @@ const ProjectPage = () => {
 
         <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-wrap justify-content-lg-start justify-content-center mt-3 mb-4'>
             {(!projectSelector) ? <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col> : projectSelector.map((card: any, index) => {
-              return <Col key={index + 1} lg={3} md={3} sm={12} xs={12} className='mt-4 mb-4 d-flex justify-content-lg-between justify-content-center align-items-center'><Link to={`/project/${card.id}`}><ProjectCard title={card.title} description={card.description} img={card.image}/></Link></Col>
+              return <Col key={index + 1} lg={3} md={3} sm={12} xs={12} className='d-flex justify-content-lg-between justify-content-center align-items-center'><Link to={`/project/${card.id}`}><ProjectCard title={card.title} description={card.description} img={card.image}/></Link></Col>
             })}
         </Col>
 

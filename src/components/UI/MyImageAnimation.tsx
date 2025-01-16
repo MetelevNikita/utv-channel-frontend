@@ -13,12 +13,14 @@ interface MyImageAnimationProps {
   scaleStart: number
   scaleEnd: number
   image: string
+  onClick?: () => void
+  color?: string | any
 }
 
 
 
 
-const MyImageAnimation: FC<MyImageAnimationProps> = ({ width, height, scaleStart, scaleEnd, image }) => {
+const MyImageAnimation: FC<MyImageAnimationProps> = ({ width, height, scaleStart, scaleEnd, image, onClick, color }) => {
 
   const api = useSpringRef()
 
@@ -39,8 +41,8 @@ const MyImageAnimation: FC<MyImageAnimationProps> = ({ width, height, scaleStart
 
     <Col style={{width: width, height: height, overflow: 'hidden'}}>
 
-      <animated.div style={{overflow: 'hidden', ...imageAnim}} onMouseOver={() => {moveImage(scaleStart)}} onMouseOut={() => {moveImage(scaleEnd)}}>
-      <img src={image} style={{width: width, height: '100%'}} alt="project-img" />
+      <animated.div style={{overflow: 'hidden', ...imageAnim}} onClick={onClick} onMouseOver={() => {moveImage(scaleStart)}} onMouseOut={() => {moveImage(scaleEnd)}}>
+      <img className="d-flex align-items-center justify-content-center" src={image} alt="project-img" />
       </animated.div>
 
     </Col>

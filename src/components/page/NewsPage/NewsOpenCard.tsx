@@ -79,7 +79,6 @@ const NewsOpenCard = () => {
 
   const transferText = (paragraph: string) => {
 
-
     const linkRegEX = /(https?:\/\/[^\s]+)/g;
     const link = paragraph.includes('<a>')
 
@@ -99,7 +98,6 @@ const NewsOpenCard = () => {
 
     })
   }
-
 
 
   const transferComment = (comment: any): any => {
