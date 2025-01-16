@@ -80,11 +80,11 @@ const ProgramCard: FC<ProgramCardProps> = ({ image, title, subtitle, date, descr
 
   return (
 
-      <Col lg={12} md={12} sm={12} xs={12} style={{width: '100%', height: '100%'}} className='d-flex flex-lg-row'>
+      <Col lg={12} md={12} sm={12} xs={12} style={{width: '100%', height: '100%'}} className='d-flex flex-lg-row flex-column'>
 
             <Col lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-center align-items-center' style={{backgroundColor: 'black', height: '400px'}}>
 
-                  <Col lg={6} md={6} sm={12} xs={12} className='d-flex flex-column justify-content-center align-items-center'>
+                  <Col lg={6} md={6} sm={12} xs={12} className='d-flex flex-column' style={{marginLeft: '30px'}}>
                       <Col lg={12} md={12} sm={12} xs={12} style={{fontSize: '12px', fontWeight: '200', color: 'white'}}>{date}</Col>
 
                       <Col md={12} sm={12} xs={12} className='mb-3'>
