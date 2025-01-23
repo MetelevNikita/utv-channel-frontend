@@ -17,6 +17,8 @@ import tg from '../../../asset/logo-social/tg.svg'
 import wa from '../../../asset/logo-social/wa.svg'
 import yt from '../../../asset/logo-social/yt.svg'
 import ok from '../../../asset/logo-social/ok.svg'
+import dzen from '../../../asset/logo-social/dzen.svg'
+import rt from '../../../asset/logo-social/rutube.svg'
 
 
 const Footer = () => {
@@ -42,11 +44,24 @@ const Footer = () => {
     {
       img: ok,
       link: 'https://ok.ru/utvrussia'
-    }
+    },
+
+    {
+      img: dzen,
+      link: 'https://dzen.ru/utv.ru'
+    },
+
+    {
+      img: rt,
+      link: 'https://rutube.ru/channel/24157674/'
+    },
+
+
+
 
   ]
 
-  const menuOne = ['ООО «Фирма «БИС», 2009 — 2024 г. Любое использование материаловдопускается только с согласия редакции']
+  const menuOne = ['ООО «Фирма «БИС», 2009 — 2025 г. Любое использование материаловдопускается только с согласия редакции']
 
   const menuTwo = [
     {
@@ -110,9 +125,9 @@ const Footer = () => {
                     <Col style={{fontSize: 'calc(0.6rem + 1vw)', fontWeight: '300', color: 'white'}} className='d-flex justify-content-center text text-center'>подписывайтесь на наши соцсети</Col>
                 </Col>
 
-                  <Col md={3} sm={12} xs={12} className='d-flex justify-content-center align-items-center mb-2'>
+                  <Col md={4} sm={12} xs={12} className='d-flex justify-content-center align-items-center mb-2'>
 
-                      {logoArr.map((logo: any, index: number) => <Link key={index + 1} target='_blank' className='footer_icon_animation' style={{height: 'max'}} to={logo.link}><img key={index} src={logo.img} alt={logo.title} style={{marginRight: '10px'}} /></Link>)}
+                      {logoArr.map((logo: any, index: number) => <Link key={index + 1} target='_blank' className='footer_icon_animation' style={{height: 'max'}} to={logo.link}><img key={index} src={logo.img} alt={logo.title} style={{marginRight: '10px', width: '50px'}} /></Link>)}
 
                   </Col>
 

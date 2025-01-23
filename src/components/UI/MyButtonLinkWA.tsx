@@ -37,7 +37,7 @@ const MyButtonLink: FC<MyButtonLinkPropsWA> = ({ linkTitle, style}) => {
         </svg>
 
         <div className='circle_animation'></div>
-        <div className='animation_text' style={{marginLeft: '10px', maxWidth: '260px'}}>{linkTitle}</div>
+        <div className='animation_text' style={{marginLeft: '10px', maxWidth: '260px', color: (!color) ? 'white' : 'black'}}>{linkTitle}</div>
 
         </div>
       </Col>

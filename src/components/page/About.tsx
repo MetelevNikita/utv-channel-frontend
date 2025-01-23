@@ -1,5 +1,6 @@
 import { FC, useState } from 'react'
 import emailjs from '@emailjs/browser'
+import { Link } from 'react-router-dom'
 
 //
 
@@ -24,6 +25,7 @@ import phone from '../../asset/about/aboutPhone.svg'
 import mail from '../../asset/about/aboutMail.svg'
 import adress from '../../asset/about/aboutAdress.svg'
 
+
 //
 
 interface AboutProps {
@@ -42,10 +44,6 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
   const {modalSubmitAgree, setModalSubmitAgree} = modalAgree
   const {modalSubmitDisagree, setModalSubmitDisagree} = modalDisAgree
   const [chk, setChk] = useState(false)
-
-
-  console.log(process.env.REACT_APP_TG_ID)
-
 
 
   const sendTgSiteMessage = async () => {
@@ -162,7 +160,7 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
   {
     img: adress,
     title: 'Адрес',
-    info: 'ул.пр-т.Октября, 4/2, лит.Е'
+    info: 'ул.пр-т.Октября, 4/2'
   }
 
 
@@ -183,10 +181,12 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
           <Col className='d-flex justify-content-start mt-md-0 mt-4' style={{fontSize: '25px', fontWeight: '500'}}>О канале</Col>
           <Col className='d-flex justify-content-start mt-2' style={{fontSize: '16px', lineHeight: '136%'}}>Региональный информационно-развлекательный HD-канал, осуществляющий вещание в кабельной сети "Уфанет" в Уфе, Октябрьском, Стерлитамаке, Салавате, Ишимбае, Мелеузе, Нефтекамске, Казани, Нижнем Новгороде, Оренбурге и Орске. Первый региональный канал, начавший вещание в цифровом HD-формате</Col>
 
-          <Col className='mt-3'><MyButton className='animation_my_button' style={{width: '286px', height: '41px'}} onClick={() => {console.log('click')}} text='Скачать презентацию'></MyButton></Col>
+          <Col className='mt-3'><Link to={'https://utvchannel.tw1.su/presentation/%D0%9F%D1%80%D0%B5%D0%B7%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F%20%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D1%8B.pdf'} target={'_blank'}><MyButton className='animation_my_button' style={{width: '286px', height: '41px'}} onClick={() => {}} text='Скачать презентацию'></MyButton></Link></Col>
         </Col>
 
       </Col>
+
+
 
 
       <Col md={12} sm={12} xs={12}>

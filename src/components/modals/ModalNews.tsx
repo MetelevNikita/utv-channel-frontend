@@ -143,7 +143,7 @@ const ModalNews: FC<ModalNewsProps>  = ({ modalMessage, modalOpen, modalAgree, m
             <Col lg={12} md={12} sm={12} className='d-flex justify-content-center mb-3 mt-1'><img src={modalImg} alt="modal-img" /></Col>
 
             <Col lg={12} md={12} sm={12} className='mb-4' style={{fontSize: '32px', fontWeight: '600', color: '#FEA633', maxWidth: '300px', textAlign: 'center', lineHeight: '30px'}}>У вас есть новость для нас?</Col>
-            <Col lg={12} md={12} sm={12} className='mb-4' style={{fontSize: '14px', fontWeight: '400', color: '#000000', maxWidth: '385px', textAlign: 'center'}}>Отправте ее нам. Мы будем очень благодарны!</Col>
+            <Col lg={12} md={12} sm={12} className='mb-4' style={{fontSize: '14px', fontWeight: '400', color: '#000000', maxWidth: '385px', textAlign: 'center'}}>Отправьте ее нам. Мы будем очень благодарны!</Col>
 
             <Col lg={12} md={12} sm={12} className='d-flex justify-content-center mb-3'><MyInput type='text' value={modalNewsMessage.name} onChange={(e) => {setModalNewsMessage({...modalNewsMessage, name: e.target.value})}} placeholder={'Ваше имя'} style={{paddingLeft: '10px', border: '1px solid #D1D1D1', borderRadius: '8px', width: '90%', height: '44px', }} required></MyInput></Col>
 
@@ -155,7 +155,7 @@ const ModalNews: FC<ModalNewsProps>  = ({ modalMessage, modalOpen, modalAgree, m
 
 
             <Col lg={12} md={12} sm={12} className='d-flex justify-content-center align-items-center mb-3' style={{width: '90%'}}>
-                <Col><MyCheckBox text={'я даю свое согласие на обработку моих персональных данных'} checked={chk} onChange={() => {setChk(prev => !prev)}}  href={'https://utvchannel.tw1.su/agreet/agreet.pdf'}/></Col>
+                <Col><MyCheckBox text={'Я даю свое согласие на обработку моих персональных данных'} checked={chk} onChange={() => {setChk(prev => !prev)}}  href={'https://utvchannel.tw1.su/agreet/agreet.pdf'}/></Col>
             </Col>
 
 

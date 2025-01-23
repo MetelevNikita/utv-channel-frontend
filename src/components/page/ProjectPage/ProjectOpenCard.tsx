@@ -54,6 +54,7 @@ const ProjectOpenCard = () => {
     try {
       const playListItem = `https://youtube.googleapis.com/youtube/v3/playlists?part=snippet&channelId=UCvCcbnj9Ls2RrxFfUZVGi_w&maxResults=100&key=${YOUTUBE_APIKEY}`
 
+
       const responce = await fetch(playListItem, {
         method: 'GET',
         headers: {
@@ -62,8 +63,10 @@ const ProjectOpenCard = () => {
       })
       const data = await responce.json()
       const checkedChannel = await data.items.filter((card: any) => {
-          return card.snippet.localized.title.includes(currentProjectCard.title)
+          console.log(card.snippet.localized.title)
+          return card.snippet.localized.title === currentProjectCard.title
         })
+
       const playListVideo = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=100&playlistId=${checkedChannel[0].id}&key=${YOUTUBE_APIKEY}`
 
       const responceVideo = await fetch(playListVideo, {
@@ -74,7 +77,6 @@ const ProjectOpenCard = () => {
       })
 
       const dataVideo = await responceVideo.json()
-      console.log(dataVideo)
       setVideoList(dataVideo.items)
 
     } catch (error) {
