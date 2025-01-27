@@ -45,6 +45,9 @@ const NewsOpenCard = () => {
   }
 
 
+  console.log(currentCard)
+
+
 
 
   const newsCardTag = currentCard.tags.split(' ')
@@ -173,6 +176,9 @@ const NewsOpenCard = () => {
 
 
       {(!currentCard.video && currentCard.title_image) ? <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={currentCard.title_image} alt="title-img" /></Col> : (!currentCard.title_image && currentCard.video) ? <Col md={12} sm={12} xs={12} className="mb-3"><iframe width="100%" height="485" src={currentCard.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></Col> : (currentCard.video && currentCard.title_image) ? <Col><Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={currentCard.title_image} alt="title-img" /></Col><Col md={12} sm={12} xs={12} className="mb-3"><iframe width="100%" height="485" src={currentCard.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></Col></Col> : <></>}
+
+
+      <Col>{(!currentCard.title_comment || currentCard.title_comment == undefined) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey'}} className="mb-2">источник: {currentCard.title_comment}</Col>}</Col>
 
       {(!currentCard.text_1) ? <></> : transferText(currentCard.text_1)}
 

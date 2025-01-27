@@ -60,15 +60,7 @@ const NewsPage = () => {
     return index >= 2
   })
 
-
-  console.log(dateFilterCard)
-
-
-
   const popularList = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).filter((item, index) => index < 3)
-
-
-
 
 
   return (
