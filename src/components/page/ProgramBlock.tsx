@@ -53,8 +53,8 @@ const ProgramBlock = () => {
   const randomCard = () => {
 
 
-    const max = 0
-    const min = 5
+    const max = 1
+    const min = 4
     const random = Math.floor(Math.random() * (max - min + 1)) + min
 
     return random
@@ -64,10 +64,18 @@ const ProgramBlock = () => {
 
 
 
+
+
+
   const dispatch = useAppDispatch()
   const programSelector: programCardType[] = useAppSelector(state => state.program.program)
   const [idCard, setIdCard] = useState(randomCard())
-  const checkedCard = programSelector.filter((item, index) => index + 1 === idCard)
+  const checkedCard = programSelector.filter((item, index) => index+1 === idCard)
+  const currentList = programSelector.filter((item, index) => index <= 3)
+
+
+
+
 
 
 
@@ -91,10 +99,10 @@ const ProgramBlock = () => {
 
 
         <Col lg={12} md={12} className='d-flex flex-row d-xs-none'>
-          {(programSelector.length < 1) ? <Col className='d-flex flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col> : programSelector.map((card, index) => {
+          {(programSelector.length < 1) ? <Col className='d-flex flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col> : currentList.map((card, index) => {
             return <Col key={index}  style={{margin: '10px'}} className='d-flex align-items-center justify-content-center'>
 
-                  <MyImageAnimation onClick={() => {setIdCard(card.id)}} image={card.image} width={'70px'} height={'100%'} scaleStart={1.1} scaleEnd={1}/>
+                  <MyImageAnimation onClick={() => {setIdCard(index+1)}} image={card.image} width={'100%'} height={'100%'} scaleStart={1.1} scaleEnd={1}/>
 
                   </Col>
 

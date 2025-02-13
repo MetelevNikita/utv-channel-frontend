@@ -24,6 +24,10 @@ import NewsPreviewCard from './NewsPage/NewsPreviewCard'
 
 import Calendar from 'react-calendar';
 
+// utill
+
+import { getWeekArray } from '../util/currentWeekNews';
+
 
 // type
 
@@ -45,12 +49,12 @@ const NewsPage = () => {
 
 
   const [date, setDate] = useState<Value | any>(new Date())
-  const currentDate = date.toLocaleDateString()
+  const currentDate = new Date().toISOString().split('T')[0]
   const dateFilterCard = newsSelector.filter((item) => {
-    return new Date(item.date).toLocaleDateString()  ===  currentDate
+    return item.date ===  currentDate
   }).sort((a, b) => b.id - a.id)
 
-
+  console.log(currentDate)
 
   const topList = dateFilterCard.filter((item, index) => {
     return index < 2
@@ -61,6 +65,20 @@ const NewsPage = () => {
   })
 
   const popularList = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).filter((item, index) => index < 3)
+
+
+  // popular
+
+
+  const arrDateWeek = getWeekArray(currentDate)
+  const weekPopular = newsSelector.filter((item) => arrDateWeek.includes(item.date)).sort((a, b) => b.views - a.views).filter((item, index) => index <=2)
+
+  console.log(weekPopular)
+
+
+
+
+
 
 
   return (
@@ -99,8 +117,8 @@ const NewsPage = () => {
 
     <Row style={{minHeight: '400px', backgroundColor: '#e9ecef', padding: '0px'}} className='mt-5 justify-content-center align-items-center'>
 
-        {(popularList.length < 1) ? <Col>Нет популярных карточек</Col> : popularList.map((item, index)  =>  {
-            return <Col key={index+1} lg={3} md={3} sm={12} xs={12} className='d-flex justify-content-center mt-3'><Link to={`/news/${item.id}`} key={item.id} style={{color: 'black'}}><NewsPreviewCard video={item.video} img={item.image_1} title={item.lead.slice(0,100) + '...'} date={item.date} author={item.author} colorTitle='black' colorDate='black'/></Link></Col>
+        {(weekPopular.length < 1) ? <Col>Нет популярных карточек</Col> : weekPopular.map((item, index)  =>  {
+            return <Col key={index+1} lg={3} md={3} sm={12} xs={12} style={{height: '270px'}} className='d-flex justify-content-center mt-3'><Link to={`/news/${item.id}`} key={item.id} style={{color: 'black'}}><NewsPreviewCard video={item.video} img={item.title_image} title={item.lead.slice(0,100) + '...'} date={item.date} author={item.author} colorTitle='black' colorDate='black'/></Link></Col>
         })}
 
     </Row>

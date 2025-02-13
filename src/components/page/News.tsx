@@ -23,6 +23,11 @@ import { useAppDispatch, useAppSelector } from '../../types/reduxHooks'
 import { getAsyncNews } from '../../store/newsSlice'
 
 
+// utill
+
+import { getWeekArray } from '../util/currentWeekNews'
+
+
 
 
 type buttonArrType  = {
@@ -56,7 +61,20 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
 
   const todayNews = newsSelector.filter((news, index)  => news.date == currentDate).filter((news, index) => index < 3)
   const previousDateNews = newsSelector.filter((news, index)  => news.date == previousDate).filter((news, index) => index < 3)
-  const popularNews = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).filter((news, index) => index < 3)
+
+  // pupular news week
+
+  console.log(currentDate)
+
+
+  const arrDateWeek = getWeekArray(currentDate)
+  const weekPopular = newsSelector.filter((item) => arrDateWeek.includes(item.date)).sort((a, b) => b.views - a.views).filter((item, index) => index <=2)
+
+  console.log(weekPopular)
+
+  //
+
+
 
 
 
@@ -96,7 +114,7 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
 
         <Col md={6} sm={12} xs={12} className='d-flex justify-content-center justify-content-center'>
 
-          <NewsMainBlock newsTitle={'Популярные'} linkButton={'/news'} newsButton='Смотреть все' newsArr={popularNews}/>
+          <NewsMainBlock newsTitle={'Популярные'} linkButton={'/news'} newsButton='Смотреть все' newsArr={weekPopular}/>
 
         </Col >
 

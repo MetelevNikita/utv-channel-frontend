@@ -41,6 +41,7 @@ import Channel from './components/page/Channel';
 import Footer from './components/page/Footer/Footer';
 import { transform } from 'typescript';
 
+
 type modalNewsMessageProps = {
   name: string
   phone: string

@@ -16,8 +16,11 @@ import MoreNews from "./MoreNews";
 import MyTags from "../../UI/MyTags";
 import NewsMainBlock from "../NewsMainBlock";
 
+// utill
 
+import { getWeekArray } from "../../util/currentWeekNews";
 
+//
 
 
 
@@ -32,7 +35,7 @@ const NewsOpenCard = () => {
   const { id } = useParams();
   const date = new Date().toISOString().split('T')[0]
 
-
+  const currentDate = new Date().toISOString().split('T')[0]
   const currentDayNews = newsSelector.filter((card) => {return card.date === date}).slice(0, 3)
   const currentCard: any = newsSelector.find(card => card.id.toString() === id);
   const popularCard = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).slice(0, 3)
@@ -45,19 +48,15 @@ const NewsOpenCard = () => {
   }
 
 
-  console.log(currentCard)
+  // popular
 
 
+  const arrDateWeek = getWeekArray(currentDate)
+  const weekPopular = newsSelector.filter((item) => arrDateWeek.includes(item.date)).sort((a, b) => b.views - a.views).filter((item, index) => index <=2)
 
 
   const newsCardTag = currentCard.tags.split(' ')
-
   const moreNewsArr = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).filter((card) => card.tags.includes(currentCard.tags.split(' ')[0])).filter((card) => card.title !== currentCard.title).filter((card, index) => index <= 5)
-
-
-
-
-
 
   const newViews = async () => {
     try {
@@ -248,7 +247,7 @@ const NewsOpenCard = () => {
 
 
         <Col md={12} sm={12} xs={12} className='mt-4'>
-          <NewsMainBlock video={''} newsTitle={'Популярные'} linkButton={'/news'} newsButton='Смотреть все' newsArr={popularCard}/>
+          <NewsMainBlock video={''} newsTitle={'Популярные'} linkButton={'/news'} newsButton='Смотреть все' newsArr={weekPopular}/>
         </Col >
 
 

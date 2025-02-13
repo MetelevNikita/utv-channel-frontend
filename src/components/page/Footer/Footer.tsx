@@ -70,44 +70,24 @@ const Footer = () => {
     },
 
     {
-      title: 'Телепрограмма',
-      link: '/program'
-    },
-
-    {
       title: 'Проекты',
       link: '/project'
-    },
-
-    {
-      title: 'Прямой эфир',
-      link: '/live'
     },
 
     {
       title: 'О канале',
       link: '/about'
     },
-  ]
-
-  const menuThree = ['Республика Башкортостан, г. Уфа, просп. Октября, 4/2  этаж 2', 'пн-пт 09:00–18:00', '+7 (347) 246-54-54', '+7 987 046‒54‒54']
-
-  const menuFour = [
-    {
-      title: 'ufanet.ru',
-      link: 'https://ufanet.ru'
-    },
 
     {
-      title: 'pervoklassnik.info',
-      link: 'https://pervoklassnik.info'
-    },
-
-    {
-      title: 'springbell.ru',
-      link: 'https://springbell.ru'
+      title: 'Контакты',
+      link: '/contacts'
     },
   ]
+
+  const menuThree = ['Республика Башкортостан, г. Уфа, просп. Октября, 4/2  этаж 2', 'пн-пт 09:00–18:00']
+
+
 
   return (
 
@@ -150,19 +130,15 @@ const Footer = () => {
               </Col>
 
 
-              <Col md={1} sm={12} xs={12} className='mt-4'>
+              <Col md={2} sm={12} xs={12} className='mt-4'>
                   {(menuTwo.length < 1)? <></> : menuTwo.map((menu: any, index: number) => <Col key={index} className='mb-2' ><Link style={{color: 'white', fontSize: '14px', lineHeight: '136%'}} to={menu.link}>{menu.title}</Link></Col>)}
               </Col>
 
 
-              <Col md={2} sm={12} xs={12} className='mt-4'>
+              <Col md={3} sm={12} xs={12} className='mt-4'>
                 {(menuThree.length < 1)? <></> : menuThree.map((menu: string, index: number) => <Col key={index} className='mb-2' style={{color: 'white', fontSize: '14px', lineHeight: '136%'}}>{menu}</Col>)}
               </Col>
 
-
-              <Col md={1} sm={12} xs={12} className='mt-4'>
-                  {(menuFour.length < 1)? <></> : menuFour.map((menu: any, index) => <Col key={index} className='mb-2' ><a style={{color: 'white', fontSize: '14px', lineHeight: '136%'}} href={menu.link}>{menu.title}</a></Col>)}
-              </Col>
 
             </Col>
           </Row>
