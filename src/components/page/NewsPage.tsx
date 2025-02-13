@@ -54,7 +54,7 @@ const NewsPage = () => {
     return item.date ===  currentDate
   }).sort((a, b) => b.id - a.id)
 
-  console.log(currentDate)
+
 
   const topList = dateFilterCard.filter((item, index) => {
     return index < 2
@@ -73,7 +73,7 @@ const NewsPage = () => {
   const arrDateWeek = getWeekArray(currentDate)
   const weekPopular = newsSelector.filter((item) => arrDateWeek.includes(item.date)).sort((a, b) => b.views - a.views).filter((item, index) => index <=2)
 
-  console.log(weekPopular)
+
 
 
 
