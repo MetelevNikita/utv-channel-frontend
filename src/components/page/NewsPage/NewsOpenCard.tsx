@@ -38,7 +38,6 @@ const NewsOpenCard = () => {
   const currentDate = new Date().toISOString().split('T')[0]
   const currentDayNews = newsSelector.filter((card) => {return card.date === date}).slice(0, 3)
   const currentCard: any = newsSelector.find(card => card.id.toString() === id);
-  const popularCard = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).slice(0, 3)
 
 
 
@@ -46,6 +45,64 @@ const NewsOpenCard = () => {
   if (!currentCard) {
     return <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col>;
   }
+
+  const inputText = (text: string): any => {
+
+    try {
+      const transform = text.split(' ')
+
+      const resultText = transform.map((item) => {
+        if(item.includes('https')) {
+          return <a href={item} target="_blank">{item}</a>
+
+        }else if (item.includes('<br/>')) {
+
+          return <br/>
+
+        } else {
+          return ` ${item} `
+        }
+      })
+
+      return <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-3 mt-3">{resultText}</Col>
+
+
+    } catch (error: any) {
+      console.log(`трансформация текса завершилась с ошибкой ${error.message}`)
+    }
+
+  }
+
+
+  const inputComment = (comment: string) => {
+    try {
+
+      const newCommentText = JSON.parse(comment)
+
+      const resultText = newCommentText.input.split(' ').map((item: string) => {
+        if(item.includes('https')) {
+          return <a href={item} target="_blank">{item}</a>
+        }else if (item.includes('<br/>')) {
+          return <br/>
+        } else {
+          return ` ${item} `
+        }
+      })
+
+
+      return  <Col style={{width: '100%'}}>
+                  <Col style={{width: '100%', height: '1px', backgroundColor: 'red'}} className="mb-4"></Col>
+                      <Col style={{fontWeight: newCommentText.fontBold, fontStyle: newCommentText.fontStyle, width: '100%', height: 'max-content'}} className="mb-4">{resultText}</Col>
+                  <Col style={{width: '100%', height: '1px', backgroundColor: 'red'}} className="mb-4"></Col>
+              </Col>
+
+
+
+    } catch (error: any) {
+      console.log(`трансформация комментария завершилась с ошибкой ${error.message}`)
+    }
+  }
+
 
 
   // popular
@@ -124,23 +181,13 @@ const NewsOpenCard = () => {
 
       <>
 
-      {(text) ? transferText(text) : <></>}
+      {(text) ? inputText(text) : <></>}
 
       {(image) ? <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={image} alt="title-img" /></Col> : <></>}
 
       {(!imgcomment || imgcomment == undefined) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey'}} className="mb-2">источник: {imgcomment}</Col>}
 
-      {(comment) ?
-
-      <Col style={{width: '100%'}}>
-
-          <Col style={{width: '100%', height: '1px', backgroundColor: 'red'}} className="mb-4"></Col>
-
-              {transferComment(comment)}
-
-          <Col style={{width: '100%', height: '1px', backgroundColor: 'red'}} className="mb-4"></Col>
-
-      </Col> : <></>}
+      {(comment) ?  inputComment(currentCard.comment_1) : <></>}
 
       </>
     )
@@ -179,21 +226,13 @@ const NewsOpenCard = () => {
 
       <Col>{(!currentCard.title_comment || currentCard.title_comment == undefined) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey'}} className="mb-2">источник: {currentCard.title_comment}</Col>}</Col>
 
-      {(!currentCard.text_1) ? <></> : transferText(currentCard.text_1)}
+      {(!currentCard.text_1) ? <></> : inputText(currentCard.text_1)}
 
       {(!currentCard.image_1) ? <></> : <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={currentCard.image_1} alt="title-img" /></Col>}
 
       {(!currentCard.image_comment_1 || currentCard.image_comment_1 == undefined) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "14px", color: 'grey' }} className="mb-4">источник: {currentCard.image_comment_1}</Col>}
 
-      {(!currentCard.comment_1) ? <></> :
-
-
-
-      <Col style={{width: '100%'}}>
-          <Col style={{width: '100%', height: '1px', backgroundColor: 'red'}} className="mb-4"></Col>
-              <Col style={{fontWeight: JSON.parse(currentCard.comment_1).fontBold, fontStyle: JSON.parse(currentCard.comment_1).fontStyle, width: '100%', height: 'max-content'}} className="mb-4">{JSON.parse(currentCard.comment_1).input}</Col>
-          <Col style={{width: '100%', height: '1px', backgroundColor: 'red'}} className="mb-4"></Col>
-      </Col>}
+      {(!currentCard.comment_1) ? <></> : inputComment(currentCard.comment_1)}
 
 
       {/*  blocks */}
@@ -207,6 +246,9 @@ const NewsOpenCard = () => {
       {renderNewsBlock(currentCard.image_8, currentCard.text_8, currentCard.comment_8, currentCard.image_comment_8)}
       {renderNewsBlock(currentCard.image_9, currentCard.text_9, currentCard.comment_9, currentCard.image_comment_9)}
       {renderNewsBlock(currentCard.image_10, currentCard.text_10, currentCard.comment_10, currentCard.image_comment_10)}
+
+
+
 
 
       {/*  */}
