@@ -38,7 +38,7 @@ type Value = ValuePiesce | [ValuePiesce, ValuePiesce]
 
 
 
-const NewsPage = () => {
+const NewsPage: FC = () => {
 
   useEffect(() => {dispatch(getAsyncNews())}, [])
 
@@ -47,12 +47,12 @@ const NewsPage = () => {
 
 
 
-
   const [date, setDate] = useState<Value | any>(new Date())
   const currentDate = new Date().toISOString().split('T')[0]
+
   const dateFilterCard = newsSelector.filter((item) => {
-    return item.date ===  currentDate
-  }).sort((a, b) => b.id - a.id)
+    return new Date(item.date).toLocaleDateString() === new Date(date).toLocaleDateString()
+  })
 
 
 
@@ -64,8 +64,6 @@ const NewsPage = () => {
     return index >= 2
   })
 
-  const popularList = newsSelector.map((card) => card).sort((a, b) => b.views - a.views).filter((item, index) => index < 3)
-
 
   // popular
 
@@ -74,11 +72,7 @@ const NewsPage = () => {
   const weekPopular = newsSelector.filter((item) => arrDateWeek.includes(item.date)).sort((a, b) => b.views - a.views).filter((item, index) => index <=2)
 
 
-
-
-
-
-
+  //
 
 
   return (
