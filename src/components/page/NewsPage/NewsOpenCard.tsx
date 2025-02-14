@@ -51,18 +51,26 @@ const NewsOpenCard = () => {
     try {
       const transform = text.split(' ')
 
-      const resultText = transform.map((item) => {
+      const resultText = transform.map((item: string) => {
+
         if(item.includes('https')) {
-          return <a href={item} target="_blank">{item}</a>
+
+          const index = transform.indexOf(item)
+          const res = <a href={item} target="_blank">{transform[index-1]}</a>
+          return res
 
         }else if (item.includes('<br/>')) {
-
           return <br/>
-
         } else {
           return ` ${item} `
         }
+
+
+
+
       })
+
+      console.log(resultText)
 
       return <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-3 mt-3">{resultText}</Col>
 
@@ -102,6 +110,11 @@ const NewsOpenCard = () => {
       console.log(`трансформация комментария завершилась с ошибкой ${error.message}`)
     }
   }
+
+
+
+  const res = inputText(currentCard.text_1)
+
 
 
 
@@ -159,6 +172,9 @@ const NewsOpenCard = () => {
   }
 
 
+
+
+
   const transferComment = (comment: any): any => {
     const parseText = JSON.parse(comment)
     const text = parseText.input.split('\\n\\n')
@@ -187,7 +203,7 @@ const NewsOpenCard = () => {
 
       {(!imgcomment || imgcomment == undefined) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey'}} className="mb-2">источник: {imgcomment}</Col>}
 
-      {(comment) ?  inputComment(currentCard.comment_1) : <></>}
+      {(comment) ?  inputComment(comment) : <></>}
 
       </>
     )

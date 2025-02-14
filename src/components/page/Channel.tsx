@@ -81,13 +81,7 @@ const pageList = [
 
       <Col md={12} sm={12} xs={12} style={{width: '100%', height: '100%'}} className='d-flex flex-column mt-4'>
 
-
-
-
-      <Col md={12} sm={12} xs={12} style={{fontSize: '20px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA533', textDecorationThickness: '5px'}} className='mb-3 mt-3'>О нас</Col>
-
-
-
+        <Col md={12} sm={12} xs={12} style={{fontSize: '20px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA533', textDecorationThickness: '5px'}} className='mb-3 mt-3'>О нас</Col>
 
         <Col md={12} sm={12} xs={12} style={{width: '100%', height: 'max-content', fontSize: '16px'}} className='mt-4'>UTV  - информационно-развлекательный канал, вещающий в кабельной сети "Уфанет" в 5 регионах России. Среди проектов - новости, специальные репортажи, трэвел-шоу, программы о здоровье и науке, а также вдохновляющие истории о людях. Слоган - “Все начинается с себя!”  Наш канал создан для тех неравнодушен к окружающему миру и готов менять его вместе с нами. Главная цель – развитие культуры людей, которые любят свое дело и созидают для себя и других.Часть контента создается при помощи наших зрителей. Есть новость или что нам рассказать? Пришлите ее через форму на сайте или Telegram.</Col>
 
@@ -108,11 +102,9 @@ const pageList = [
 
 
       <Col md={12} className='d-flex justify-content-center mt-4'>
-
         {pageList.map((item) => {
           return <NumberButton num={item.number} page={{pageNumber, setPageNumber}}/>
         })}
-
       </Col>
 
     </Row>
