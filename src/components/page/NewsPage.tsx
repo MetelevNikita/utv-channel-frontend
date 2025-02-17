@@ -111,7 +111,7 @@ const NewsPage: FC = () => {
 
     <Row style={{minHeight: '400px', backgroundColor: '#e9ecef', padding: '0px'}} className='mt-5 justify-content-center align-items-center'>
 
-        {(weekPopular.length < 1) ? <Col>Нет популярных карточек</Col> : weekPopular.map((item, index)  =>  {
+        {(weekPopular.length < 1) ? <Col md={12} sm={12} xs={12} style={{fontSize: '20px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA533', textDecorationThickness: '5px'}} className='d-flex justify-content-center mt-3'>Нет популярных новостей на сегодня</Col> : weekPopular.map((item, index)  =>  {
             return <Col key={index+1} lg={3} md={3} sm={12} xs={12} style={{height: '270px'}} className='d-flex justify-content-center mt-3'><Link to={`/news/${item.id}`} key={item.id} style={{color: 'black'}}><NewsPreviewCard video={item.video} img={item.title_image} title={item.lead.slice(0,100) + '...'} date={item.date} author={item.author} colorTitle='black' colorDate='black'/></Link></Col>
         })}
 

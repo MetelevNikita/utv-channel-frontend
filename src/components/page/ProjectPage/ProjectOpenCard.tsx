@@ -63,7 +63,6 @@ const ProjectOpenCard = () => {
       })
       const data = await responce.json()
       const checkedChannel = await data.items.filter((card: any) => {
-          console.log(card.snippet.localized.title)
           return card.snippet.localized.title === currentProjectCard.title
         })
 

@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
 //
@@ -51,29 +51,29 @@ const NewsOpenCard = () => {
     try {
       const transform = text.split(' ')
 
-      const resultText = transform.map((item: string) => {
+      const newText = transform.map((item: string): React.ReactNode => {
 
         if(item.includes('https')) {
 
           const index = transform.indexOf(item)
-          const res = <a href={item} target="_blank">{transform[index-1]}</a>
-          return res
+          return <a href={item} target="_blank">{transform[index-1]}</a>
 
         }else if (item.includes('<br/>')) {
           return <br/>
         } else {
-          return ` ${item} `
+          return <> {item} </>
         }
-
-
-
-
       })
 
-      console.log(resultText)
 
-      return <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-3 mt-3">{resultText}</Col>
+      newText.filter((node: any) => {
+        if(node.type === 'a') {
+          const indexNode = newText.indexOf(node)
+          return newText.splice(indexNode-1, 1)
+        }
+      })
 
+      return <Col key={id} md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-3 mt-3">{newText}</Col>
 
     } catch (error: any) {
       console.log(`трансформация текса завершилась с ошибкой ${error.message}`)
@@ -111,9 +111,6 @@ const NewsOpenCard = () => {
     }
   }
 
-
-
-  const res = inputText(currentCard.text_1)
 
 
 
@@ -170,9 +167,6 @@ const NewsOpenCard = () => {
 
     })
   }
-
-
-
 
 
   const transferComment = (comment: any): any => {
