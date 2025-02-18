@@ -173,7 +173,7 @@ const SheduleList = () => {
 
         <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-column justify-content-center mb-5'>
         {dayWeek.map((item, index) => {
-          return <Col style={{height: '51px', width: '100%', padding: '20px'}} key={index} className={(item.en.slice(0,3) !== selectDay) ? 'd-flex justify-content-center align-items-center schedule_btn' : 'd-flex flex-row justify-content-center align-items-center schedule_btn schedule_btn_checked'} onClick={() => {setSelectDay(item.en.slice(0,3))}}>{item.ru}</Col>
+          return <Col style={{height: '51px', width: '100%', padding: '20px', cursor: 'pointer'}} key={index} className={(item.en.slice(0,3) !== selectDay) ? 'd-flex justify-content-center align-items-center schedule_btn' : 'd-flex flex-row justify-content-center align-items-center schedule_btn schedule_btn_checked'} onClick={() => {setSelectDay(item.en.slice(0,3))}}>{item.ru}</Col>
         })}
         </Col>
 

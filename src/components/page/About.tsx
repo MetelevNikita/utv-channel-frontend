@@ -200,7 +200,7 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
 
 
         {(infoArr.length < 1) ? <></> : infoArr.map((item, index) => {
-          return <Col key={index+1} md={2} sm={12} xs={12} className='mb-5' ><ContactsIcon img={item.img} title={item.title} info={item.info}/></Col>
+          return <Col style={{cursor: 'pointer'}} key={index+1} md={2} sm={12} xs={12} className='mb-5' ><ContactsIcon img={item.img} title={item.title} info={item.info}/></Col>
         })}
 
 

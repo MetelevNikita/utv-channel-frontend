@@ -122,9 +122,9 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
         <Col md={12} sm={12} xs={12} className='d-flex flex-column flex-md-row flex-column justify-content-around mt-4'>
 
 
-            <Col md={5} sm={12} xs={12} onClick={() => {setModalNewsOpen(true)}} className='mb-4 d-flex justify-content-center align-items-center'><MyButtonLinkWA linkTitle={'Присылайте нам интересные новости'} /></Col>
+            <Col style={{cursor: 'pointer'}} md={5} sm={12} xs={12} onClick={() => {setModalNewsOpen(true)}} className='mb-4 d-flex justify-content-center align-items-center'><MyButtonLinkWA linkTitle={'Присылайте нам интересные новости'} /></Col>
 
-            <Col md={5} sm={12} xs={12} onClick={() => {window.location.href = 'https://web.telegram.org/k/#@utvufa'}} className='mb-4 d-flex justify-content-center align-items-center'><MyButtonLinkTG linkTitle={'Подписывайтесь на наши новости в Telegram'} /></Col>
+            <Col style={{cursor: 'pointer'}} md={5} sm={12} xs={12} onClick={() => {window.location.href = 'https://web.telegram.org/k/#@utvufa'}} className='mb-4 d-flex justify-content-center align-items-center'><MyButtonLinkTG linkTitle={'Подписывайтесь на наши новости в Telegram'} /></Col>
 
 
         </Col>
