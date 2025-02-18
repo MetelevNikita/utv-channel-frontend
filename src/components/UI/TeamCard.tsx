@@ -23,7 +23,7 @@ const TeamCard: FC<TeamCardProps> = ({ img, name, profession }) => {
       <Col md={12} sm={12} xs={12}>
 
         <Col style={{height: 'max-content', fontSize: '20px', color: '#000000'}} className='mb-2'>{name}</Col>
-        <Col style={{height: 'max-content', fontSize: '16px', color: '#525252'}} className='mb-2'>{profession}</Col>
+        <Col style={{height: 'max-content', fontSize: '14px', color: '#525252', width: '286px'}} className='mb-4'>{profession}</Col>
 
       </Col>
 

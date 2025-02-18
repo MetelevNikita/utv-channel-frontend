@@ -27,7 +27,11 @@ import { getAsyncProject } from '../../../store/projectSlice'
 
 import { projectTypeCard } from '../../../types/types'
 
-//
+// utill
+
+import { setToTop } from '../../util/setToTop'
+
+
 
 const ProjectOpenCard = () => {
 
@@ -122,6 +126,9 @@ const ProjectOpenCard = () => {
 
 
   const openPage = () => {
+
+
+    setToTop()
 
     if (pageNumber === 1) {
 

@@ -19,12 +19,16 @@ import NewsMainBlock from "../NewsMainBlock";
 // utill
 
 import { getWeekArray } from "../../util/currentWeekNews";
+import { setToTop } from "../../util/setToTop";
 
 //
 
 
 
 const NewsOpenCard = () => {
+
+  setToTop()
+
 
   useEffect(() => {dispatch(getAsyncNews())}, [])
 
