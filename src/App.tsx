@@ -89,7 +89,7 @@ const App = () => {
             <Route path='/news/:id' element={<NewsOpenCard />}></Route>
             <Route path='/project' element={<ProjectPage />}></Route>
             <Route path='/project/:id' element={<ProjectOpenCard />}></Route>
-            <Route path='/contacts' element={<Contacts />}></Route>
+            <Route path='/contacts' element={<Contacts modalAgree={{modalSubmitAgree, setModalSubmitAgree}} modalDisAgree={{modalSubmitDisagree, setModalSubmitDisagree}}/>}></Route>
             <Route path='/search' element={<SearchNews search={{searchNews, setSearchNews}}/>}></Route>
 
           </Routes>

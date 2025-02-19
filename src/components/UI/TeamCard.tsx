@@ -4,7 +4,9 @@ import { FC } from 'react'
 
 import { Col, Row } from 'react-bootstrap'
 
-//
+// componsnts
+
+import MyImageAnimation from '../UI/MyImageAnimation'
 
 interface TeamCardProps  {
   img: string,
@@ -18,7 +20,9 @@ const TeamCard: FC<TeamCardProps> = ({ img, name, profession }) => {
   return (
     <Col>
 
-      <Col className='mb-2' style={{width: '286px', overflow: 'hidden'}}><img style={{width: '286px'}} src={img} alt="" /></Col>
+      <Col className='mb-2' style={{width: '286px', overflow: 'hidden'}}>
+      <MyImageAnimation image={img} width={'286px'} height={'100%'} scaleStart={1.1} scaleEnd={1}/>
+      </Col>
 
       <Col md={12} sm={12} xs={12}>
 

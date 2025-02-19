@@ -86,12 +86,12 @@ const NewsPage: FC = () => {
 
 
 
-    <Col className='d-flex flex-md-row flex-column mb-3' style={{fontSize: '26px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Все новости</Col>
+    <Col className='d-flex flex-md-row flex-column mb-3' style={{fontSize: '26px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FA8129'}}>Все новости</Col>
       <Col lg={12} md={12} sm={12} xs={12} className='d-flex justify-content-lg-start justify-content-center  flex-lg-row flex-column'>
 
 
             <Col lg={{order: 1}} md={8} sm={12} xs={{order: 2}} className='d-flex flex-lg-row flex-md-row flex-column mb-4'>
-                {(dateFilterCard.length < 1) ? <Col className='d-flex flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Список пуст</Col> : topList.map((item, index) => {
+                {(dateFilterCard.length < 1) ? <Col className='d-flex flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FA8129'}}>Список пуст</Col> : topList.map((item, index) => {
                         return <Col style={{width: '100%'}} key={index} className='d-flex justify-content-lg-start justify-content-center'><Link to={`/news/${item.id}`} key={item.id}><NewsPreviewCard video={item.video} img={(!item.title_image) ? item.image_1 : item.title_image} title={item.title} date={item.date} author={item.author} colorTitle='#000000' colorDate='#8F8F8F'/></Link></Col>})
                 }
             </Col>

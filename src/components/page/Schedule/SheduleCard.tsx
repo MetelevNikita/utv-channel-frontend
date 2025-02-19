@@ -59,7 +59,7 @@ const SheduleCard:FC<SheduleCardProps> = forwardRef(({time, title, subtitle, mar
     {(showSubtitle) ? <Col className='d-flex flex-row' style={{fontSize: '10px', marginTop: '10px', marginLeft: '20px', marginRight: '20px'}} lg={10} md={10} sm={10} xs={10}>{subtitle}</Col> : <></>}
 
 
-    <Col className='d-flex flex-row align-items-center justify-content-start' style={{width: '100%', height: '1px', marginTop: '10px', backgroundColor: '#FEA633'}} lg={10} md={10} sm={10} xs={10}></Col>
+    <Col className='d-flex flex-row align-items-center justify-content-start' style={{width: '100%', height: '1px', marginTop: '10px', backgroundColor: '#FA8129'}} lg={10} md={10} sm={10} xs={10}></Col>
     </Col>
 
 

@@ -34,11 +34,11 @@ const ProgramCard: FC<ProgramCardProps> = ({ image, title, subtitle, date, descr
   const [styles, api] = useSpring(() => ({
     from: {
       transform: 'scale(100%)',
-      border: '1px solid #FEA633',
+      border: '1px solid #FA8129',
       borderRadius: '30px',
       width: '160px',
       height: '41px',
-      color: '#FEA633',
+      color: '#FA8129',
       backgroundColor: 'black',
 
       },
@@ -51,12 +51,12 @@ const ProgramCard: FC<ProgramCardProps> = ({ image, title, subtitle, date, descr
     api.start({
       to: {
         transform: 'scale(110%)',
-        border: '1px solid #FEA633',
+        border: '1px solid #FA8129',
         borderRadius: '30px',
         width: '160px',
         height: '41px',
         color: 'white',
-        backgroundColor: '#FEA633'
+        backgroundColor: '#FA8129'
       }
     })
 
@@ -82,7 +82,7 @@ const ProgramCard: FC<ProgramCardProps> = ({ image, title, subtitle, date, descr
 
       <Col lg={12} md={12} sm={12} xs={12} style={{width: '100%', height: '100%'}} className='d-flex flex-lg-row flex-column'>
 
-            <Col lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-center align-items-center' style={{backgroundColor: 'black', height: '400px'}}>
+            <Col lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-center align-items-center' style={{backgroundColor: 'black', height: '400px', borderTopLeftRadius: '10px', borderBottomLeftRadius: '10px'}}>
 
                   <Col lg={6} md={6} sm={12} xs={12} className='d-flex flex-column' style={{marginLeft: '30px'}}>
                       <Col lg={12} md={12} sm={12} xs={12} style={{fontSize: '12px', fontWeight: '200', color: 'white'}}>{date}</Col>
@@ -102,7 +102,7 @@ const ProgramCard: FC<ProgramCardProps> = ({ image, title, subtitle, date, descr
 
             <Col lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-start'>
 
-                <img src={image} alt="img-big"/>
+                <img style={{borderBottomRightRadius: '10px', borderTopRightRadius: '10px'}} src={image} alt="img-big"/>
 
             </Col>
 

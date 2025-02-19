@@ -10,8 +10,9 @@
 
 .header_menu_animation:hover {
 
-  color: #ffa52f;
-  transition: all, 0.10s ease;
+  color: #FA8129;
+  font-weight: 600;
+  transition: all, 0.05s ease;
 
 }
 
@@ -117,7 +118,7 @@
 
 .animation_my_button {
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 7px;
   color: black
 
 }
@@ -125,8 +126,8 @@
 .animation_my_button:hover {
   color: white;
   border: 1px solid rgba(0, 0, 0, 0);
-  background-color: #FEA633;
-  border-radius: 10px;
+  background-color: #FA8129;
+  border-radius: 7px;
 }
 
 
@@ -161,7 +162,7 @@
 
   color: white;
   border: 1px solid rgba(0, 0, 0, 0);
-  background-color: #FEA633;
+  background-color: #FA8129;
   border-radius: 10px;
 
 }
@@ -209,7 +210,7 @@
 
 .schedule_btn {
   width: 100%;
-  background-color: #FEA633;
+  background-color: #FA8129;
   border: 1px solid white;
   border-radius: 5px;
   color: white;
@@ -219,7 +220,7 @@
 .schedule_btn_checked {
   width: 100%;
   border-radius: 5px;
-  background-color: #F9BC6E;
+  background-color: #fb8f41;
 }
 
 
@@ -227,7 +228,7 @@
   width: 181px;
   height: 51px;
   border-radius: 5px;
-  background-color: #F9BC6E;
+  background-color: #f9ab45;
 }
 
 .schedule_btn:active {
@@ -253,7 +254,7 @@
   max-height: 100px;
   border-radius: 0px;
   border: 0px solid black;
-  background-color: #FEA633;
+  background-color: #FA8129;
   color: white;
 }
 

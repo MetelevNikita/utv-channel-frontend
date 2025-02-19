@@ -150,44 +150,6 @@ const NewsOpenCard = () => {
   newViews()
 
 
-  const transferText = (paragraph: string) => {
-
-    const linkRegEX = /(https?:\/\/[^\s]+)/g;
-    const link = paragraph.includes('<a>')
-
-
-    const newText = paragraph.split('\\n\\')
-
-
-    return newText.map((item) => {
-      return item.split(linkRegEX).map((item) => {
-
-        if(item.includes('https')) {
-          return <a href={item} target="_blank" rel="noreferrer">{item}</a>
-        }
-          return <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "16px" }} className="mb-3 mt-3">{item}</Col>
-
-      })
-
-    })
-  }
-
-
-  const transferComment = (comment: any): any => {
-    const parseText = JSON.parse(comment)
-    const text = parseText.input.split('\\n\\n')
-
-
-    return text.map((item: any) => {
-      return <Col style={{fontWeight: parseText.fontBold, fontStyle: parseText.fontStyle, width: '100%', height: 'max-content'}} className="mb-4">{item}</Col>
-    })
-
-
-
-
-
-  }
-
 
   const renderNewsBlock = (image: string | any, text: string | any, comment: string | any, imgcomment: string | any) => {
 
@@ -197,7 +159,7 @@ const NewsOpenCard = () => {
 
       {(text) ? inputText(text) : <></>}
 
-      {(image) ? <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={image} alt="title-img" /></Col> : <></>}
+      {(image) ? <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%", borderRadius: '7px'}} src={image} alt="title-img" /></Col> : <></>}
 
       {(!imgcomment || imgcomment == undefined) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey'}} className="mb-2">источник: {imgcomment}</Col>}
 
@@ -235,14 +197,14 @@ const NewsOpenCard = () => {
       <Col md={12} sm={12} xs={12} className="mb-3" style={{fontWeight: '600'}}>{currentCard.lead}</Col>
 
 
-      {(!currentCard.video && currentCard.title_image) ? <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={currentCard.title_image} alt="title-img" /></Col> : (!currentCard.title_image && currentCard.video) ? <Col md={12} sm={12} xs={12} className="mb-3"><iframe width="100%" height="485" src={currentCard.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></Col> : (currentCard.video && currentCard.title_image) ? <Col><Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={currentCard.title_image} alt="title-img" /></Col><Col md={12} sm={12} xs={12} className="mb-3"><iframe width="100%" height="485" src={currentCard.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></Col></Col> : <></>}
+      {(!currentCard.video && currentCard.title_image) ? <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%", borderRadius: '7px'}} src={currentCard.title_image} alt="title-img" /></Col> : (!currentCard.title_image && currentCard.video) ? <Col md={12} sm={12} xs={12} className="mb-3"><iframe width="100%" height="485" src={currentCard.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></Col> : (currentCard.video && currentCard.title_image) ? <Col><Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={currentCard.title_image} alt="title-img" /></Col><Col md={12} sm={12} xs={12} className="mb-3"><iframe width="100%" height="485" src={currentCard.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></Col></Col> : <></>}
 
 
       <Col>{(!currentCard.title_comment || currentCard.title_comment == undefined) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey'}} className="mb-2">источник: {currentCard.title_comment}</Col>}</Col>
 
       {(!currentCard.text_1) ? <></> : inputText(currentCard.text_1)}
 
-      {(!currentCard.image_1) ? <></> : <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={currentCard.image_1} alt="title-img" /></Col>}
+      {(!currentCard.image_1) ? <></> : <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%", borderRadius: '7px'}} src={currentCard.image_1} alt="title-img" /></Col>}
 
       {(!currentCard.image_comment_1 || currentCard.image_comment_1 == undefined) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "14px", color: 'grey' }} className="mb-4">источник: {currentCard.image_comment_1}</Col>}
 
@@ -297,7 +259,7 @@ const NewsOpenCard = () => {
 
         <Col style={{minHeight: '144px'}} lg={12} md={12} xs={12} className="d-flex flex-wrap justify-content-center align-items-center">
             {(newsCardTag.length < 1 || newsCardTag == '') ? <></> : newsCardTag.map((tag: any, index: any) => {
-              return <Col style={{width: '40%', margin: '10px'}} className="d-flex justify-content-center mb-3" lg={6} md={6} xs={6} key={index}><MyTags tag={tag} /></Col>
+              return <Col style={{width: '40%', margin: '10px', borderRadius: '7px'}} className="d-flex justify-content-center mb-3" lg={6} md={6} xs={6} key={index}><MyTags tag={tag} /></Col>
             })}
         </Col>
 

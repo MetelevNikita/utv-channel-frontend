@@ -23,7 +23,7 @@ const ProjectVideoCard: FC<ProjectVideoCardProps> = ({ title, img, link }) => {
 
     <Link target="_blank" to={`https://www.youtube.com/watch?v=${link}`} style={{width: '320px', height: 'max-content', margin: '20px'}}>
 
-      <Col className="mb-3"><img style={{width: '100%', height: '180px'}} src={img} alt="poster" /></Col>
+      <Col className="mb-3"><img style={{width: '100%', height: '180px', borderRadius: '7px'}} src={img} alt="poster" /></Col>
       <Col style={{color: 'black'}}>{title}</Col>
 
     </Link>

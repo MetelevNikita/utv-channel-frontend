@@ -15,7 +15,7 @@ const SearchIcon: FC<SearchIconProps> = ({ className, onClick }) => {
 
 
   return (
-    <div className={className} onClick={onClick} onMouseOver={() => {setColorState('#FEA633')}} onMouseOut={() => {
+    <div className={className} onClick={onClick} onMouseOver={() => {setColorState('#FA8129')}} onMouseOut={() => {
       setColorState('black')
     }}>
 

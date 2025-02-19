@@ -32,7 +32,7 @@ const ProjectPage = () => {
     <Container>
 
         <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-column mb-5'>
-        <Col md={12} sm={12} xs={12} style={{fontSize: '20px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA533', textDecorationThickness: '5px'}} className='mb-3 mt-3'>Проекты</Col>
+        <Col md={12} sm={12} xs={12} style={{fontSize: '20px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FA8129', textDecorationThickness: '5px'}} className='mb-3 mt-3'>Проекты</Col>
 
         <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-wrap justify-content-lg-start justify-content-center mt-3 mb-4'>
             {(!projectSelector) ? <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Загрузка...</Col> : projectSelector.map((card: any, index) => {

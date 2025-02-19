@@ -9,7 +9,7 @@ import { useParams, Link } from 'react-router-dom'
 
 //
 
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Container } from 'react-bootstrap'
 
 // components
 
@@ -17,6 +17,13 @@ import MyButton from '../../UI/MyButton'
 import MyImageAnimation from '../../UI/MyImageAnimation'
 import ProjectVideoCard from './ProjectVideoCard'
 import NumberButton from '../../UI/NumberButton'
+
+// img
+
+import timerIcon from '../../../asset/project/timer.svg'
+import yearIcon from '../../../asset/project/year.svg'
+import authorIcon from '../../../asset/project/author.svg'
+
 
 // redux
 
@@ -33,7 +40,14 @@ import { setToTop } from '../../util/setToTop'
 
 
 
-const ProjectOpenCard = () => {
+interface infoProjectProps {
+  img: string
+  text: string
+}
+
+
+
+const ProjectOpenCard: FC = () => {
 
 
   const [playlist, setPlaylist] = useState<any>([])
@@ -87,13 +101,16 @@ const ProjectOpenCard = () => {
     }
   }
 
-
   const result = useMemo(getPlayList, [currentProjectCard])
 
 
   useEffect(() => {
     dispatch(getAsyncProject())
   }, [])
+
+
+
+
 
 
   const numsPages = [
@@ -161,34 +178,46 @@ const ProjectOpenCard = () => {
 
 
       <Col lg={5} md={6} sm={12} xs={12} className='d-flex flex-column justify-content-center align-items-center'>
-
           <Col lg={12} md={12} sm={12} xs={12} className='d-flex justify-content-center align-items-center mb-4' style={{width: '100%', overflow: 'hidden'}}><MyImageAnimation image={currentProjectCard.image} width={'540px'} height={'max-content'} scaleStart={1.3} scaleEnd={1}/></Col>
-
-          <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-md-row flex-column justify-content-center align-items-center'>
-
-              <Col lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-center align-items-center mb-3'><MyButton style={{width: '90%', height: '44px'}} className='project_button_animation' text={'Трейлер'} onClick={() => {console.log('трейлер')}}/></Col>
-              <Col lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-center align-items-center mb-3'><Link target='_blank' style={{width: '90%', height: '44px', display: 'flex', justifyContent: 'center'}} className='project_button_animation' to={currentProjectCard.channel}><MyButton text={'Канал'} onClick={() => {console.log('канал')}}/></Link></Col>
-
-          </Col>
-
       </Col>
 
 
       <Col lg={5} md={5} sm={12} xs={12} className='d-flex flex-column justify-content-lg-start justify-content-center mb-3'>
 
 
-          <Col style={{fontSize: '35px', fontWeight: '800', color: 'black', height: 'max-content', width: '100%'}} lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-lg-start justify-content-center mb-4'>{currentProjectCard.title}</Col>
-          <Col style={{fontSize: '14px', fontWeight: '300', color: '#878787', height: 'max-content', minHeight: '140px', maxHeight: 'max-content', width: '100%'}} lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-lg-start justify-content-center mb-4'>{currentProjectCard.description}</Col>
+        <Col style={{fontSize: '35px', fontWeight: '800', color: 'black', height: 'max-content', width: '100%'}} lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-lg-start justify-content-center mb-2'>{currentProjectCard.title}</Col>
 
 
-        <Col lg={6} md={6} sm={6} xs={6} className='d-flex justify-content-lg-start justify-content-center mb-4' style={{width: '100%'}}>
-
-            <Col style={{fontSize: '17px', fontWeight: '300', color: '#878787', height: 'max-content'}} lg={6} md={6} sm={6} xs={6}>{`Хронометраж: ${currentProjectCard.duration} минут`}</Col>
-            <Col style={{fontSize: '17px', fontWeight: '300', color: '#878787', height: 'max-content'}} lg={6} md={6} sm={6} xs={6}>{`Год выпуска: ${currentProjectCard.year}`}</Col>
-
+        <Col md={9} className='d-flex mb-2'>
+          <img style={{width: '14px'}} src={timerIcon} alt="" />
+          <div style={{fontSize: '14px', fontWeight: '300', color: '#878787', height: 'max-content', marginLeft: '10px'}}>{`Хронометраж: ${currentProjectCard.duration} минут`}</div>
         </Col>
 
-        <Col lg={6} md={6} sm={6} xs={6} style={{fontSize: '17px', fontWeight: '300', color: '#878787', height: 'max-content', width: '100%'}}>{`Автор передачи: ${currentProjectCard.author}`}</Col>
+
+        <Col md={9} className='d-flex mb-2'>
+          <img style={{width: '14px'}} src={yearIcon} alt="" />
+          <div style={{fontSize: '14px', fontWeight: '300', color: '#878787', height: 'max-content', marginLeft: '10px'}}>{`${currentProjectCard.year} год`}</div>
+        </Col>
+
+        <Col md={9} className='d-flex mb-4'>
+          <img style={{width: '14px'}} src={yearIcon} alt="" />
+          <div style={{fontSize: '14px', fontWeight: '300', color: '#878787', height: 'max-content', marginLeft: '10px'}}>{`Автор ${currentProjectCard.author}`}</div>
+        </Col>
+
+
+        <Col className='mb-3' style={{width: '100%', height: '0.6px', backgroundColor: '#FA8129'}}></Col>
+
+
+
+        <Col style={{fontSize: '14px', fontWeight: '300', color: '#878787', height: 'max-content', minHeight: '60px', maxHeight: 'max-content', width: '100%'}} lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-lg-start justify-content-center mb-4'>{currentProjectCard.description}</Col>
+
+        <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-md-row flex-column justify-content-md-start justify-content-center align-items-center'>
+
+          <Col lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-start align-items-center mb-2'><MyButton style={{width: '90%', height: '44px'}} className='project_button_animation' text={'Трейлер'} onClick={() => {console.log('трейлер')}}/></Col>
+
+          <Col lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-start align-items-center mb-2'><Link target='_blank' style={{width: '90%', height: '44px', display: 'flex', justifyContent: 'center'}} className='project_button_animation' to={currentProjectCard.channel}><MyButton text={'Канал'} onClick={() => {console.log('канал')}}/></Link></Col>
+
+        </Col>
 
       </Col>
     </Col>

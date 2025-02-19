@@ -39,7 +39,7 @@ const MyImageAnimation: FC<MyImageAnimationProps> = ({ width, height, scaleStart
 
   return (
 
-    <Col style={{width: width, height: height, overflow: 'hidden'}}>
+    <Col style={{width: width, height: height, overflow: 'hidden', borderRadius: '10px'}}>
 
       <animated.div style={{overflow: 'hidden', ...imageAnim}} onClick={onClick} onMouseOver={() => {moveImage(scaleStart)}} onMouseOut={() => {moveImage(scaleEnd)}}>
       <img style={{width: '100%', height: '100%'}} className="d-flex align-items-center justify-content-center" src={image} alt="project-img" />

@@ -39,7 +39,7 @@ const Projects = () => {
 
 
             <Row lg={12} md={12} sm={6} xs={12}  className= 'd-flex justify-content-center mt-4'>
-                <Col md={6} sm={12} xs={12}><Link className='d-flex justify-content-center' to={'/project'}><MyButton style={{height: '45px', width: '60%'}} className='animation_my_button' text={'Все проекты'} onClick={() => {console.log('click')}}></MyButton></Link></Col>
+                <Col md={6} sm={12} xs={12}><Link className='d-flex justify-content-center' to={'/project'}><MyButton style={{height: '45px', width: '60%'}} className='animation_my_button' text={'Все проекты'} onClick={() => {}}></MyButton></Link></Col>
             </Row>
 
 
