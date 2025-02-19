@@ -33,7 +33,7 @@ const Contacts: FC<ContactsProps> = ({ modalAgree, modalDisAgree }) => {
 
   const infoArr: InfoProps[] = [
     {
-      title: 'Адресс',
+      title: 'Адрес',
       text: 'г. Уфа, просп. Октября, 4/2  этаж 2'
     },
 
