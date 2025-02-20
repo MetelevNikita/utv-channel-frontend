@@ -43,7 +43,6 @@ export const getAsyncTeams = createAsyncThunk(
       }
 
       const data = await responce.json()
-      console.log(data)
       return data
 
     } catch (error) {

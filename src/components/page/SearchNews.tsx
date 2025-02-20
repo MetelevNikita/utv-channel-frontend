@@ -76,15 +76,6 @@ const SearchNews: FC<SearchNewsProps> = ({ search }) => {
 
 
 
-  console.log(filterDateArr)
-
-
-
-
-
-
-
-
 
   return (
     <Container>

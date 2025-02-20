@@ -193,14 +193,13 @@ const ProjectOpenCard: FC = () => {
           <div style={{fontSize: '14px', fontWeight: '300', color: '#878787', height: 'max-content', marginLeft: '10px'}}>{`Хронометраж: ${currentProjectCard.duration} минут`}</div>
         </Col>
 
-
         <Col md={9} className='d-flex mb-2'>
           <img style={{width: '14px'}} src={yearIcon} alt="" />
           <div style={{fontSize: '14px', fontWeight: '300', color: '#878787', height: 'max-content', marginLeft: '10px'}}>{`${currentProjectCard.year} год`}</div>
         </Col>
 
         <Col md={9} className='d-flex mb-4'>
-          <img style={{width: '14px'}} src={yearIcon} alt="" />
+          <img style={{width: '14px'}} src={authorIcon} alt="" />
           <div style={{fontSize: '14px', fontWeight: '300', color: '#878787', height: 'max-content', marginLeft: '10px'}}>{`Автор ${currentProjectCard.author}`}</div>
         </Col>
 
@@ -213,9 +212,9 @@ const ProjectOpenCard: FC = () => {
 
         <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-md-row flex-column justify-content-md-start justify-content-center align-items-center'>
 
-          <Col lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-start align-items-center mb-2'><MyButton style={{width: '90%', height: '44px'}} className='project_button_animation' text={'Трейлер'} onClick={() => {console.log('трейлер')}}/></Col>
+          <Col lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-md-start justify-content-center align-items-center mb-2'><MyButton style={{width: '90%', height: '44px'}} className='project_button_animation' text={'Трейлер'} onClick={() => {console.log('трейлер')}}/></Col>
 
-          <Col lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-start align-items-center mb-2'><Link target='_blank' style={{width: '90%', height: '44px', display: 'flex', justifyContent: 'center'}} className='project_button_animation' to={currentProjectCard.channel}><MyButton text={'Канал'} onClick={() => {console.log('канал')}}/></Link></Col>
+          <Col lg={6} md={6} sm={12} xs={12} className='d-flex justify-content-md-start justify-content-center align-items-center mb-2'><Link target='_blank' style={{width: '90%', height: '44px', display: 'flex', justifyContent: 'center'}} className='project_button_animation' to={currentProjectCard.channel}><MyButton text={'Канал'} onClick={() => {console.log('канал')}}/></Link></Col>
 
         </Col>
 

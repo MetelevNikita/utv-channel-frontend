@@ -17,8 +17,10 @@
 }
 
 
-.header_menu_animation:active {
 
+.header_menu_animation:active {
+  color: #FA8129;
+  font-weight: 600;
   transform: scale(1.10);
   transition: all, 0.10s ease;
 
@@ -28,6 +30,16 @@
 .header_search_icon:active {
   transform: scale(1.15);
 
+}
+
+
+
+
+.aniamtion_menu_burger:active {
+  color: #FA8129;
+  font-weight: 600;
+  transform: scale(1.10);
+  transition: all, 0.10s ease;
 }
 
 

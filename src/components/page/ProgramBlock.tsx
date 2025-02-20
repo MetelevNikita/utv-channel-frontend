@@ -92,7 +92,7 @@ const ProgramBlock = () => {
 
   return (
 
-    <Col md={12} sm={12} xs={12} className='mt-5'>
+    <Col md={12} sm={12} xs={12} className='mt-5 d-none d-sm-block'>
 
       <Col md={12} sm={12} xs={12} className='d-flex mb-4'><ProgramCard image={checkedCard[0].image} title={checkedCard[0].title} subtitle={checkedCard[0].subtitle} description={shortDescription} date={checkedCard[0].date} link={checkedCard[0].link} /></Col>
 
