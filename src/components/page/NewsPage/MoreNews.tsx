@@ -33,7 +33,7 @@ const MoreNews: FC<MoreNewsProps> = ({ title, lead, author, date, tag }) => {
         <Col md={8} sm={12} xs={12} className='d-flex mb-3'>
 
           <Col md={3} style={{fontSize: '14px', color: '#3C3C3C'}}>{date}</Col>
-          <Col md={5} style={{fontSize: '14px', color: '#3C3C3C'}}>{author}</Col>
+          <Col md={5} style={{fontSize: '14px', color: '#3C3C3C', marginLeft: '10px'}}>{author}</Col>
 
         </Col>
 
