@@ -29,10 +29,17 @@ interface AboutProps {
   modalDisAgree: any
 }
 
+
+interface infoArrProps {
+  img: string,
+  title: string,
+  info: string
+}
+
 const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
 
 
-  const infoArr = [
+  const infoArr: infoArrProps[] = [
 
   {
     img: phone,
@@ -76,34 +83,42 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
       </Col>
 
 
-
-
       <Col md={12} sm={12} xs={12}>
 
-        <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Контакты</Col>
+        <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Задайте вопрос</Col>
 
       </Col>
 
 
-      <Col md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-column justify-content-around align-items-center mt-5'>
 
 
-        {(infoArr.length < 1) ? <></> : infoArr.map((item, index) => {
-          return <Col style={{cursor: 'pointer'}} key={index+1} md={2} sm={12} xs={12} className='mb-5' ><ContactsIcon img={item.img} title={item.title} info={item.info}/></Col>
-        })}
+      <AskQuestion modalAgree={modalAgree} modalDisAgree={modalDisAgree}/>
 
 
-      </Col>
-
-
-      <Col md={12} sm={12} xs={12} className='mt-5'>
+      <Col md={12} sm={12} xs={12} className='mt-5 mb-5'>
 
         <div style={{width: '100%', height: '1px', backgroundColor: '#FEA633', borderRadius: '10px'}}></div>
 
       </Col>
 
 
-      <AskQuestion modalAgree={modalAgree} modalDisAgree={modalDisAgree}/>
+      <Col md={12} sm={12} xs={12}>
+
+        <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Контакты</Col>
+
+        </Col>
+
+
+
+        <Col className='d-none d-sm-block'>
+
+          <Col md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-column justify-content-around align-items-center mt-5'>
+            {(infoArr.length < 1) ? <></> : infoArr.map((item: infoArrProps, index: number): React.ReactNode => {
+              return <Col style={{cursor: 'pointer'}} key={index+1} md={2} sm={12} xs={12} className='mb-5' ><ContactsIcon img={item.img} title={item.title} info={item.info}/></Col>
+            })}
+          </Col>
+
+        </Col>
 
 
       </Row>

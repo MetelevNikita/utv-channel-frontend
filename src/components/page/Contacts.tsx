@@ -62,7 +62,7 @@ const Contacts: FC<ContactsProps> = ({ modalAgree, modalDisAgree }) => {
             <Col className='mb-4' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Контакты</Col>
 
 
-            {infoArr.map((item, index) => {
+            {infoArr.map((item: InfoProps, index: number): React.ReactNode => {
               return <Col md={12} className='mb-4' key={index}>
                         <Col className='d-flex justify-content-md-start justify-content-center mb-2' style={{color: '#FA8129', fontSize: '20px', fontWeight: '600'}}>{item.title}</Col>
                         <Col className='d-flex justify-content-md-start justify-content-center mb-2' style={{color: '#000000', fontSize: '20px', fontWeight: '300'}}>{item.text}</Col>

@@ -26,12 +26,22 @@
 
 }
 
+.header_search_icon {
+  width: 25px;
+}
+
 
 .header_search_icon:active {
   transform: scale(1.15);
 
 }
 
+
+.animation_burger_button:active {
+  transform: scale(1.10);
+  transition: all 0.05s ease;
+
+}
 
 
 
@@ -40,6 +50,11 @@
   font-weight: 600;
   transform: scale(1.10);
   transition: all, 0.10s ease;
+}
+
+.animation_logo_arr:active {
+  transform: scale(1.10);
+  transition: all 0.05s ease;
 }
 
 
