@@ -6,10 +6,6 @@ import '../../styles/animation.css'
 
 import { FC } from "react"
 
-//
-
-import { Col, Row } from "react-bootstrap"
-
 // components
 
 import MyImageAnimation from './MyImageAnimation'

@@ -6,7 +6,7 @@ import { FC } from 'react'
 
 //
 
-import { Col, Row } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
 
 // components
 

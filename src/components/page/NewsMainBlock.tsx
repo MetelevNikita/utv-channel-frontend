@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 //
 
-import { Col, Row } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
 
 // components
 

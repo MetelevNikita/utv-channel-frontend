@@ -21,7 +21,7 @@ import SheduleCard from './SheduleCard'
 
 
 
-const SheduleList = () => {
+const SheduleList: FC = () => {
 
   const [timeState, setTimeState] = useState('')
   const timer = new Date().toTimeString()

@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 
 //
 
-import { Row, Col, Container } from "react-bootstrap";
+import { Col, Container } from "react-bootstrap";
 
 // redux
 
@@ -25,17 +25,18 @@ import { setToTop } from "../../util/setToTop";
 
 
 
-const NewsOpenCard = () => {
+const NewsOpenCard: FC = () => {
 
   setToTop()
-
-
-  useEffect(() => {dispatch(getAsyncNews())}, [])
-
   const dispatch = useAppDispatch()
+
+
+  useEffect(() => {dispatch(getAsyncNews())}, [dispatch])
+
+
   const newsSelector = useAppSelector(state => state.news.news)
 
-  const tagsArr = ['Все новости', 'Политика', 'Экономика', 'Общество', 'В мире', 'Башкортостан', 'Криминал', 'Спорт', 'Технологии', 'Культура']
+
   const { id } = useParams();
   const date = new Date().toISOString().split('T')[0]
 
@@ -200,13 +201,13 @@ const NewsOpenCard = () => {
       {(!currentCard.video && currentCard.title_image) ? <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%", borderRadius: '7px'}} src={currentCard.title_image} alt="title-img" /></Col> : (!currentCard.title_image && currentCard.video) ? <Col md={12} sm={12} xs={12} className="mb-3"><iframe width="100%" height="485" src={currentCard.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></Col> : (currentCard.video && currentCard.title_image) ? <Col><Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%" }} src={currentCard.title_image} alt="title-img" /></Col><Col md={12} sm={12} xs={12} className="mb-3"><iframe width="100%" height="485" src={currentCard.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></Col></Col> : <></>}
 
 
-      <Col>{(!currentCard.title_comment || currentCard.title_comment == undefined) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey'}} className="mb-2">источник: {currentCard.title_comment}</Col>}</Col>
+      <Col>{(!currentCard.title_comment || currentCard.title_comment === undefined) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "12px", color: 'grey'}} className="mb-2">источник: {currentCard.title_comment}</Col>}</Col>
 
       {(!currentCard.text_1) ? <></> : inputText(currentCard.text_1)}
 
       {(!currentCard.image_1) ? <></> : <Col md={12} sm={12} xs={12} className="mb-3"><img style={{ width: "100%", borderRadius: '7px'}} src={currentCard.image_1} alt="title-img" /></Col>}
 
-      {(!currentCard.image_comment_1 || currentCard.image_comment_1 == undefined) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "14px", color: 'grey' }} className="mb-4">источник: {currentCard.image_comment_1}</Col>}
+      {(!currentCard.image_comment_1 || currentCard.image_comment_1 === undefined) ? <></> : <Col md={12} sm={12} xs={12} style={{ width: '100%', height: "max-content", fontSize: "14px", color: 'grey' }} className="mb-4">источник: {currentCard.image_comment_1}</Col>}
 
       {(!currentCard.comment_1) ? <></> : inputComment(currentCard.comment_1)}
 
@@ -244,7 +245,7 @@ const NewsOpenCard = () => {
 
       <Col md={12} sm={12} xs={12} >
 
-          {(moreNewsArr.length == 0) ? <Col className='d-flex flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Список пуст</Col> : moreNewsArr.map((card, index) => {
+          {(moreNewsArr.length === 0) ? <Col className='d-flex flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Список пуст</Col> : moreNewsArr.map((card, index) => {
             return <Col key={card.id} className="mt-5 mb-3"><Link to={`/news/${card.id}`} style={{color: 'black'}}><MoreNews title={card.title} author={card.author} lead={card.lead} date={card.date} tag={card.tags.split(' ')}/></Link></Col> })
             }
 
@@ -258,7 +259,7 @@ const NewsOpenCard = () => {
     <Col lg={4} md={4} xs={4} sm={4} className="d-flex flex-column d-none d-xl-block mt-4">
 
         <Col style={{minHeight: '144px'}} lg={12} md={12} xs={12} className="d-flex flex-wrap justify-content-center align-items-center">
-            {(newsCardTag.length < 1 || newsCardTag == '') ? <></> : newsCardTag.map((tag: any, index: any) => {
+            {(newsCardTag.length < 1 || newsCardTag === '') ? <></> : newsCardTag.map((tag: any, index: any) => {
               return <Col style={{width: '40%', margin: '10px', borderRadius: '7px'}} className="d-flex justify-content-center mb-3" lg={6} md={6} xs={6} key={index}><MyTags tag={tag} /></Col>
             })}
         </Col>

@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
 //
 
@@ -13,7 +13,7 @@ import ProjectList from './ProjectPage/ProjectList'
 
 //
 
-const Projects = () => {
+const Projects: FC = () => {
 
 
   return (

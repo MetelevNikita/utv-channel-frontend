@@ -2,20 +2,18 @@ import { FC } from 'react'
 
 //
 
-import { Col, Container } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 
 // components
 
-  import ProgramBlock from './ProgramBlock'
-  import News from './News'
-  import Projects from './Projects'
-  import SheduleList from './Schedule/SheduleList'
-  import About from './About'
+import ProgramBlock from './ProgramBlock'
+import News from './News'
+import Projects from './Projects'
+import SheduleList from './Schedule/SheduleList'
+import About from './About'
 
 
-  //
 
-  import MyImageAnimation from '../UI/MyImageAnimation'
 
 
 interface MainProps {

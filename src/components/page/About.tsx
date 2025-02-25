@@ -102,7 +102,7 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
       </Col>
 
 
-      <Col md={12} sm={12} xs={12}>
+      <Col md={12} sm={12} xs={12} className='d-none d-sm-block'>
 
         <Col className='d-flex justify-content-center flex-md-row flex-column' style={{fontSize: '21px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FEA633'}}>Контакты</Col>
 

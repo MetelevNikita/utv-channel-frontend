@@ -4,7 +4,7 @@ import '../../styles/animation.css'
 
 //
 
-import { FC, CSSProperties, useState } from 'react'
+import { FC, useState } from 'react'
 
 //
 

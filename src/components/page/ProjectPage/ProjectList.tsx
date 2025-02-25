@@ -1,9 +1,9 @@
-import { FC, useState, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 //
 
-import { Col, Row } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
 
 // components
 
@@ -16,7 +16,7 @@ import { getAsyncProject } from '../../../store/projectSlice'
 
 //
 
-const ProjectList = () => {
+const ProjectList: FC = () => {
 
 
   useEffect(() => {

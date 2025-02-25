@@ -6,7 +6,7 @@ import { FC, useState } from 'react'
 
 //
 
-import { Container, Col, Row } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
 
 
 // img
@@ -36,12 +36,12 @@ const ModalNews: FC<ModalNewsProps>  = ({ modalMessage, modalOpen, modalAgree, m
 
 
   const {modalNewsMessage, setModalNewsMessage} = modalMessage
-  const {modalNewsOpen, setModalNewsOpen} = modalOpen
+  const { setModalNewsOpen } = modalOpen
 
   //
 
-  const {modalSubmitDisagree, setModalSubmitDisagree} = modalDisAgree
-  const {modalSubmitAgree, setModalSubmitAgree} = modalAgree
+  const { setModalSubmitDisagree } = modalDisAgree
+  const { setModalSubmitAgree } = modalAgree
 
   //
 

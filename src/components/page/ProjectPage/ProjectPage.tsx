@@ -19,7 +19,7 @@ import { getAsyncProject } from '../../../store/projectSlice'
 
 import { projectTypeCard } from '../../../types/types'
 
-const ProjectPage = () => {
+const ProjectPage: FC = () => {
 
   useEffect(() => {dispatch(getAsyncProject())}, [])
 

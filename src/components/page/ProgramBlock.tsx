@@ -25,33 +25,12 @@ import { programCardType } from '../../types/types'
 //
 
 
-const ProgramBlock = () => {
-
-  const api = useSpringRef()
-  const styles = useSpring({
-    ref: api,
-    from: {
-      transform: 'scale(100%)'
-    }
-  })
-
-
-
-  const handleZoom = (id: any) => {
-      api.start({
-        to: {
-          transform: styles.transform.get() === 'scale(100%)' ? 'scale(120%)' : 'scale(100%)'
-        }
-      })
-
-  }
-
+const ProgramBlock: FC = () => {
 
   useEffect(() => {dispatch(getAsyncProgram())}, [])
 
 
   const randomCard = () => {
-
 
     const max = 1
     const min = 4
@@ -63,10 +42,6 @@ const ProgramBlock = () => {
 
 
 
-
-
-
-
   const dispatch = useAppDispatch()
   const programSelector: programCardType[] = useAppSelector(state => state.program.program)
   const [idCard, setIdCard] = useState(randomCard())
@@ -75,16 +50,8 @@ const ProgramBlock = () => {
 
 
 
-
-
-
-
-
-
-
-
   if(programSelector.length < 1) {
-    return <Col lg={12} md={12} sm={12} xs={12} style={{width: '50%', height: 'max-content', textAlign: 'center'}}>Loading...</Col>
+    return <Col className='d-flex flex-md-row flex-column mb-3 mt-5' style={{fontSize: '26px', fontWeight: '600', textDecoration: 'underline', textDecorationColor: '#FA8129'}}>Загрузка...</Col>
   }
 
   const shortDescription = checkedCard[0].description.slice(0, 100) + '...'

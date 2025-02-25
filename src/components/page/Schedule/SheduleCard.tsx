@@ -4,7 +4,7 @@ import '../../../styles/animation.css'
 
 //
 
-import { CSSProperties, FC, useState, useRef, useEffect, forwardRef } from 'react'
+import { CSSProperties, FC, useState, forwardRef } from 'react'
 
 //
 
@@ -29,19 +29,10 @@ interface SheduleCardProps {
 
 
 
-
-
-
-
-
 const SheduleCard:FC<SheduleCardProps> = forwardRef(({time, title, subtitle, marker, onClick, onMouseIn, onMouseOut, className}, ref) => {
 
 
-
   const [showSubtitle, setShowSubtitle] = useState(false)
-
-
-
 
   return (
 

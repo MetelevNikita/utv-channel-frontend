@@ -18,13 +18,13 @@ import { getAsyncTeams } from '../../store/teamSlice'
 
 
 
-const Channel = () => {
+const Channel: FC = () => {
 
   const dispatch = useAppDispatch()
 
   useEffect(() => {
     dispatch(getAsyncTeams())
-  }, [])
+  }, [dispatch])
 
   const teamSelector = useAppSelector((state) => state.team.teams)
 

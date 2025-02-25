@@ -50,15 +50,12 @@ interface infoProjectProps {
 const ProjectOpenCard: FC = () => {
 
 
-  const [playlist, setPlaylist] = useState<any>([])
+
   const [videoList, setVideoList] = useState<any>([])
-  const [programId, setProgramId] = useState(null)
   const [pageNumber, setPageNumber] = useState(1)
 
 
   const YOUTUBE_APIKEY = 'AIzaSyDN1SqnPl2uFoQyfRIHc3YkbCrdaJ0CJ44'
-  const channelId = 'UCvCcbnj9Ls2RrxFfUZVGi_w'
-  const uploadsId = 'UUvCcbnj9Ls2RrxFfUZVGi_w'
 
 
   const {id} = useParams()

@@ -2,11 +2,13 @@
 
 import '../../../styles/animation.css'
 
+// 
+
 import { FC } from 'react'
 
 //
 
-import {Container, Col, Row } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 
@@ -14,14 +16,13 @@ import { Link } from 'react-router-dom'
 
 import vk from '../../../asset/logo-social/vk.svg'
 import tg from '../../../asset/logo-social/tg.svg'
-import wa from '../../../asset/logo-social/wa.svg'
 import yt from '../../../asset/logo-social/yt.svg'
 import ok from '../../../asset/logo-social/ok.svg'
 import dzen from '../../../asset/logo-social/dzen.svg'
 import rt from '../../../asset/logo-social/rutube.svg'
 
 
-const Footer = () => {
+const Footer: FC = () => {
 
 
 

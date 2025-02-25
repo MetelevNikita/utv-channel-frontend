@@ -1,24 +1,17 @@
 import { FC } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 //
 
-
-import { Col } from 'react-bootstrap'
-
-
-//
-
-interface NumberButton  {
+interface NumberButtonProps  {
   num: number,
   page: any
 }
 
-const NumberButton: FC<NumberButton>  =  ({num, page})  =>  {
+const NumberButton: FC<NumberButtonProps>  =  ({num, page})  =>  {
 
 
-  const {pageNumber, setPageNumber} = page
+  const { setPageNumber } = page
 
   const NewButton = styled.button`
 

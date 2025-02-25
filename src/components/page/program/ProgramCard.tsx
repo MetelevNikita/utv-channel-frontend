@@ -3,7 +3,7 @@ import { useSpring, animated } from '@react-spring/web'
 
 //
 
-import { Col, Row } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
 
 // components
 

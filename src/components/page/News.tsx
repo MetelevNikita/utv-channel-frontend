@@ -11,12 +11,6 @@ import MyButtonLinkWA from '../UI/MyButtonLinkWA'
 import MyButtonLinkTG from '../UI/MyButtonLinkTG'
 import NewsMainBlock from './NewsMainBlock'
 
-// img
-
-import TGLinkImg from '../../asset/buttons-img/telegram.svg'
-import WALinkImg from '../../asset/buttons-img/whatsapp.svg'
-
-
 // redux
 
 import { useAppDispatch, useAppSelector } from '../../types/reduxHooks'
@@ -29,14 +23,6 @@ import { getWeekArray } from '../util/currentWeekNews'
 
 
 
-
-type buttonArrType  = {
-  icon: any
-  title: string
-  onClick: () => void
-
-}
-
 interface NewsProps {
   modalOpen: any
 }
@@ -45,15 +31,13 @@ interface NewsProps {
 
 const News: FC<NewsProps> = ({ modalOpen }) => {
 
-
-
-  useEffect(() => {dispatch(getAsyncNews())}, [])
-
   const dispatch = useAppDispatch()
+  useEffect(() => {dispatch(getAsyncNews())}, [dispatch])
+
   const newsSelector = useAppSelector(state => state.news.news)
 
 
-  const { modalNewsOpen, setModalNewsOpen } = modalOpen
+  const { setModalNewsOpen } = modalOpen
   const currentDate = new Date().toISOString().split('T')[0]
   const cDate = new Date()
   const previousDate = new Date(cDate.setDate(cDate.getDate() - 1)).toISOString().split('T')[0]
@@ -73,28 +57,7 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
 
 
 
-
-
-  const buttonArr = [
-    {
-
-      title: 'Подписывайтесь на наши новости в Telegram',
-      onClick: () => {window.location.href = 'https://web.telegram.org/k/#@utvufa'}
-    },
-
-    {
-
-      title: 'Присылайте нам интересные новости',
-      onClick: () => {setModalNewsOpen(true)}
-    },
-  ]
-
-
-
-
-
   return (
-
 
 
     <Row md={12} sm={12} xs={12} className='mt-5 mb-5'>

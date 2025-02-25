@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 
 //
 
@@ -12,7 +12,6 @@ import { getAsyncNews } from '../../store/newsSlice'
 
 // components
 
-import SearchNewsPreviewCard from './SearchNews/SearchNewsPreviewCard'
 import MoreNews from './NewsPage/MoreNews'
 
 // types

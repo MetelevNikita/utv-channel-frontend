@@ -24,7 +24,6 @@ import BurgerOpenMenu from '../../UI/BurgerOpenMenu'
 // img
 
 import logo from '../../../asset/header/Logotype_UTV.svg'
-import search from '../../../asset/header/search.svg'
 import menuBurgerOpen from '../../../asset/header/menu_burger_open.svg'
 import menuBurgerClose from '../../../asset/header/menu_burger_close.svg'
 
@@ -44,7 +43,7 @@ const Header: FC<HeaderProps> = ({search}) => {
 
   const [open, setOpen] = useState<Boolean>(false)
   const [searchText, setSearchText] = useState('')
-  const {searchNews, setSearchNews} = search
+  const { setSearchNews } = search
 
 
   const api = useSpringRef()
