@@ -26,7 +26,8 @@ const Channel: FC = () => {
     dispatch(getAsyncTeams())
   }, [dispatch])
 
-  const teamSelector = useAppSelector((state) => state.team.teams)
+  const teamSelector = useAppSelector((state) => state.team.teams).map((item) => item).sort((a: any, b: any) => a.id - b.id)
+
 
   const [pageNumber, setPageNumber]  =  useState(1)
 
@@ -39,6 +40,15 @@ const Channel: FC = () => {
   })
 
 
+  const newArrThird = teamSelector.filter((item: any, index: number)  =>  {
+    return item.id > 24 && item.id <=48
+  })
+
+
+
+
+
+
 
 
   const pageSelection = () => {
@@ -49,6 +59,10 @@ const Channel: FC = () => {
       })
     } else if (pageNumber ===  2) {
       return newArrSecond.map((card, index) => {
+        return <Col key={index} style={{width: '100%'}} className='d-flex justify-content-center'><TeamCard key={index} img={card.image} name={card.name} profession={card.profession}/></Col>
+      })
+    } else if (pageNumber ===  3) {
+      return newArrThird.map((card, index) => {
         return <Col key={index} style={{width: '100%'}} className='d-flex justify-content-center'><TeamCard key={index} img={card.image} name={card.name} profession={card.profession}/></Col>
       })
     }
@@ -65,6 +79,11 @@ const pageList = [
 
   {
     number: 2,
+    link: '/'
+  },
+
+  {
+    number: 3,
     link: '/'
   },
 
