@@ -46,8 +46,6 @@ const News: FC<NewsProps> = ({ modalOpen }) => {
   const todayNews = newsSelector.filter((news, index)  => news.date == currentDate).sort((a: any, b: any) => b.id - a.id).filter((news, index) => index < 3)
   const previousDateNews = newsSelector.filter((news, index)  => news.date == previousDate).sort((a: any, b: any) => b.id - a.id).filter((news, index) => index < 3)
 
-  console.log(todayNews)
-
   // pupular news week
 
   const arrDateWeek = getWeekArray(currentDate)
