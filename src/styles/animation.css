@@ -78,7 +78,7 @@
 .button_container {
   width: 593px;
   height: 116px;
-  border: 1px solid #FEA633;
+  border: 1px solid #FA8129;
 
 }
 
@@ -89,7 +89,7 @@
 .animation_container {
   width: 500px;
   height: 100px;
-  border: 1px solid #FEA633;
+  border: 1px solid #FA8129;
   overflow: hidden;
   transition: all 0.10s ease;
 
@@ -107,7 +107,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background-color: #FEA633;
+  background-color: #FA8129;
   z-index: -1;
   position: relative;
   left: -185px;

@@ -45,8 +45,10 @@ const ProgramBlock: FC = () => {
   const dispatch = useAppDispatch()
   const programSelector: programCardType[] = useAppSelector(state => state.program.program)
   const [idCard, setIdCard] = useState(randomCard())
-  const checkedCard = programSelector.filter((item, index) => index+1 === idCard)
-  const currentList = programSelector.filter((item, index) => index <= 3)
+  const checkedCard = Array.from(programSelector).sort((a, b) => b.id - a.id).filter((item, index) => index+1 === idCard)
+  const currentList = Array.from(programSelector).sort(((a, b) => b.id - a.id)).filter((item, index) => index <= 3)
+
+
 
 
 
