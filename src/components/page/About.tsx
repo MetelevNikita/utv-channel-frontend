@@ -56,7 +56,7 @@ const About: FC<AboutProps> = ({ modalAgree, modalDisAgree }) => {
   {
     img: adress,
     title: 'Адрес',
-    info: 'ул.пр-т.Октября, 4/2'
+    info: 'пр-т.Октября, 4/2'
   }
 
 
