@@ -47,7 +47,14 @@ const SheduleCard:FC<SheduleCardProps> = forwardRef(({time, title, subtitle, mar
 
 
 
-    {(showSubtitle) ? <Col className='d-flex flex-row' style={{fontSize: '10px', marginTop: '10px', marginLeft: '20px', marginRight: '20px'}} lg={10} md={10} sm={10} xs={10}>{subtitle}</Col> : <></>}
+    {(showSubtitle) ? <Col className='d-flex flex-row align-items-center justify-content-center mt-3'>
+
+    <Col className='d-flex flex-row align-items-center justify-content-start' lg={2} md={1} sm={1} xs={2} style={{fontSize: 'calc(0.5em + 0.5vw)', fontWeight: '600', marginTop: '10px'}}></Col>
+    <Col className='d-flex flex-row align-items-end' lg={5} md={6} sm={6} xs={6} style={{fontSize: 'calc(0.5em + 0.3vw)'}}>{subtitle}</Col>
+    <Col className='d-flex flex-row align-items-center justify-content-start' style={{cursor: 'pointer'}} lg={1} md={1} sm={1} xs={1}></Col>
+    <Col className='d-flex flex-row align-items-center justify-content-end' lg={3} md={3} sm={3} xs={2} style={{fontSize: 'calc(0.5em + 0.5vw)'}}></Col>
+
+    </Col> : <></>}
 
 
     <Col className='d-flex flex-row align-items-center justify-content-start' style={{width: '100%', height: '1px', marginTop: '10px', backgroundColor: '#FA8129'}} lg={10} md={10} sm={10} xs={10}></Col>

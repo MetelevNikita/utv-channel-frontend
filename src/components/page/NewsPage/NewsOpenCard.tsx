@@ -259,7 +259,7 @@ const NewsOpenCard: FC = () => {
     <Col lg={4} md={4} xs={4} sm={4} className="d-flex flex-column d-none d-xl-block mt-4">
 
         <Col style={{minHeight: '144px'}} lg={12} md={12} xs={12} className="d-flex flex-wrap justify-content-center align-items-center">
-            {(newsCardTag.length < 1 || newsCardTag === '') ? <></> : newsCardTag.map((tag: any, index: any) => {
+            {(newsCardTag.length < 1 || newsCardTag[0] === '') ? <></> : newsCardTag.map((tag: any, index: any) => {
               return <Col style={{width: '40%', margin: '10px', borderRadius: '7px'}} className="d-flex justify-content-center mb-3" lg={6} md={6} xs={6} key={index}><MyTags tag={tag} /></Col>
             })}
         </Col>
